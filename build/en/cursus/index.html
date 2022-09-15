@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<!-- https://www.a-eskwadraat.nl/Minified/css/a-eskwadraat.1541192340.min.css 
+ https://www.a-eskwadraat.nl/Minified/css/bootstrap-select.1549816468.min.css 
+ https://www.a-eskwadraat.nl/Minified/css/aes-geel.1537460346.min.css  -->
+	<link href="/css/a-eskwadraat.1541192340.min.css" rel="stylesheet" type="text/css">
+	<link href="/css/bootstrap-select.1549816468.min.css" rel="stylesheet" type="text/css">
+	<link href="/css/aes-geel.1537460346.min.css" rel="stylesheet" type="text/css">
+	<style>
+		/* Gebaseerd op https://www.w3schools.com/css/tryit.asp?filename=trycss_table_fancy */
+		.TabelOpmaak1 {
+			border-collapse: collapse;
+		}
+
+		.TabelOpmaak1 td,
+		.TabelOpmaak1 th {
+			border: 1px solid #ddd;
+			padding: 8px;
+		}
+
+		.TabelOpmaak1 tr:nth-child(even) {
+			background-color: #f2f2f2;
+		}
+
+		.TabelOpmaak1 tr:hover {
+			background-color: #ddd;
+		}
+
+		.TabelOpmaak1 th {
+			padding-top: 12px;
+			padding-bottom: 12px;
+			text-align: left;
+			background-color: #4CAF50;
+			color: white;
+		}
+
+		.FAQ_Question {
+			margin-bottom: 0.2em;
+			font-weight: bold;
+		}
+
+		.FAQ_Answer {
+			margin-top: 0.2em;
+		}
+
+		.FAQ_Question::before {
+			content: "Q: ";
+			font-variant: small-caps;
+			font-weight: bold;
+		}
+
+		.FAQ_Answer::before {
+			content: "A: ";
+			font-variant: small-caps;
+			font-weight: bold;
+		}
+
+		/* https://2ality.com/2012/01/numbering-headingshtml.html */
+		body {
+			counter-reset: h2counter;
+			background-color: #f9f9f9 !important;
+		}
+
+		.paginainhoud h2::before {
+			content: counter(h2counter) ".\0000a0\0000a0";
+			counter-increment: h2counter;
+		}
+
+		.latexposter {
+			float: right;
+			width: 219px;
+			height: auto;
+		}
+
+		@media screen and (max-width:calc(20em + 219px)) {
+			.latexposter {
+				float: none;
+				margin: auto;
+				display: block;
+				width: auto;
+				max-width: 80%;
+				max-height: 40vh;
+			}
+		}
+	</style>
+</head>
+
+<body style="margin:0px;padding:0px;border:0px;" class="body-geel">
+
+	<div style="margin:0px;padding:0px;border:0px;height:100%;padding-top:10px;"
+		class="container theme-showcase aes-container col-md-12 pagecontent paginainhoud">
+
+        <div class="navbar-header;" style="position:absolute;left:0px;
+max-width:calc(100% - min(max(calc((50em - 100%) * 10000), 0px), 100%));
+overflow-x:hidden;">
+	<a class="navbar-brand" href="http://a-es2.nl/latex" style="color:#555;cursor:default;">
+		a-es2.nl/latex
+	</a>
+</div>
+
+<ul class="nav nav-tabs nav-centered" style="text-align:center;">
+	<li style="float:none;display:inline-block;">
+		<a href="../">Home</a>
+	</li>
+
+	<li class="dropdown" style="float:none;display:inline-block;">
+
+		<a class="dropdown-toggle" href="../packages">
+			Packages<span class="caret"></span>
+		</a>
+		<ul class="dropdown-menu">
+			<li>
+				<a href="../packages">Overview</a>
+			</li>
+			<li>
+				<a href="../packages/installatie">Installation</a>
+			</li>
+		</ul>
+	</li>
+
+	<li class="active" style="float:none;display:inline-block;">
+		<a href="#">Course</a>
+	</li>
+
+	<li style="float:none;display:inline-block;">
+		<a href="../contact">Contact</a>
+	</li>
+</ul>
+
+<div style="display:flex;flex-direction:row;flex-wrap:wrap;width:100%">
+
+	<div style="flex:0 0 max(calc(((100% - 60em) / 2) - 40px - 20em), 0px);height:0px;">
+	</div>
+
+	<div style="margin-right:20px;margin-left:20px;display:block;
+	flex:0 0 calc(min(20em, 100% - 40px) + min(max(calc(10000 * (30em + 20em + 40px - 100%)), 0px),
+	max(calc(100% - 40px - min(20em, 100% - 40px)), 0px)));padding-top:10px;">
+		<div style="height:100%;">
+			<div style="top:150px;position:-webkit-sticky;position:sticky;">
+				<!-- style="width:10em;margin-left:auto;margin-right:0px;" -->
+				<!-- calc(50% - 5em) -->
+				<ul class="nav nav-pills nav-stacked" style="width:100%;">
+					<li class="active"><a href="#">2022-2023</a>
+						<ul
+							style="width:100%;padding:10px 0px 10px 10px;list-style:none;display:flex;flex-flow:column nowrap;gap:6px;">
+							<!--<li style="background-color:#e8e8e8;padding:5px;"><a href="#">GSNS cursus september</a></li>
+							<li style="background-color:#e8e8e8;padding:5px;"><a href="#">LaTeX-cursus</a></li>
+							<li style="background-color:#e8e8e8;padding:5px;"><a href="#">GSNS cursus februari</a></li>
+							<li style="background-color:#e8e8e8;padding:5px;"><a href="#">Scriptiecursus</a></li>-->
+							<li style="border-left:4px solid #ddd;padding:5px;"><span
+									style="color:#ddd">1.&nbsp;</span><a href="#GSNS-September">GSNS course
+									September</a>
+								<!-- <img style="width:1.2em;height:1.2em;margin-left:10px;" alt=""
+						src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMWVtIiBoZWlnaHQ9IjFlbSIgdmlld0JveD0iMCAwIDE2IDE2IiBjbGFzcz0iYmkgYmktY2FsZW5kYXItY2hlY2siIGZpbGw9ImdyZWVuIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPg0KICA8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0zLjUgMGEuNS41IDAgMCAxIC41LjVWMWg4Vi41YS41LjUgMCAwIDEgMSAwVjFoMWEyIDIgMCAwIDEgMiAydjExYTIgMiAwIDAgMS0yIDJIMmEyIDIgMCAwIDEtMi0yVjNhMiAyIDAgMCAxIDItMmgxVi41YS41LjUgMCAwIDEgLjUtLjV6TTEgNHYxMGExIDEgMCAwIDAgMSAxaDEyYTEgMSAwIDAgMCAxLTFWNEgxeiIvPg0KICA8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xMC44NTQgNy4xNDZhLjUuNSAwIDAgMSAwIC43MDhsLTMgM2EuNS41IDAgMCAxLS43MDggMGwtMS41LTEuNWEuNS41IDAgMSAxIC43MDgtLjcwOEw3LjUgOS43OTNsMi42NDYtMi42NDdhLjUuNSAwIDAgMSAuNzA4IDB6Ii8+DQo8L3N2Zz4NCg=="
+						title="Event has passed"> -->
+								<img style="width:1.2em;height:1.2em;margin-left:10px;" alt=""
+									src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMWVtIiBoZWlnaHQ9IjFlbSIgdmlld0JveD0iMCAwIDE2IDE2IiBjbGFzcz0iYmkgYmktY2FsZW5kYXItZXZlbnQiIGZpbGw9ImJsdWUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+DQogIDxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTMuNSAwYS41LjUgMCAwIDEgLjUuNVYxaDhWLjVhLjUuNSAwIDAgMSAxIDBWMWgxYTIgMiAwIDAgMSAyIDJ2MTFhMiAyIDAgMCAxLTIgMkgyYTIgMiAwIDAgMS0yLTJWM2EyIDIgMCAwIDEgMi0yaDFWLjVhLjUuNSAwIDAgMSAuNS0uNXpNMSA0djEwYTEgMSAwIDAgMCAxIDFoMTJhMSAxIDAgMCAwIDEtMVY0SDF6Ii8+DQogIDxwYXRoIGQ9Ik0xMSA2LjVhLjUuNSAwIDAgMSAuNS0uNWgxYS41LjUgMCAwIDEgLjUuNXYxYS41LjUgMCAwIDEtLjUuNWgtMWEuNS41IDAgMCAxLS41LS41di0xeiIvPg0KPC9zdmc+DQo="
+									title="Event scheduled">
+							</li>
+							<li style="border-left:4px solid #ddd;padding:5px;"><span
+									style="color:#ddd">2.&nbsp;</span><a href="#LaTeX-cursus">General LaTeX course</a>
+								<!-- <img style="width:1.2em;height:1.2em;margin-left:10px;" alt=""
+						src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMWVtIiBoZWlnaHQ9IjFlbSIgdmlld0JveD0iMCAwIDE2IDE2IiBjbGFzcz0iYmkgYmktY2FsZW5kYXItZXZlbnQiIGZpbGw9ImJsdWUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+DQogIDxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTMuNSAwYS41LjUgMCAwIDEgLjUuNVYxaDhWLjVhLjUuNSAwIDAgMSAxIDBWMWgxYTIgMiAwIDAgMSAyIDJ2MTFhMiAyIDAgMCAxLTIgMkgyYTIgMiAwIDAgMS0yLTJWM2EyIDIgMCAwIDEgMi0yaDFWLjVhLjUuNSAwIDAgMSAuNS0uNXpNMSA0djEwYTEgMSAwIDAgMCAxIDFoMTJhMSAxIDAgMCAwIDEtMVY0SDF6Ii8+DQogIDxwYXRoIGQ9Ik0xMSA2LjVhLjUuNSAwIDAgMSAuNS0uNWgxYS41LjUgMCAwIDEgLjUuNXYxYS41LjUgMCAwIDEtLjUuNWgtMWEuNS41IDAgMCAxLS41LS41di0xeiIvPg0KPC9zdmc+DQo="
+						title="Event scheduled"> -->
+								<img style="width:1.2em;height:1.2em;margin-left:10px;" alt=""
+									src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMWVtIiBoZWlnaHQ9IjFlbSIgdmlld0JveD0iMCAwIDE2IDE2IiBjbGFzcz0iYmkgYmktY2FsZW5kYXItZXZlbnQiIGZpbGw9ImJsdWUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+DQogIDxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTMuNSAwYS41LjUgMCAwIDEgLjUuNVYxaDhWLjVhLjUuNSAwIDAgMSAxIDBWMWgxYTIgMiAwIDAgMSAyIDJ2MTFhMiAyIDAgMCAxLTIgMkgyYTIgMiAwIDAgMS0yLTJWM2EyIDIgMCAwIDEgMi0yaDFWLjVhLjUuNSAwIDAgMSAuNS0uNXpNMSA0djEwYTEgMSAwIDAgMCAxIDFoMTJhMSAxIDAgMCAwIDEtMVY0SDF6Ii8+DQogIDxwYXRoIGQ9Ik0xMSA2LjVhLjUuNSAwIDAgMSAuNS0uNWgxYS41LjUgMCAwIDEgLjUuNXYxYS41LjUgMCAwIDEtLjUuNWgtMWEuNS41IDAgMCAxLS41LS41di0xeiIvPg0KPC9zdmc+DQo="
+									title="Event scheduled">
+							</li>
+							<!--<li style="border-left:4px solid #ddd;padding:10px;"><span style="color:#ddd">3.&nbsp;</span><a href="#GSNS-February">GSNS course February</a>
+								<img style="width:1.2em;height:1.2em;margin-left:10px;" alt=""
+						src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMWVtIiBoZWlnaHQ9IjFlbSIgdmlld0JveD0iMCAwIDE2IDE2IiBjbGFzcz0iYmkgYmktY2FsZW5kYXItY2hlY2siIGZpbGw9ImdyZWVuIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPg0KICA8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0zLjUgMGEuNS41IDAgMCAxIC41LjVWMWg4Vi41YS41LjUgMCAwIDEgMSAwVjFoMWEyIDIgMCAwIDEgMiAydjExYTIgMiAwIDAgMS0yIDJIMmEyIDIgMCAwIDEtMi0yVjNhMiAyIDAgMCAxIDItMmgxVi41YS41LjUgMCAwIDEgLjUtLjV6TTEgNHYxMGExIDEgMCAwIDAgMSAxaDEyYTEgMSAwIDAgMCAxLTFWNEgxeiIvPg0KICA8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xMC44NTQgNy4xNDZhLjUuNSAwIDAgMSAwIC43MDhsLTMgM2EuNS41IDAgMCAxLS43MDggMGwtMS41LTEuNWEuNS41IDAgMSAxIC43MDgtLjcwOEw3LjUgOS43OTNsMi42NDYtMi42NDdhLjUuNSAwIDAgMSAuNzA4IDB6Ii8+DQo8L3N2Zz4NCg=="
+						title="Event passed">-->
+							<li style="border-left:4px solid #ddd;padding:5px;"><span
+									style="color:#ddd">3.&nbsp;</span><a href="#GSNS-February">GSNS course February</a>
+								<img style="width:1.2em;height:1.2em;margin-left:10px;" alt=""
+									src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMWVtIiBoZWlnaHQ9IjFlbSIgdmlld0JveD0iMCAwIDE2IDE2IiBjbGFzcz0iYmkgYmktY2FsZW5kYXItZXZlbnQiIGZpbGw9ImJsdWUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+DQogIDxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTMuNSAwYS41LjUgMCAwIDEgLjUuNVYxaDhWLjVhLjUuNSAwIDAgMSAxIDBWMWgxYTIgMiAwIDAgMSAyIDJ2MTFhMiAyIDAgMCAxLTIgMkgyYTIgMiAwIDAgMS0yLTJWM2EyIDIgMCAwIDEgMi0yaDFWLjVhLjUuNSAwIDAgMSAuNS0uNXpNMSA0djEwYTEgMSAwIDAgMCAxIDFoMTJhMSAxIDAgMCAwIDEtMVY0SDF6Ii8+DQogIDxwYXRoIGQ9Ik0xMSA2LjVhLjUuNSAwIDAgMSAuNS0uNWgxYS41LjUgMCAwIDEgLjUuNXYxYS41LjUgMCAwIDEtLjUuNWgtMWEuNS41IDAgMCAxLS41LS41di0xeiIvPg0KPC9zdmc+DQo="
+									title="Event scheduled">
+							</li>
+							<li style="border-left:4px solid #ddd;padding:5px;"><span
+									style="color:#ddd">4.&nbsp;</span><a href="#Scriptiecursus">Thesis course</a>
+								<img style="width:1.2em;height:1.2em;margin-left:10px;" alt=""
+									src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMWVtIiBoZWlnaHQ9IjFlbSIgdmlld0JveD0iMCAwIDE2IDE2IiBjbGFzcz0iYmkgYmktY2FsZW5kYXItZXZlbnQiIGZpbGw9ImJsdWUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+DQogIDxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTMuNSAwYS41LjUgMCAwIDEgLjUuNVYxaDhWLjVhLjUuNSAwIDAgMSAxIDBWMWgxYTIgMiAwIDAgMSAyIDJ2MTFhMiAyIDAgMCAxLTIgMkgyYTIgMiAwIDAgMS0yLTJWM2EyIDIgMCAwIDEgMi0yaDFWLjVhLjUuNSAwIDAgMSAuNS0uNXpNMSA0djEwYTEgMSAwIDAgMCAxIDFoMTJhMSAxIDAgMCAwIDEtMVY0SDF6Ii8+DQogIDxwYXRoIGQ9Ik0xMSA2LjVhLjUuNSAwIDAgMSAuNS0uNWgxYS41LjUgMCAwIDEgLjUuNXYxYS41LjUgMCAwIDEtLjUuNWgtMWEuNS41IDAgMCAxLS41LS41di0xeiIvPg0KPC9zdmc+DQo="
+									title="Event scheduled">
+							</li>
+						</ul>
+
+					</li>
+					<li style="background-color:hsl(208, 56%, 95%);"><a href="2021-2022">2021-2022</a></li>
+					<li style="background-color:hsl(208, 56%, 95%);"><a href="2020-2021">2020-2021</a></li>
+					<li style="background-color:hsl(208, 56%, 95%);"><a href="2019-2020">2019-2020</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div style="max-width:60em;flex:1 3 30em;">
+		<div style="height:0px;margin-bottom:10px;"></div>
+
+		Last edited by Vincent Kuhlmann on 8 September 2022.
+
+		<!--<h2>1.&nbsp;&nbsp;Upcoming events</h2>
+		<p>
+			Our yearly LaTeX course has passed, and its content can be found below.
+			Same for the GSNS course in september.
+			We still have 
+			We have still 
+		Information about the LaTeX course can be found below. The activity after
+		that is the Thesis course (around February 2021). On this web page more
+		information will appear when it is known.
+		</p>
+
+		<p>
+		Go to other years using the menu on the left or above to see what the 
+		organization will look like and to download old files.
+		</p>-->
+
+		<h2>Upcoming events</h2>
+
+		<div id="GSNS-september" style="position:relative;width:0px;height:0px;top:-70px;"></div>
+		<div id="GSNS-September" style="position:relative;width:0px;height:0px;top:-70px;"></div>
+		<h3 style="margin-top: 0px;">1.&nbsp;&nbsp;GSNS course September (information for 2022-2023)</h3>
+		<div style="border-left:4px solid #ddd;padding:2px 0px 2px 10px;display:flex;flex-flow:column nowrap;gap:5px;">
+			<div>
+				<b>
+					Date and time:&nbsp;
+				</b>
+				<div style="display:inline-block;vertical-align:top;">
+					Round 1 (beginners): Thursday 8 September 2021 at 13:30 (1:30 PM) (till 15:00 (3:00 PM)) and<br />
+					Round 2 (intermediate): Thursday 8 September 2021 at 15:30 (3:30 PM) (till 17:00 (5:00 PM)).
+				</div>
+			</div>
+			<!-- <div class="alert alert-warning">
+				<strong>This event has passed.</strong> The event is shown here for the purpose
+				of archivation. As it can never be guaranteed everything will stay available
+				on the site, we recommend you to download the files you need.
+			</div> -->
+
+			<div class="alert alert-warning">
+				<strong>Beginners/Intermediate.</strong> Unfortunately the website
+				of the GSNS introduction did not get updated with the description
+				for this year. If you signed up for round 2, expecting the
+				beginners level, send us an e-mail. We will see if we can
+				accomodate for you or if it is better to follow another
+				workshop instead.
+			</div>
+
+			<div><strong>Overleaf:</strong>&nbsp;<a
+				rel="nofollow" href="https://www.overleaf.com" >overleaf.com</a>.</div>
+
+			<div><strong>Installation:</strong>&nbsp;<a
+					href="https://www.vkuhlmann.com/latex/installation">vkuhlmann.com/latex/installation</a>.</div>
+
+			<!-- <div>
+				<strong>Exercises:</strong>
+				<a href="../downloads/2022-2023/LaTeX_exercises_GSNS-beginners_2022-09.pdf">LaTeX_exercises_GSNS-beginners_2022-09.pdf</a>
+				<a href="../downloads/2022-2023/LaTeX_exercises_GSNS-intermediate_2022-09.pdf">LaTeX_exercises_GSNS-intermediate_2022-09.pdf</a>
+			</div>
+
+			<div><strong>Slides:</strong>
+				<a href="../downloads/2022-2023/LaTeX_slides_GSNS-beginners_2022-09.pdf">LaTeX_slides_GSNS-beginners_2022-09.pdf</a>
+				<a href="../downloads/2022-2023/LaTeX_slides_GSNS-intermediate_2022-09.pdf">LaTeX_slides_GSNS-intermediate_2022-09.pdf</a>
+			</div> -->
+
+			<div><p><strong>Files:</strong></p>
+				<table id="GSNSFiles" class="table table-striped table-hover
+				table-bordered">
+					<colgroup>
+						<col style="width: auto;" />
+						<col style="width: auto;" />
+					</colgroup>
+					<thead>
+						<tr>
+							<th>Description</th>
+							<th>File</th>
+						</tr>
+					</thead>
+					<tbody style="background:#f2f2f2;">
+						<tr>
+							<td>Exercises of beginners</td>
+							<td><a href="../downloads/2022-2023/LaTeX_exercises_GSNS-beginners_2022-09.pdf">LaTeX_exercises_GSNS-beginners_2022-09.pdf</a></td>
+						</tr>
+						<tr>
+							<td>Slides of beginners</td>
+							<td><a href="../downloads/2022-2023/LaTeX_slides_GSNS-beginners_2022-09.pdf">LaTeX_slides_GSNS-beginners_2022-09.pdf</a></td>
+						</tr>
+						<tr>
+							<td>Exercises of intermediate</td>
+							<td><a href="../downloads/2022-2023/LaTeX_exercises_GSNS-intermediate_2022-09.pdf">LaTeX_exercises_GSNS-intermediate_2022-09.pdf</a></td>
+						</tr>
+						<tr>
+							<td>Slides of intermediate</td>
+							<td><a href="../downloads/2022-2023/LaTeX_slides_GSNS-intermediate_2022-09.pdf">LaTeX_slides_GSNS-intermediate_2022-09.pdf</a></td>
+						</tr>
+						<!-- <tr>
+							<td>Cheatsheet</td>
+							<td><a href="../downloads/2020-2021/LaTeX_Cheatsheet_GSNS2020.pdf">LaTeX_Cheatsheet_GSNS2020.pdf</a></td>
+						</tr>
+						<tr>
+							<td>Solutions to the exercises (made available here at 21:09)</td>
+							<td><a href="../downloads/2020-2021/LaTeX_Solutions_GSNS2020.pdf">LaTeX_Solutions_GSNS2020.pdf</a></td>
+						</tr>
+						<tr>
+							<td>Recordings of the GSNS introduction Team (including our
+							workshop) 
+							(requires UU log-in with access to the Team)</td>
+							<td><a href="https://web.microsoftstream.com/group/aa442a18-7ac0-40f5-92f2-cb59f6aea578?view=videos">
+							GSNS introduction Team recordings</a></td>
+						</tr> -->
+					</tbody>
+				</table>
+			</div>
+
+			<div><strong>Description Round 1 (beginners):</strong>
+				<p>
+					LaTeX is a code language for typesetting documents, for example
+					your thesis, scientific paper, or hand-in. It produces
+					professional looking documents and typesets mathematical
+					expressions well, making it the standard (and often requirement)
+					for academic documents.
+				</p>
+				<p>
+					This workshop requires no prior knowledge of LaTeX and will help
+					you through the rough start which new users of LaTeX experience.
+					We show you how to correctly format text and how to include
+					mathematical expressions, tables and images.
+				</p>
+				<p>
+					For this workshop we will use Overleaf. You can create a free
+					account on <a href="https://www.overleaf.com/">Overleaf.com</a>.
+					Please bring a laptop since the workshop will include
+					excercises.
+				</p>
+				<p>
+					This workshop is organised by the TeXniCie committee of study
+					association A-Eskwadraat. We facilitate LaTeX use for exact
+					science studies, mainly by organizing extracurricular courses.
+					More information about this workshop and others can be found on
+					our website <a href="http://a-es2.nl/latex">a-es2.nl/latex</a>.
+				</p>
+			</div>
+
+			<div>
+				<strong>Description Round 2 (intermediate):</strong>
+				<p>
+					LaTeX is a code language for typesetting documents, for example
+					your thesis, scientific paper, or hand-in. It produces
+					professional looking documents and typesets mathematical
+					expressions well, making it the standard (and often requirement)
+					for academic documents.
+				</p>
+				<p>
+					This workshop requires some experience with LaTeX. We assume you
+					know how to typeset basic mathematical expressions, format text,
+					include images and use sections. If you wish to refresh your
+					knowledge, we suggest you read the slides of this presentation:<br/>
+					<a href="https://www.a-eskwadraat.nl/Vereniging/Commissies/hektex/downloads/2021-2022/LaTeX_Week1_Handout_v1.pdf"
+					target="_blank">https://www.a-eskwadraat.nl/Vereniging/Commissies/hektex/downloads/2021-2022/LaTeX_Week1_Handout_v1.pdf</a>
+					<br/>
+					If you did the beginners workshop in round 1, you will have the
+					necessary experience with LaTeX.
+				</p>
+				<p>
+					In the workshop we will cover:
+					<ul>
+						<li>
+							Complicated mathematical expressions
+						</li>
+						<li>
+							Basic chemical equations
+						</li>
+						<li>
+							Tables and images
+						</li>
+						<li>
+							Cross-referencing equations, tables and images
+						</li>
+						<li>
+							Adding a simple bibliography
+						</li>
+					</ul>
+				</p>
+				<p>
+					For this workshop we will use Overleaf. You can create a free
+					account on <a href="https://www.overleaf.com/">Overleaf.com</a>. Please bring a laptop since the
+					workshop will include excercises.
+				</p>
+				<p>
+					This workshop is organised by the TeXniCie committee of study
+					association A-Eskwadraat. We facilitate LaTeX use for exact
+					science studies, mainly by organizing extracurricular courses.
+					More information about this workshop and others can be found on
+					our website <a href="http://a-es2.nl/latex">a-es2.nl/latex</a>.
+				</p>
+			</div>
+
+			<!--<div>
+				<p><strong>Practical information:</strong> 
+				</p>
+			</div>-->
+
+			<!--<div>
+				<p><strong>Files:</strong></p>
+				<table id="GSNSFiles" class="table table-striped table-hover
+				table-bordered">
+					<colgroup>
+						<col style="width: 100%" />
+						<col />
+					</colgroup>
+					<thead>
+						<tr>
+							<th>Description</th>
+							<th>File</th>
+						</tr>
+					</thead>
+					<tbody style="background:#f2f2f2;">
+						<tr>
+							<td>Exercises</td>
+							<td><a href="../downloads/2020-2021/LaTeX_Exercises_GSNS2020.pdf">LaTeX_Exercises_GSNS2020.pdf</a></td>
+						</tr>
+						<tr>
+							<td>Presentation</td>
+							<td><a href="../downloads/2020-2021/LaTeX_Presentation_GSNS2020.pdf">LaTeX_Presentation_GSNS2020.pdf</a></td>
+						</tr>
+						<tr>
+							<td>Cheatsheet</td>
+							<td><a href="../downloads/2020-2021/LaTeX_Cheatsheet_GSNS2020.pdf">LaTeX_Cheatsheet_GSNS2020.pdf</a></td>
+						</tr>
+						<tr>
+							<td>Solutions to the exercises (made available here at 21:09)</td>
+							<td><a href="../downloads/2020-2021/LaTeX_Solutions_GSNS2020.pdf">LaTeX_Solutions_GSNS2020.pdf</a></td>
+						</tr>
+						<tr>
+							<td>Recordings of the GSNS introduction Team (including our
+							workshop) 
+							(requires UU log-in with access to the Team)</td>
+							<td><a href="https://web.microsoftstream.com/group/aa442a18-7ac0-40f5-92f2-cb59f6aea578?view=videos">
+							GSNS introduction Team recordings</a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>-->
+		</div>
+
+		<div id="LaTeX-cursus" style="position:relative;width:0px;height:0px;top:-50px;"></div>
+		<div id="LaTeX-course" style="position:relative;width:0px;height:0px;top:-50px;"></div>
+		<div id="algemene-cursus" style="position:relative;width:0px;height:0px;top:-50px;"></div>
+		<h3>2.&nbsp;&nbsp;General LaTeX course (information for 2022-2023)</h3>
+		<!--<p><b>Date and time: Starting Monday 28 September 2020. Each monday one of four sessions. From 17:15 till 19:00.</b></p>-->
+		<div style="border-left:4px solid #ddd;padding:2px 0px 2px 10px;display:flex;flex-flow:column nowrap;gap:5px;">
+			<div>
+				Date and description to be announced
+			</div>
+			<!-- <div>
+				<b>Date and time:</b>&nbsp;
+				<div style="display:inline-block;vertical-align:top;">
+					Tuesday 28 September 2021 at 17:10 (till 19:00),<br />
+					Monday 4 October 2021 at 17:10 (till 19:00) and<br />
+					Tuesday 12 October 2021 at 17:10 (till 19:00).<br />
+				</div>
+			</div>
+			<div class="alert alert-warning">
+				<strong>This event has passed.</strong> The event is shown here for the purpose
+				of archivation. As it can never be guaranteed everything will stay available
+				on the site, we recommend you to download the files you need.
+			</div>
+
+			<div class="alert alert-warning">
+				<strong>Language.</strong> The presentation will be in Dutch.
+				If you can understand Dutch somewhat, you can come and ask your
+				questions in English if that's more comfortable for you!
+				And you can ask for clarification in English when you
+				haven't understood something.<br />
+				<br />
+				The language is Dutch because first-year
+				bachelor students at A-Eskwadraat are the main audience, and
+				all of these studies are partially in Dutch.
+			</div>
+
+			<div>
+				<p style="margin:0pt;">
+					Switch to the <a href="?setlanguage=nl">Dutch version of
+						this site</a> for more information.
+				</p>
+			</div> -->
+		</div>
+
+		<div id="GSNS-februari" style="position:relative;width:0px;height:0px;top:-50px;"></div>
+		<div id="GSNS-February" style="position:relative;width:0px;height:0px;top:-50px;"></div>
+		<h3>3.&nbsp;&nbsp;GSNS course February (information for 2022-2023)</h3>
+		<div style="border-left:4px solid #ddd;padding:2px 0px 2px 10px;display:flex;flex-flow:column nowrap;gap:5px;">
+			<div>
+				Date and description to be announced.
+			</div>
+			<!-- <div>
+				<b>
+					Date and time:&nbsp;
+				</b>
+				<div style="display:inline-block;vertical-align:top;">
+					Tuesday 8 February 2022, 15:30 - 17:00.
+				</div>
+			</div>
+			<div><strong>Installation:</strong> At <a
+					href="https://www.vkuhlmann.com/latex/installation">vkuhlmann.com/latex/installation</a>.</div>
+
+			<div><strong>Exercises:</strong> vkuhlmann.com/latex</div>
+
+			<div><strong>Slides:</strong> vkuhlmann.com/latex</div>
+
+			<div><strong>Organization:</strong> This course is part of the
+				workshops rounds organized by the Graduate School of Natural
+				Sciences at Utrecht University, as part of the introduction time
+				of their master students. Registration for the workshop, and
+				decision on which location the workshop will be held is
+				arranged by them.
+			</div>
+
+			<div><strong>Questions:</strong>&nbsp;<a href="../contact">Go to 'Contact' page.</a></div>
+
+			<div>
+				<strong>Description:</strong>
+				<p>
+					LaTeX is a code language for typesetting documents, for
+					example your thesis, scientific paper, or just hand-in. It
+					produces professional looking documents and typesets
+					mathematical expressions well, making it the standard for
+					academic documents.
+				</p>
+				<p>
+					This workshop requires no prior knowledge of LaTeX and will
+					help you through the rough start which new users of LaTeX
+					experience. We show you how to correctly format text and how
+					to include mathematical expressions.
+				</p>
+				<p>
+					You need to have installed the necessary applications before
+					the workshop. Alternatively, you can create an account on
+					the commercial website
+					<a href="https://www.overleaf.com/">overleaf.com</a>.
+					All information around the workshop (including installation
+					instructions), can be found on our website
+					<strong><a href="https://a-eskwadraat.nl/latex">a-eskwadraat.nl/latex</a></strong>.
+				</p>
+				<p>
+					<i>This workshop is organized by the TeXniCie committee of
+						the study association A-Eskwadraat. We facilitate LaTeX use
+						for exact science studies, mainly by organizing courses.</i>
+				</p>
+			</div> -->
+		</div>
+
+		<div id="Scriptiecursus" style="position:relative;width:0px;height:0px;top:-50px;"></div>
+		<div id="Thesis" style="position:relative;width:0px;height:0px;top:-50px;"></div>
+		<div id="Thesis-course" style="position:relative;width:0px;height:0px;top:-50px;"></div>
+		<h3>4.&nbsp;&nbsp;Thesis course (information for 2022-2023)</h3>
+		<div style="border-left:4px solid #ddd;padding:2px 0px 2px 10px;display:flex;flex-flow:column nowrap;gap:5px;">
+			<!-- <div><b>Date and time:&nbsp;</b>22 February 2021 at 17:10 (till 18:30).</div>
+
+			<div class="alert alert-warning">
+				<strong>Language.</strong> As bachelor students speak Dutch, the
+				presentation by the TeXniCie will be given in Dutch. However, we
+				happily answer questions asked in English.
+			</div> -->
+
+			<div>
+				Date and description to be announced.
+			</div>
+
+			<div>
+				See the Dutch page for more information.
+				<a href="?setlanguage=nl">Switch to Dutch</a>
+			</div>
+
+			<!--
+			<div>
+				<p><strong>Files:</strong></p>
+				<table class="table table-striped table-hover
+				table-bordered">
+					<colgroup>
+						<col style="width: 100%" />
+						<col />
+					</colgroup>
+					<thead>
+						<tr>
+							<th>Description</th>
+							<th>Download</th>
+						</tr>
+					</thead>
+					<tbody style="background:#f2f2f2;">
+						<tr>
+							<td>Presentation</td>
+							<td><a href="../downloads/2020-2021/LaTeX_ScriptiecursusPresentatie_2021.pdf">LaTeX_ScriptiecursusPresentatie_2021.pdf</a></td>
+						</tr>
+						<tr>
+							<td>Thesis template (version 2021)</td>
+							<td><a href="../downloads/2020-2021/ThesisTemplate2021.zip">ThesisTemplate2021.zip</a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>-->
+		</div>
+
+
+		<h2>Passed events (most recent first)</h2>
+
+
+		<!--<div id="GSNS-februari" style="position:relative;width:0px;height:0px;top:-50px;"></div>
+		<div id="GSNS-February" style="position:relative;width:0px;height:0px;top:-50px;"></div>
+		<h3>3.&nbsp;&nbsp;GSNS course February (information for 2020-2021)</h2>
+		<div style="border-left:4px solid #ddd;padding:2px 0px 2px 10px;display:flex;flex-flow:column nowrap;gap:5px;">
+			<div><b>Date and time:</b> Tuesday 9 February 2021 at 15:00 (till 16:30).</div>
+			<div><b>Installation:</b> On our <a href="../">Home page</a>.</div>
+
+			<div style="margin:10px 0px;text-align:justify;text-justify:inter-word;">
+				<b>Description:</b>
+
+				Working in a group online is difficult if you use mathematical expressions. LaTeX is a program that allows you to make all the fancy math you want in a text and turn it into a pdf.
+
+				In this workshop the TeXniCie will take you through the basics of LaTeX, you will learn how to make a document with text and mathematical expressions.
+				You don't need any prior knowledge of LaTeX.
+
+				Because of time limitations you will have to have the program already installed (see this website (<a href="http://a-es2.nl/latex">a-es2.nl/latex</a>)) 
+				and ready to use for the workshop.
+				You could also use an online version (we recommend <a href="https://www.overleaf.com/">Overleaf</a>) and have an account set up before the workshop.
+
+				If you have any problems or questions you can reach us via <code>'hektex' + (at sign)
+				+ 'a-eskwadraat' + '.nl'</code> (notation
+				to avoid spambots picking up the address).
+			</div>
+
+			<div style="margin:10px 0px;text-align:justify;text-justify:inter-word;">
+			<b>Practical information:</b>
+			You should be added to the Team on Microsoft Teams called "GSNS Master's
+			Introduction February 2021". Our workshop will take place in channel
+			"7. LaTeX Basics". Installation instruction are linked above.
+			If you have any questions, feel free to send us an e-mail.</div>
+
+			<div>
+				<p><strong>Files:</strong></p>
+				<table id="GSNSFebFiles" class="table table-striped table-hover
+				table-bordered">
+					<colgroup>
+						<col style="width: 100%" />
+						<col />
+					</colgroup>
+					<thead>
+						<tr>
+							<th>Description</th>
+							<th>File</th>
+						</tr>
+					</thead>
+					<tbody style="background:#f2f2f2;">
+						<tr>
+							<td>Exercises</td>
+							<td><a href="../downloads/2020-2021/LaTeX_Exercises_GSNS2021Feb.pdf">LaTeX_Exercises_GSNS2021Feb.pdf</a></td>
+						</tr>
+						<tr>
+							<td>Presentation</td>
+							<td><a href="../downloads/2020-2021/LaTeX_Presentation_GSNS2021Feb.pdf">LaTeX_Presentation_GSNS2021Feb.pdf</a></td>
+						</tr>
+						<tr>
+							<td>Cheatsheet</td>
+							<td><a href="../downloads/2020-2021/LaTeX_Cheatsheet_GSNS2021Feb.pdf">LaTeX_Cheatsheet_GSNS2021Feb.pdf</a></td>
+						</tr>
+						<tr>
+							<td>Solutions to the exercises</td>
+							<td><a href="../downloads/2020-2021/LaTeX_Solutions_GSNS2021Feb.pdf">LaTeX_Solutions_GSNS2021Feb.pdf</a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>-->
+
+
+		<h2>Question &amp; Answer</h2>
+		<div class="panel panel-info">
+			<div class="panel-heading"><strong>Question: </strong>References don't appear
+				in the bibliography. Biber shows this reference as <i>(book, label)</i>. How do
+				I fix it?</div>
+			<div class="panel-body"><strong>Answer: </strong>Set Biber as the default bibliography manager (see
+				thesis manual). With some older LaTeX distributions Biber is missing. Biber
+				is often installed in <code>C:\Program Files\MiKTeX 2.9\miktex\bin\x64</code>.
+				Is it missing? Update MiKTeX, or, in the worst case, reinstall MiKTeX.</div>
+		</div>
+
+		<div id="agenda" style="position:relative;width:0px;height:0px;top:-50px;"></div>
+		<div id="schedule" style="position:relative;width:0px;height:0px;top:-50px;"></div>
+		<h2>Schedule overview</h2>
+		<table id="events2022" class="table table-striped table-hover table-bordered">
+			<colgroup>
+				<col />
+				<col />
+			</colgroup>
+			<thead>
+				<tr>
+					<th scope="col">
+						Activiteit
+					</th>
+					<th scope="col">
+						Datum
+					</th>
+				</tr>
+			</thead>
+			<tbody style="background:#f2f2f2;">
+				<tr>
+					<td>
+						GSNS course September
+					</td>
+					<td>
+						8 September 2022
+						<img style="width:1.2em;height:1.2em;margin-left:20px;" alt=""
+							src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMWVtIiBoZWlnaHQ9IjFlbSIgdmlld0JveD0iMCAwIDE2IDE2IiBjbGFzcz0iYmkgYmktY2FsZW5kYXItZXZlbnQiIGZpbGw9ImJsdWUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+DQogIDxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTMuNSAwYS41LjUgMCAwIDEgLjUuNVYxaDhWLjVhLjUuNSAwIDAgMSAxIDBWMWgxYTIgMiAwIDAgMSAyIDJ2MTFhMiAyIDAgMCAxLTIgMkgyYTIgMiAwIDAgMS0yLTJWM2EyIDIgMCAwIDEgMi0yaDFWLjVhLjUuNSAwIDAgMSAuNS0uNXpNMSA0djEwYTEgMSAwIDAgMCAxIDFoMTJhMSAxIDAgMCAwIDEtMVY0SDF6Ii8+DQogIDxwYXRoIGQ9Ik0xMSA2LjVhLjUuNSAwIDAgMSAuNS0uNWgxYS41LjUgMCAwIDEgLjUuNXYxYS41LjUgMCAwIDEtLjUuNWgtMWEuNS41IDAgMCAxLS41LS41di0xeiIvPg0KPC9zdmc+DQo="
+							title="Event scheduled">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						General LaTeX course
+					</td>
+					<td>
+						TBA
+						<img style="width:1.2em;height:1.2em;margin-left:20px;" alt=""
+							src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMWVtIiBoZWlnaHQ9IjFlbSIgdmlld0JveD0iMCAwIDE2IDE2IiBjbGFzcz0iYmkgYmktY2FsZW5kYXItZXZlbnQiIGZpbGw9ImJsdWUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+DQogIDxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTMuNSAwYS41LjUgMCAwIDEgLjUuNVYxaDhWLjVhLjUuNSAwIDAgMSAxIDBWMWgxYTIgMiAwIDAgMSAyIDJ2MTFhMiAyIDAgMCAxLTIgMkgyYTIgMiAwIDAgMS0yLTJWM2EyIDIgMCAwIDEgMi0yaDFWLjVhLjUuNSAwIDAgMSAuNS0uNXpNMSA0djEwYTEgMSAwIDAgMCAxIDFoMTJhMSAxIDAgMCAwIDEtMVY0SDF6Ii8+DQogIDxwYXRoIGQ9Ik0xMSA2LjVhLjUuNSAwIDAgMSAuNS0uNWgxYS41LjUgMCAwIDEgLjUuNXYxYS41LjUgMCAwIDEtLjUuNWgtMWEuNS41IDAgMCAxLS41LS41di0xeiIvPg0KPC9zdmc+DQo="
+							title="Event scheduled">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						GSNS course February
+					</td>
+					<td>
+						TBA
+						<img style="width:1.2em;height:1.2em;margin-left:20px;" alt=""
+							src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMWVtIiBoZWlnaHQ9IjFlbSIgdmlld0JveD0iMCAwIDE2IDE2IiBjbGFzcz0iYmkgYmktY2FsZW5kYXItZXZlbnQiIGZpbGw9ImJsdWUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+DQogIDxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTMuNSAwYS41LjUgMCAwIDEgLjUuNVYxaDhWLjVhLjUuNSAwIDAgMSAxIDBWMWgxYTIgMiAwIDAgMSAyIDJ2MTFhMiAyIDAgMCAxLTIgMkgyYTIgMiAwIDAgMS0yLTJWM2EyIDIgMCAwIDEgMi0yaDFWLjVhLjUuNSAwIDAgMSAuNS0uNXpNMSA0djEwYTEgMSAwIDAgMCAxIDFoMTJhMSAxIDAgMCAwIDEtMVY0SDF6Ii8+DQogIDxwYXRoIGQ9Ik0xMSA2LjVhLjUuNSAwIDAgMSAuNS0uNWgxYS41LjUgMCAwIDEgLjUuNXYxYS41LjUgMCAwIDEtLjUuNWgtMWEuNS41IDAgMCAxLS41LS41di0xeiIvPg0KPC9zdmc+DQo="
+							title="Event scheduled">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Thesis course
+					</td>
+					<td>
+						TBA
+						<img style="width:1.2em;height:1.2em;margin-left:20px;" alt=""
+							src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMWVtIiBoZWlnaHQ9IjFlbSIgdmlld0JveD0iMCAwIDE2IDE2IiBjbGFzcz0iYmkgYmktY2FsZW5kYXItZXZlbnQiIGZpbGw9ImJsdWUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+DQogIDxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTMuNSAwYS41LjUgMCAwIDEgLjUuNVYxaDhWLjVhLjUuNSAwIDAgMSAxIDBWMWgxYTIgMiAwIDAgMSAyIDJ2MTFhMiAyIDAgMCAxLTIgMkgyYTIgMiAwIDAgMS0yLTJWM2EyIDIgMCAwIDEgMi0yaDFWLjVhLjUuNSAwIDAgMSAuNS0uNXpNMSA0djEwYTEgMSAwIDAgMCAxIDFoMTJhMSAxIDAgMCAwIDEtMVY0SDF6Ii8+DQogIDxwYXRoIGQ9Ik0xMSA2LjVhLjUuNSAwIDAgMSAuNS0uNWgxYS41LjUgMCAwIDEgLjUuNXYxYS41LjUgMCAwIDEtLjUuNWgtMWEuNS41IDAgMCAxLS41LS41di0xeiIvPg0KPC9zdmc+DQo="
+							title="Event scheduled">
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+	</div>
+</div>
+
+	</div>
+</body>
+
+</html>

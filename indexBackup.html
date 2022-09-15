@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- https://www.a-eskwadraat.nl/Minified/css/a-eskwadraat.1541192340.min.css 
+ https://www.a-eskwadraat.nl/Minified/css/bootstrap-select.1549816468.min.css 
+ https://www.a-eskwadraat.nl/Minified/css/aes-geel.1537460346.min.css  -->
+	<link href="./css/a-eskwadraat.1541192340.min.css" rel="stylesheet" type="text/css">
+	<link href="./css/bootstrap-select.1549816468.min.css" rel="stylesheet" type="text/css">
+	<link href="./css/aes-geel.1537460346.min.css" rel="stylesheet" type="text/css">
+	<style>
+	/* Gebaseerd op https://www.w3schools.com/css/tryit.asp?filename=trycss_table_fancy */
+	.TabelOpmaak1 {
+		border-collapse: collapse;
+	}
+	
+	.TabelOpmaak1 td, .TabelOpmaak1 th {
+		border: 1px solid #ddd;
+		padding: 8px;
+	}
+
+	.TabelOpmaak1 tr:nth-child(even) {
+		background-color: #f2f2f2;
+	}
+	
+	.TabelOpmaak1 tr:hover {
+		background-color: #ddd;
+	}
+	
+	.TabelOpmaak1 th {
+		padding-top: 12px;
+		padding-bottom: 12px;
+		text-align: left;
+		background-color: #4CAF50;
+		color: white;
+	}
+	
+	.FAQ_Question {
+		margin-bottom:0.2em;
+		font-weight: bold;
+	}
+	
+	.FAQ_Answer {
+		margin-top:0.2em;
+	}
+	
+	.FAQ_Question::before {
+		content: "Q: ";
+		font-variant: small-caps;
+		font-weight: bold;
+	}
+	
+	.FAQ_Answer::before {
+		content: "A: ";
+		font-variant: small-caps;
+		font-weight: bold;
+	}
+	
+	/* https://2ality.com/2012/01/numbering-headingshtml.html */
+	body {
+		counter-reset: h2counter;
+	}
+	.paginainhoud h2::before{
+		content: counter(h2counter) ".\0000a0\0000a0";
+		counter-increment: h2counter;
+	}
+	
+	.latexposter {
+		float: right;
+		width: 219px;
+		height: auto;
+	}
+	
+	@media screen and (max-width:calc(20em + 219px)){
+		.latexposter {
+			float: none;
+			margin: auto;
+			display: block;
+			width: auto;
+			max-width: 80%;
+			max-height: 40vh;
+		}
+	}
+	
+	</style>
+</head>
+<body style="margin:0px;padding:0px;border:0px;" class="body-geel">
+
+<div style="margin:0px;padding:0px;border:0px;height:100%;"
+	class="container theme-showcase aes-container col-md-12 pagecontent paginainhoud">
+<!-- Tabbladen -->
+<div style="border-bottom:1px solid #ddd;text-align:center;margin:12px 0px;">
+<div style="margin:auto;display:inline-block;margin-bottom:-1px;">
+
+<span style="display:inline-block;border:1px solid #ddd;padding:5px 10px;background:#fff;border-bottom:0px;margin-left:5px;background:#eee;">
+<a href="https://a-eskwadraat.nl/Vereniging/Commissies/hektex" style="font-size:14px;text-decoration:none;vertical-align:text-bottom;line-height:30px;">
+Installeren</a></span>
+
+<span style="display:inline-block;border:1px solid #ddd;padding:5px 10px;background:#fff;border-bottom:0px;margin-left:5px;background:#eee;">
+<a href="https://a-eskwadraat.nl/Vereniging/Commissies/hektex/packages" style="font-size:14px;text-decoration:none;vertical-align:text-bottom;line-height:30px;">
+Package handleidingen</a></span>
+
+<span style="display:inline-block;border:1px solid #eee;padding:5px 10px;background:#fff;border-bottom:0px;margin-left:5px;">
+<a href="https://a-eskwadraat.nl/Vereniging/Commissies/hektex/cursus" style="font-size:14px;text-decoration:none;vertical-align:text-bottom;line-height:30px;">
+Cursus</a></span></div>
+</div>
+
+<div style="max-width:60em;margin-left:auto;margin-right:auto;display:block;">
+
+<div style="background:#eeeeee;border:1px solid #cccccc;padding:5px 10px;">
+Belangrijk: De zip voor de scriptiecursus had ergens een missende afbeelding. 
+Hierdoor kunnen sommige bestanden niet compileren. 
+De oplossing is om <code>/Presentation/aes2logo-rood.eps</code> te kopi&euml;ren naar 
+<code>/aes2logo-rood.eps</code>. De zip beneden is hierop gecorrigeerd.</div>
+
+<p><a href="Poster1920.png" target="_blank"><img alt="Poster LaTeX Cursus" src="Poster1920.png" class="latexposter" style="padding: 1em;" /></a></p>
+
+<h2>LaTeX-cursus (info voor 2019-2020)</h2>
+
+<p>Vanaf 23 september 2019 zal de TeXniCie van A&ndash;Eskwadraat een serie van 4 LaTeX-cursussen geven op maandagen van 17 tot 19 uur. Hier kan je de documenten en informatie over deze cursus vinden.</p>
+
+<h3>Hoe werkt het?</h3>
+
+<p>Het is handig je van tevoren voor de cursus in te schrijven, dit kun je <a href="https://docs.google.com/forms/d/e/1FAIpQLSdHqhZoyUe_pKaWvDetRGvnJm3MXc7XVGggF2k6E41KKTmSzw/viewform?usp=sf_link">hier</a> doen.
+Voor de eerste week hoef je geen voorkennis te hebben. We leggen ook uit hoe je LaTeX moet installeren op je laptop. 
+Voor de daarop volgende weken verwachten we dat de studenten de kennis van de weken daarvoor bezitten.
+Als je dus week 4 wilt volgen verwachten we dat je de technieken van week 1, 2 en 3 kent.</p>
+
+<p>Daar er beperkt computers beschikbaar zijn vragen we je om een eigen laptop mee te nemen.
+Zeker omdat je dan ook thuis met LaTeX kan werken.</p>
+
+<h3>Cursusrooster</h3>
+<table id="rooster2020" border="0" class="TabelOpmaak1">
+	<tbody>
+		<tr>
+			<th>Datum</th>
+			<th>Lokalen</th>
+			<th>Onderwerpen</th>
+			<th>Bestanden</th>
+		</tr>
+		<tr>
+			<td>Maandag 23 september 2019</td>
+			<td>BBG 065 en 079</td>
+			<td>LaTeX installeren, eenvoudig document maken</td>
+			<td><a href="https://www.a-eskwadraat.nl/Vereniging/Commissies/hektex/2019_NL_Hand.zip">Week 1</a></td>
+		</tr>
+		<tr>
+			<td>Maandag 30 september 2019</td>
+			<td>BBG 065 en 079</td>
+			<td>Wiskundige formules, tabellen en matrices</td>
+			<td><a href="https://www.a-eskwadraat.nl/Vereniging/Commissies/hektex/2019_NL2_handout.zip">Week 2</a></td>
+		</tr>
+		<tr>
+			<td>Maandag 7 oktober 2019</td>
+			<td>BBG 205</td>
+			<td>Plaatjes invoegen, verwijzen binnen het bestand, inhoudsopgave</td>
+			<td><a href="http://www.a-eskwadraat.nl/Vereniging/Commissies/hektex/2019_NL3_Handout.zip">Week 3</a></td>
+		</tr>
+		<tr>
+			<td>Maandag 14 oktober 2019</td>
+			<td>BBG 205</td>
+			<td>LaTeX presentaties</td>
+			<td><a href="https://www.a-eskwadraat.nl/Vereniging/Commissies/hektex/2019_Handout_NL_4.zip">Week 4</a></td>
+		</tr>
+	</tbody>
+</table>
+
+<table id="rooster2019" border="1" class="TabelOpmaak1" style="display:none;">
+	<tbody>
+		<tr>
+			<th>Week</th>
+			<th>Datum</th>
+			<th>Lokalen</th>
+			<th>Onderwerpen</th>
+			<th>Bestanden</th>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>23 september</td>
+			<td>BBG 065 en 079</td>
+			<td>LaTeX installeren, eenvoudig document maken</td>
+			<td><a href="https://www.a-eskwadraat.nl/Vereniging/Commissies/hektex/2019_NL_Hand.zip">Week 1</a></td>
+		</tr>
+		<tr>
+			<td>2</td>
+			<td>30 september</td>
+			<td>BBG 065 en 079</td>
+			<td>Wiskundige formules, tabellen en matrices</td>
+			<td><a href="https://www.a-eskwadraat.nl/Vereniging/Commissies/hektex/2019_NL2_handout.zip">week 2</a></td>
+		</tr>
+		<tr>
+			<td>3</td>
+			<td>7 oktober</td>
+			<td>BBG 205</td>
+			<td>Plaatjes invoegen, verwijzen binnen het bestand, inhoudsopgave</td>
+			<td><a href="http://www.a-eskwadraat.nl/Vereniging/Commissies/hektex/2019_NL3_Handout.zip">week 3</a></td>
+		</tr>
+		<tr>
+			<td>4</td>
+			<td>14 oktober</td>
+			<td>BBG 205</td>
+			<td>LaTeX&nbsp; presentaties</td>
+			<td><a href="https://www.a-eskwadraat.nl/Vereniging/Commissies/hektex/2019_Handout_NL_4.zip">Week&nbsp;4</a></td>
+		</tr>
+	</tbody>
+</table>
+
+<h2>Scriptiecursus (info voor 2019-2020)</h2>
+
+<p>De TeXniCie heeft voor jullie tijd besteed om deze mooie scriptie template te maken.
+Hierin kan je niet alleen zien hoe bepaalde dingen werken die je misschien nodig gaat hebben bij je scriptie,
+maar je kan het ook als een functioneel begindocument gebruiken.
+Deze is te vinden op <a href="https://www.a-eskwadraat.nl/Vereniging/Commissies/hektex/Thesis_manual_20_Correctie.zip">Scriptietemplate handleiding (Versie 2020)</a>.</p>
+
+Andere versies:
+<ul>
+	<li><a href="https://www.a-eskwadraat.nl/Vereniging/Commissies/hektex/Thesis_manual_20_no_subfiles.zip">Scriptietemplate handleiding zonder <i>subfiles</i> (Versie 2020)</a>; Chaotischer, maar gemakkelijker.</li>
+	<li><a href="https://www.a-eskwadraat.nl/Vereniging/Commissies/hektex/thesis-manual.zip">Scriptietemplate handleiding zonder <i>subfiles</i> (Versie 2018)</a>; Voor terugwaartse compatibiliteit.</li>
+</ul>
+
+<h2>Vraag &amp; Antwoord</h3>
+<div class="panel panel-info">
+	<div class="panel-heading"><strong>Vraag: </strong>Refenties verschijnen niet de referentielijst, Biber toont
+de referenties als <i>(book, label)</i>. Hoe fix ik dit?</div>
+	<div class="panel-body">Maak Biber de standaard bibliografiemanager (zie scriptiecursushandleiding).
+Bij sommige oude LaTeX distributies ontbreekt Biber. Biber staat vaak in: <code>C:\Program Files\MiKTeX 2.9\miktex\bin\x64</code>.
+Heb je geen Biber? Update MiKTeX, of, in het ergste geval, herinstalleer MiKTeX.</div>
+</div>
+
+<h2>Zelf al installeren</h2>
+We gebruiken twee programma's:
+<ol type="A">
+	<li>Een distributie: Dit voorziet de mechaniek die je code omzet in een PDF.
+	Hiermee kan je al via een command line tekstbestanden omzetten in PDF, maar
+	vaak is het fijner om te werken met een speciale editor.</li>
+	<li>Een editor: De editor toont je code en verbetert je ervaring door bijvoorbeeld code te kleuren
+	en automatische aanvullingen te geven. Telkens als je op de Compileer-knop
+	duwt geeft het het nodige commando aan de distributie, en toont het de PDF
+	handig naast je code.
+	</li>
+</ol>
+
+<h3>De distributie</h3>
+Doordat deze twee taken losgekoppeld zijn heb je meer vrijheid om te kiezen welke
+editor je gebruikt. Installeer eerst de distributie (zodat de editor bij installatie
+al meteen ziet waar de distributie is):
+<ul>
+	<li>Windows: <a href="https://miktex.org/download">MiKTeX</a> of <a href="https://www.tug.org/texlive/acquire-netinstall.html">TeX Live</a></li>
+	<li>Mac: <a href="https://miktex.org/download">MiKTeX</a> of <a href="https://tug.org/mactex/mactex-download.html">MacTeX</a></li>
+	<li>Linux: <a href="https://www.tug.org/texlive/acquire-netinstall.html">TeX Live</a> of <a href="https://miktex.org/download">MiKTeX</a></li>
+</ul>
+De distributies verschillen functioneel niet echt van elkaar. MikTeX kan op Windows
+wel automatisch packages installeren waar TeX Live dat niet kan (met standaardinstellingen
+download TeX Live alle packages, dit kost enkele gigabytes opslag). TeX Live gaat
+wel wat beter via de command line, dus kan het wel de voorkeur hebben van Linux-gebruikers.
+
+<h3>De editor</h3>
+Op alle drie platformen kan je terecht bij <a href="https://www.texstudio.org#download">TeXstudio</a>.
+
+<!--<div style="display:block;height:30vh;"></div>-->
+</div>
+</div>
+</body>
+</html>
