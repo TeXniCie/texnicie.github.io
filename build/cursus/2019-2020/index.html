@@ -85,7 +85,96 @@
 		}
 	</style>
 	<script>
-		let urlParams = new URLSearchParams(window.location.search);
+		function getURLLanguage() {
+			let m = window.location.pathname.match(/^(\/(?<language>en))?(?<path>\/.*)$/);
+			if (m == null) {
+				console.error("Could not determine language of url");
+				return "nl";
+			}
+			let lang = m.groups.language || "nl";
+			return lang;
+		}
+
+		function setLanguage(lang, urlParams=null) {
+			if (!["nl", "en"].includes(lang))
+					lang = "en";
+
+			let m = window.location.pathname.match(/^(\/en)?(?<path>\/.*)$/);
+			if (m == null)
+				console.error("Could not match pathname!");
+			
+			let langPrefix = `/${lang}`;
+			if (lang == "nl")
+				langPrefix = "";
+
+			let newPath = langPrefix + m.groups.path;
+			newPath = newPath.match(/^(?<path>\/.*)\/?$/).groups.path;
+
+			// if (newPath.endsWith("/"))
+			// 	newPath = newPath.substring(0, newPath.length - 1);
+			let search = window.location.search;
+			if (urlParams != null) {
+				search = urlParams.toString();
+				if (search.length > 0)
+					search = `?${search}`;
+			}
+			
+			let newLocation = newPath + search + (window.location.hash || "");
+			console.log(`Redirecting ${window.location} -> ${newLocation}`);
+
+			window.location.href = newLocation;
+		}
+
+		function languageRedirect() {
+			let urlParams = new URLSearchParams(window.location.search);
+			let lang = urlParams.get("setlanguage");
+			if (lang != null) {
+				urlParams.delete("setlanguage");
+
+				setLanguage(lang, urlParams);
+			}
+		}
+		languageRedirect();
+
+		function gotoEN() {
+			setLanguage("en");
+		}
+		function gotoNL() {
+			setLanguage("nl");
+		}
+
+		document.addEventListener("DOMContentLoaded", () => {
+			let el = document.querySelector("ul.nav.nav-tabs.nav-centered");
+			console.log("Top bar:");
+			console.log(el);
+			if (el != null) {
+				let urlLanguage = getURLLanguage();
+				console.log(`URL language is ${urlLanguage}`);
+
+				let spacer = document.createElement("li");
+				spacer.style.float = "none";
+				spacer.style.display = "inline-block";
+				spacer.style.width = "30px";
+				el.appendChild(spacer);
+
+				let languages = ["nl", "en"];
+				for (let lang of languages) {
+					let template = document.createElement("template");
+					// let fragment = new DocumentFragment();
+					template.innerHTML =
+					`<li style="float:none;display:inline-block;">
+						<a href="javascript:setLanguage(&quot;${lang}&quot;)">${lang.toUpperCase()}</a>
+					</li>`;
+					if (lang == urlLanguage)
+						template.content.firstElementChild.classList.add("active");
+
+					console.log(`Appending child`);
+					console.log(template.content);
+					el.appendChild(template.content);
+					console.log(`Top bar now has ${el.children.length} elements children`);
+				}
+			}
+		});
 	</script>
     <title>LaTeX-cursussen 2019-2020 | TeXniCie</title>
 </head>
@@ -104,14 +193,14 @@
 		<a class="navbar-brand" href="http://a-es2.nl/latex/2019-2020" style="color:#555;cursor:default;">
 			a-es2.nl/latex/2019-2020
 		</a>
-    </div>
+	</div>
 
 	<li style="float:none;display:inline-block;">
 		<a href="/">Home</a>
 	</li>
-	
+
 	<li class="dropdown" style="float:none;display:inline-block;">
-	
+
 		<a class="dropdown-toggle" href="/packages">
 			Packages<span class="caret"></span>
 		</a>
@@ -124,21 +213,21 @@
 			</li>
 		</ul>
 	</li>
-	
+
 	<li class="active" style="float:none;display:inline-block;">
 		<a href="/en">Cursus</a>
 	</li>
-	
+
 	<li style="float:none;display:inline-block;">
 		<a href="/contact">Contact</a>
 	</li>
 </ul>
 
 <div style="display:flex;flex-direction:row;flex-wrap:wrap;width:100%">
-	
+
 	<div style="flex:0 0 max(calc(((100% - 60em) / 2) - 40px - 20em), 0px);height:0px;">
 	</div>
-	
+
 	<div style="margin-right:20px;margin-left:20px;display:block;
 	flex:0 0 calc(min(20em, 100% - 40px) + min(max(calc(10000 * (30em + 20em + 40px - 100%)), 0px),
 	max(calc(100% - 40px - min(20em, 100% - 40px)), 0px)));padding-top:10px;">
@@ -158,13 +247,13 @@
 
 	<div style="max-width:60em;flex:1 3 30em;">
 		<div style="height:0px;margin-bottom:10px;"></div>
-			
+
 		<div style="margin:1em;margin-right:0px;display:block;float:right;
 			width:calc(219px + min(max(calc(10000 * (25em + 219px - 100%)), 0px), max(0px, calc(100% - 2em - 219px))));">
-			<a class="thumbnail" href="/assets/Poster1920.png" target="_blank" 
+			<a class="thumbnail" href="/assets/Poster1920.png" target="_blank"
 				style="max-width:min(100%, 282px);margin-left:auto;margin-right:auto;">
-				<img alt="Poster LaTeX Cursus" src="/assets/Poster1920.png" 
-				style="max-height:100%;max-width:min(100%, 282px);" />
+				<img alt="Poster LaTeX Cursus" src="/assets/Poster1920.png"
+					style="max-height:100%;max-width:min(100%, 282px);" />
 			</a>
 		</div>
 		<!--<div style="display:block;width:100%;
@@ -174,7 +263,7 @@
 				style="width:auto;height:100%;" />
 			</a>
 		</div>-->
-		
+
 		<h2>1.&nbsp;&nbsp;LaTeX-cursus (info voor 2019-2020)</h2>
 		<div class="alert alert-warning">
 			<strong>Deze activiteit is voorbij.</strong> De activiteit wordt hier getoond
@@ -182,27 +271,32 @@
 			blijft op de website, raden we je aan bestanden die je nodig hebt te downloaden.
 		</div>
 
-		<p>Vanaf 23 september 2019 zal de TeXniCie van A&ndash;Eskwadraat een serie van 4 LaTeX-cursussen geven op maandagen van 17 tot 19 uur. Hier kan je de documenten en informatie over deze cursus vinden.</p>
+		<p>Vanaf 23 september 2019 zal de TeXniCie van A&ndash;Eskwadraat een serie van 4 LaTeX-cursussen geven op
+			maandagen van 17 tot 19 uur. Hier kan je de documenten en informatie over deze cursus vinden.</p>
 
 		<h3>Hoe werkt het?</h3>
 
 		<p>Het is handig je van tevoren voor de cursus in te schrijven, dit kun je
-		<a href="https://docs.google.com/forms/d/e/1FAIpQLSdHqhZoyUe_pKaWvDetRGvnJm3MXc7XVGggF2k6E41KKTmSzw/viewform?usp=sf_link">hier</a> doen.
-		Voor de eerste week hoef je geen voorkennis te hebben. We leggen ook uit hoe je LaTeX moet installeren op je laptop. 
-		Voor de daarop volgende weken verwachten we dat de studenten de kennis van de weken daarvoor bezitten.
-		Als je dus week 4 wilt volgen verwachten we dat je de technieken van week 1, 2 en 3 kent.</p>
+			<a
+				href="https://docs.google.com/forms/d/e/1FAIpQLSdHqhZoyUe_pKaWvDetRGvnJm3MXc7XVGggF2k6E41KKTmSzw/viewform?usp=sf_link">hier</a>
+			doen.
+			Voor de eerste week hoef je geen voorkennis te hebben. We leggen ook uit hoe je LaTeX moet installeren op je
+			laptop.
+			Voor de daarop volgende weken verwachten we dat de studenten de kennis van de weken daarvoor bezitten.
+			Als je dus week 4 wilt volgen verwachten we dat je de technieken van week 1, 2 en 3 kent.
+		</p>
 
 		<p>Daar er beperkt computers beschikbaar zijn vragen we je om een eigen laptop mee te nemen.
-		Zeker omdat je dan ook thuis met LaTeX kan werken.</p>
+			Zeker omdat je dan ook thuis met LaTeX kan werken.</p>
 
 		<h3>Cursusrooster</h3>
 		<table id="rooster2019" class="table table-striped table-hover
 		table-bordered">
 			<colgroup>
-				<col/>
-				<col/>
-				<col/>
-				<col/>
+				<col />
+				<col />
+				<col />
+				<col />
 			</colgroup>
 			<thead>
 				<tr>
@@ -227,7 +321,9 @@
 						max-width:calc(20em - min(max(calc(10000 * (150px - 100%)), 0px), 20em))">
 						<div style="max-width:calc(20em - min(max(calc(10000 * (150px - 100%)), 0px), 20em));
 						overflow:hidden;transform:rotate(90deg);">Maandag 23 september 2019</div></div>-->
-						<div style="width:calc(100% - min(max(calc(10000 * (150px - 100%)), 0px), 100%));overflow:hidden;">Maandag 23 september 2019</div>
+						<div
+							style="width:calc(100% - min(max(calc(10000 * (150px - 100%)), 0px), 100%));overflow:hidden;">
+							Maandag 23 september 2019</div>
 						<div style="width:calc(0% + min(max(calc(10000 * (150px - 100%)), 0px), 100%));
 						overflow:hidden;">23/09/2019</div>
 					</td>
@@ -243,8 +339,12 @@
 				</tr>
 				<tr>
 					<td style="display:flex;">
-						<div style="width:calc(100% - min(max(calc(10000 * (150px - 100%)), 0px), 100%));overflow:hidden;">Maandag 30 september 2019</div>
-						<div style="width:calc(0% + min(max(calc(10000 * (150px - 100%)), 0px), 100%));overflow:hidden;">30/09/2019</div>
+						<div
+							style="width:calc(100% - min(max(calc(10000 * (150px - 100%)), 0px), 100%));overflow:hidden;">
+							Maandag 30 september 2019</div>
+						<div
+							style="width:calc(0% + min(max(calc(10000 * (150px - 100%)), 0px), 100%));overflow:hidden;">
+							30/09/2019</div>
 					</td>
 					<td>
 						BBG 065 en 079
@@ -258,8 +358,12 @@
 				</tr>
 				<tr>
 					<td>
-						<div style="width:calc(100% - min(max(calc(10000 * (150px - 100%)), 0px), 100%));overflow:hidden;">Maandag 7 oktober 2019</div>
-						<div style="width:calc(0% + min(max(calc(10000 * (150px - 100%)), 0px), 100%));overflow:hidden;">07/10/2019</div>
+						<div
+							style="width:calc(100% - min(max(calc(10000 * (150px - 100%)), 0px), 100%));overflow:hidden;">
+							Maandag 7 oktober 2019</div>
+						<div
+							style="width:calc(0% + min(max(calc(10000 * (150px - 100%)), 0px), 100%));overflow:hidden;">
+							07/10/2019</div>
 					</td>
 					<td>
 						BBG 205
@@ -273,8 +377,12 @@
 				</tr>
 				<tr>
 					<td>
-						<div style="width:calc(100% - min(max(calc(10000 * (150px - 100%)), 0px), 100%));overflow:hidden;">Maandag 14 oktober 2019</div>
-						<div style="width:calc(0% + min(max(calc(10000 * (150px - 100%)), 0px), 100%));overflow:hidden;">14/10/2019</div>
+						<div
+							style="width:calc(100% - min(max(calc(10000 * (150px - 100%)), 0px), 100%));overflow:hidden;">
+							Maandag 14 oktober 2019</div>
+						<div
+							style="width:calc(0% + min(max(calc(10000 * (150px - 100%)), 0px), 100%));overflow:hidden;">
+							14/10/2019</div>
 					</td>
 					<td>BBG 205</td>
 					<td>LaTeX presentaties</td>
@@ -329,32 +437,39 @@
 			voor het archief. Aangezien het nooit gegarandeerd is dat alles beschikbaar
 			blijft op de website, raden we je aan bestanden die je nodig hebt te downloaden.
 		</div>
-		
+
 		<div class="alert alert-danger">
-			<strong>Belangrijk: </strong>De zip voor de scriptiecursus had ergens een missende afbeelding. 
-			Hierdoor kunnen sommige bestanden niet compileren. 
-			De oplossing is om <code>/Presentation/aes2logo-rood.eps</code> te kopi&euml;ren naar 
+			<strong>Belangrijk: </strong>De zip voor de scriptiecursus had ergens een missende afbeelding.
+			Hierdoor kunnen sommige bestanden niet compileren.
+			De oplossing is om <code>/Presentation/aes2logo-rood.eps</code> te kopi&euml;ren naar
 			<code>/aes2logo-rood.eps</code>. De zip beneden is hierop gecorrigeerd.
 		</div>
 
 		<p>De TeXniCie heeft voor jullie tijd besteed om deze mooie scriptie template te maken.
-		Hierin kan je niet alleen zien hoe bepaalde dingen werken die je misschien nodig gaat hebben bij je scriptie,
-		maar je kan het ook als een functioneel begindocument gebruiken.
-		Deze is te vinden op <a href="/downloads/2019-2020/Thesis_manual_20_Correctie.zip">Scriptietemplate handleiding (Versie 2020)</a>.</p>
+			Hierin kan je niet alleen zien hoe bepaalde dingen werken die je misschien nodig gaat hebben bij je
+			scriptie,
+			maar je kan het ook als een functioneel begindocument gebruiken.
+			Deze is te vinden op <a href="/downloads/2019-2020/Thesis_manual_20_Correctie.zip">Scriptietemplate
+				handleiding (Versie 2020)</a>.</p>
 
 		Andere versies:
 		<ul>
-			<li><a href="/downloads/2019-2020/Thesis_manual_20_no_subfiles.zip">Scriptietemplate handleiding zonder <i>subfiles</i> (Versie 2020)</a>; Chaotischer, maar gemakkelijker.</li>
-			<li><a href="/downloads/2017-2018/thesis-manual.zip">Scriptietemplate handleiding zonder <i>subfiles</i> (Versie 2018)</a>; Voor terugwaartse compatibiliteit.</li>
+			<li><a href="/downloads/2019-2020/Thesis_manual_20_no_subfiles.zip">Scriptietemplate handleiding zonder
+					<i>subfiles</i> (Versie 2020)</a>; Chaotischer, maar gemakkelijker.</li>
+			<li><a href="/downloads/2017-2018/thesis-manual.zip">Scriptietemplate handleiding zonder <i>subfiles</i>
+					(Versie 2018)</a>; Voor terugwaartse compatibiliteit.</li>
 		</ul>
 
 		<h2>3.&nbsp;&nbsp;Vraag &amp; Antwoord</h2>
 		<div class="panel panel-info">
-			<div class="panel-heading"><strong>Vraag: </strong>Refenties verschijnen niet de referentielijst, Biber toont
-		de referenties als <i>(book, label)</i>. Hoe fix ik dit?</div>
-			<div class="panel-body"><strong>Antwoord: </strong>Maak Biber de standaard bibliografiemanager (zie scriptiecursushandleiding).
-		Bij sommige oude LaTeX distributies ontbreekt Biber. Biber staat vaak in: <code>C:\Program Files\MiKTeX 2.9\miktex\bin\x64</code>.
-		Heb je geen Biber? Update MiKTeX, of, in het ergste geval, herinstalleer MiKTeX.</div>
+			<div class="panel-heading"><strong>Vraag: </strong>Refenties verschijnen niet de referentielijst, Biber
+				toont
+				de referenties als <i>(book, label)</i>. Hoe fix ik dit?</div>
+			<div class="panel-body"><strong>Antwoord: </strong>Maak Biber de standaard bibliografiemanager (zie
+				scriptiecursushandleiding).
+				Bij sommige oude LaTeX distributies ontbreekt Biber. Biber staat vaak in:
+				<code>C:\Program Files\MiKTeX 2.9\miktex\bin\x64</code>.
+				Heb je geen Biber? Update MiKTeX, of, in het ergste geval, herinstalleer MiKTeX.</div>
 		</div>
 
 		<!--<h2>4.&nbsp;&nbsp;Zelf al installeren</h2>
@@ -390,7 +505,6 @@
 		<!--<div style="display:block;height:30vh;"></div>-->
 	</div>
 </div>
-
 
 	</div>
 </body>

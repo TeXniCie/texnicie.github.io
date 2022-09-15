@@ -85,7 +85,96 @@
 		}
 	</style>
 	<script>
-		let urlParams = new URLSearchParams(window.location.search);
+		function getURLLanguage() {
+			let m = window.location.pathname.match(/^(\/(?<language>en))?(?<path>\/.*)$/);
+			if (m == null) {
+				console.error("Could not determine language of url");
+				return "nl";
+			}
+			let lang = m.groups.language || "nl";
+			return lang;
+		}
+
+		function setLanguage(lang, urlParams=null) {
+			if (!["nl", "en"].includes(lang))
+					lang = "en";
+
+			let m = window.location.pathname.match(/^(\/en)?(?<path>\/.*)$/);
+			if (m == null)
+				console.error("Could not match pathname!");
+			
+			let langPrefix = `/${lang}`;
+			if (lang == "nl")
+				langPrefix = "";
+
+			let newPath = langPrefix + m.groups.path;
+			newPath = newPath.match(/^(?<path>\/.*)\/?$/).groups.path;
+
+			// if (newPath.endsWith("/"))
+			// 	newPath = newPath.substring(0, newPath.length - 1);
+			let search = window.location.search;
+			if (urlParams != null) {
+				search = urlParams.toString();
+				if (search.length > 0)
+					search = `?${search}`;
+			}
+			
+			let newLocation = newPath + search + (window.location.hash || "");
+			console.log(`Redirecting ${window.location} -> ${newLocation}`);
+
+			window.location.href = newLocation;
+		}
+
+		function languageRedirect() {
+			let urlParams = new URLSearchParams(window.location.search);
+			let lang = urlParams.get("setlanguage");
+			if (lang != null) {
+				urlParams.delete("setlanguage");
+
+				setLanguage(lang, urlParams);
+			}
+		}
+		languageRedirect();
+
+		function gotoEN() {
+			setLanguage("en");
+		}
+		function gotoNL() {
+			setLanguage("nl");
+		}
+
+		document.addEventListener("DOMContentLoaded", () => {
+			let el = document.querySelector("ul.nav.nav-tabs.nav-centered");
+			console.log("Top bar:");
+			console.log(el);
+			if (el != null) {
+				let urlLanguage = getURLLanguage();
+				console.log(`URL language is ${urlLanguage}`);
+
+				let spacer = document.createElement("li");
+				spacer.style.float = "none";
+				spacer.style.display = "inline-block";
+				spacer.style.width = "30px";
+				el.appendChild(spacer);
+
+				let languages = ["nl", "en"];
+				for (let lang of languages) {
+					let template = document.createElement("template");
+					// let fragment = new DocumentFragment();
+					template.innerHTML =
+					`<li style="float:none;display:inline-block;">
+						<a href="javascript:setLanguage(&quot;${lang}&quot;)">${lang.toUpperCase()}</a>
+					</li>`;
+					if (lang == urlLanguage)
+						template.content.firstElementChild.classList.add("active");
+
+					console.log(`Appending child`);
+					console.log(template.content);
+					el.appendChild(template.content);
+					console.log(`Top bar now has ${el.children.length} elements children`);
+				}
+			}
+		});
 	</script>
     <title>Contact | TeXniCie</title>
 </head>
@@ -104,14 +193,14 @@
 		<a class="navbar-brand" href="http://a-es2.nl/texnicie/contact" style="color:#555;cursor:default;">
 			a-es2.nl/texnicie/contact
 		</a>
-    </div>
+	</div>
 
 	<li class="" style="float:none;display:inline-block;">
 		<a href="/">Home</a>
 	</li>
-	
+
 	<li class="dropdown" style="float:none;display:inline-block;">
-	
+
 		<a class="dropdown-toggle" href="/packages">
 			Packages<span class="caret"></span>
 		</a>
@@ -124,24 +213,23 @@
 			</li>
 		</ul>
 	</li>
-	
+
 	<li style="float:none;display:inline-block;">
 		<a href="/cursus">Cursus</a>
 	</li>
-	
+
 	<li class="active" style="float:none;display:inline-block;">
 		<a href="#">Contact</a>
-	</li>
 </ul>
 
 <!--<div class="container" style="max-width:60em;margin-left:auto;margin-right:auto;display:block;">-->
 <!--<div style="max-width:800em;margin-left:auto;margin-right:auto;display:block;width:100%">-->
 <div style="display:flex;flex-direction:row;flex-wrap:wrap;
 	justify-content:flex-start;width:100%">
-	
+
 	<div style="flex:0 0 max(calc(((100% - 60em) / 2) - 0px - 0em), 0px)">
 	</div>
-	
+
 	<!--<div style="margin-right:20px;margin-left:20px;
 	flex:0 0 calc(min(10em, 100% - 40px) + min(max(calc(10000 * (30em + 10em + 40px - 100%)), 0px),
 	max(calc(100% - 40px - min(10em, 100% - 40px)), 0px)));">
@@ -162,7 +250,6 @@
 		</p>
 	</div>
 </div>
-
 
 	</div>
 </body>
