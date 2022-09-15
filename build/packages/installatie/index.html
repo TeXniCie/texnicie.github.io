@@ -84,6 +84,9 @@
 			}
 		}
 	</style>
+	<script>
+		let urlParams = new URLSearchParams(window.location.search);
+	</script>
     <title>Package installatie | TeXniCie</title>
 </head>
 
@@ -106,7 +109,7 @@
     </div>
 	
 	<li style="float:none;display:inline-block;">
-		<a href="../../">Home</a>
+		<a href="/">Home</a>
 	</li>
 	
 	<li class="dropdown active" style="float:none;display:inline-block;">
@@ -116,7 +119,7 @@
 		</a>
 		<ul class="dropdown-menu">
 			<li>
-				<a href="../">Overzicht</a>
+				<a href="/packages">Overzicht</a>
 			</li>
 			<li>
 				<a href="#">Installatie</a>
@@ -125,11 +128,11 @@
 	</li>
 	
 	<li style="float:none;display:inline-block;">
-		<a href="../../cursus">Cursus</a>
+		<a href="/cursus">Cursus</a>
 	</li>
 	
 	<li style="float:none;display:inline-block;">
-		<a href="../../contact">Contact</a>
+		<a href="/contact">Contact</a>
 	</li>
 </ul>
 
@@ -148,7 +151,7 @@
 				<!-- style="width:10em;margin-left:auto;margin-right:0px;" -->
 				<!-- calc(50% - 5em) -->
 				<ul class="nav nav-pills nav-stacked" style="width:100%;">
-					<li><a href="../">Overzicht</a></li>
+					<li><a href="/packages">Overzicht</a></li>
 					<li class="active"><a href="#">Installatie</a></li>
 				</ul>
 			</div>
@@ -208,7 +211,7 @@
 		</ol>
 		
 		<div class="alert alert-info"><strong>Lukt het niet? </strong>
-			Neem dan contact met ons op:&nbsp;<a type="button" class="btn btn-info" href="../../contact" target="_blank" style="margin-left:10px;">Contact</a>
+			Neem dan contact met ons op:&nbsp;<a type="button" class="btn btn-info" href="/contact" target="_blank" style="margin-left:10px;">Contact</a>
 		</div>
 	</div>
 </div>

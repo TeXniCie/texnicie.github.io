@@ -26,10 +26,19 @@ def get_output_name(a: PurePosixPath) -> str:
 
 def to_abs(path: PurePosixPath, base_path: Path, lang: str) -> PurePosixPath:
     first_part_index = next(
-        i for i, part in enumerate(path.parts)
-        if part not in {".", ".."}
+        (
+            i for i, part in enumerate(path.parts)
+            if part not in {".", ".."}
+        ),
+        None
     )
+    if first_part_index is None:
+        #print(f"          WARN: No anchor for {path}")
+        return path
+
     rel_stripped = PurePosixPath(*path.parts[first_part_index:])
+    if rel_stripped.parts[0] == "assets":
+        return PurePosixPath("/") / rel_stripped
 
     attempt_paths = itertools.chain(
         [(base_path / path).resolve()],
@@ -69,43 +78,50 @@ def to_abs(path: PurePosixPath, base_path: Path, lang: str) -> PurePosixPath:
             break
 
     if abs_path is None:
-        print(f"WARN: Could not find absolute path for {path} with base_path {base_path}")
+        if path.suffix != ".pdf" and False:
+            print(f"          WARN: Could not find absolute path for {path}")
+        # with base_path {base_path}\n")
         return path
 
     abs_path = abs_path.relative_to(PAGES_DIR)
 
     if lang not in {"nl"}:
-        abs_path = PurePosixPath(f"/{lang}") / abs_path
+        abs_path = PurePosixPath(f"{lang}") / abs_path
 
     abs_path = PurePosixPath("/") / abs_path
 
     return abs_path
 
 def main():
-    regex = re.compile(r'href *= *"(?P<relPath>(\./|\.\./)+[^"]+)"')
+    regex = re.compile(r'href *= *"(?![/#?])(?P<relPath>(\./|\.\./)*[^":]*)"')
     for a in PAGES_DIR.glob("**/*.html"):
-        print(f"In {PurePosixPath(a.relative_to(PAGES_DIR))}")
+        print(f"  In {PurePosixPath(a.relative_to(PAGES_DIR))}")
         m = page_lang_regex.fullmatch(a.stem)
 
         lang = m.group("lang").lower()
 
         def subs_function(m):
             rel_path = PurePosixPath(m.group("relPath"))
-            abs_path = to_abs(rel_path, base_path=a.parent, lang=lang)
-            print(f"  {rel_path} -> {abs_path}")
+            abs_path = to_abs(rel_path, base_path=a.parent / get_output_name(a), lang=lang)
+            print(f"      {rel_path} -> {abs_path}")
 
             return f'href="{abs_path}"'
 
 
         with a.open("r", encoding="utf-8") as f:
             contents = f.read()
+
+        # contents = (
+        #     contents
+        #     .replace('<a href="../">Home</a>', '<a href="/">Home</a>')
+        #     .replace('<a href="../../">Home</a>', '<a href="/">Home</a>')
+        #)
         new_contents = regex.sub(subs_function, contents)
 
         # with a.open("w", encoding="utf-8") as f:
         #     f.write(new_contents)
 
         # print(f"Written {a}")
-        # return
 
 if __name__ == "__main__":
     main()

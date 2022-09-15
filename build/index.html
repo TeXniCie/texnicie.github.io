@@ -84,7 +84,10 @@
 			}
 		}
 	</style>
-    <title>Welkom | TeXniCie</title>
+	<script>
+		let urlParams = new URLSearchParams(window.location.search);
+	</script>
+    <title>Home | TeXniCie</title>
 </head>
 
 <body style="margin:0px;padding:0px;border:0px;" class="body-geel">
@@ -92,18 +95,7 @@
 	<div style="margin:0px;padding:0px;border:0px;height:100%;padding-top:10px;"
 		class="container theme-showcase aes-container col-md-12 pagecontent paginainhoud">
 
-        <!-- PAGE_TITLE: Welkom -->
-
-<!-- Tabbladen -->
-<!--<div style="border-bottom:1px solid #ddd;text-align:center;margin:12px 0px;">
-<div style="margin:auto;display:inline-block;margin-bottom:-1px;">
-<span style="display:inline-block;border:1px solid #eee;padding:5px 10px;background:#fff;border-bottom:0px;margin-left:5px;">
-<a href="index.html" style="font-size:14px;text-decoration:none;vertical-align:text-bottom;line-height:30px;">Installeren</a></span>
-<span style="display:inline-block;border:1px solid #ddd;padding:5px 10px;background:#fff;border-bottom:0px;margin-left:5px;background:#eee;">
-<a href="packages" style="font-size:14px;text-decoration:none;vertical-align:text-bottom;line-height:30px;">Package handleidingen</a></span>
-<span style="display:inline-block;border:1px solid #ddd;padding:5px 10px;background:#fff;border-bottom:0px;margin-left:5px;background:#eee;">
-<a href="cursus" style="font-size:14px;text-decoration:none;vertical-align:text-bottom;line-height:30px;">Cursus</a></span></div>
-</div>-->
+        <!-- PAGE_TITLE: Home -->
 
 <ul class="nav nav-tabs nav-centered" style="text-align:center;position:relative;">
 <!-- width:40em;margin-right:-40em; -->
@@ -123,25 +115,25 @@
 	
 	<li class="dropdown" style="float:none;display:inline-block;">
 	
-		<a class="dropdown-toggle" href="packages">
+		<a class="dropdown-toggle" href="/packages">
 			Packages
 		</a>
 		<ul class="dropdown-menu">
 			<li>
-				<a href="packages">Overzicht</a>
+				<a href="/packages">Overzicht</a>
 			</li>
 			<li>
-				<a href="packages/installatie">Installatie</a>
+				<a href="/packages/installatie">Installatie</a>
 			</li>
 		</ul>
 	</li>
 	
 	<li style="float:none;display:inline-block;">
-		<a href="cursus">Cursus</a>
+		<a href="/cursus">Cursus</a>
 	</li>
 	
 	<li style="float:none;display:inline-block;">
-		<a href="contact">Contact</a>
+		<a href="/contact">Contact</a>
 	</li>
 </ul>
 
@@ -158,7 +150,7 @@
 		<ul class="nav nav-pills nav-stacked" style="
 		width:100%;">
 			<li class="active"><a href="#">Overzicht</a></li>
-			<li><a href="../">Installatie</a></li>
+			<li><a href="/">Installatie</a></li>
 		</ul>
 	</div>-->
 	<div style="max-width:60em;flex:1 3 30em;">
@@ -167,7 +159,7 @@
 		
 		<!--<div style="margin:1em;display:block;float:right;display:none;
 			width:calc(219px + min(max(calc(10000 * (25em + 219px - 100%)), 0px), max(0px, calc(100% - 2em - 219px))));">
-			<a class="thumbnail" href="assets/Poster1920.png" target="_blank" 
+			<a class="thumbnail" href="/assets/Poster1920.png" target="_blank" 
 				style="max-width:min(100%, 328px);margin-left:auto;margin-right:auto;">
 				<img alt="TeXniCie: Hekwerk Utrecht" src="assets/texnicie.png" 
 				style="max-height:100%;max-width:min(100%, 328px);width:100%;" />
@@ -175,7 +167,7 @@
 		</div>
 		<div style="display:block;width:100%;display:none;
 		padding-top:calc(0px + min(max(calc(10000 * (25em + 219px - 100%)), 0px), calc(245px + 2em)));">
-			<a class="thumbnail" href="assets/Poster1920.png" target="_blank">
+			<a class="thumbnail" href="/assets/Poster1920.png" target="_blank">
 				<img alt="Poster LaTeX Cursus" src="assets/Poster1920.png" 
 				style="width:auto;height:100%;" />
 			</a>
@@ -413,7 +405,7 @@
 						<li>Herstart je computer en probeer opnieuw.</li>
 						<li>Probeer <a target="_blank" href="https://mediawiki.a-eskwadraat.nl/wiki/index.php/Robin%27s_Exorcisme">Robins exorcisme</a>.</li>
 						<li>Nog steeds niet? 
-						Vraag ons om hulp: &nbsp;<a type="button" class="btn btn-info" href="contact" target="_blank" style="margin-left:10px;">Contact</a>
+						Vraag ons om hulp: &nbsp;<a type="button" class="btn btn-info" href="/contact" target="_blank" style="margin-left:10px;">Contact</a>
 						</li>
 					</ol>
 				</div>
@@ -428,80 +420,6 @@
 				Gefeliciteerd! Welkom in de wereld van LaTeX!
 			</li>
 		</ol>
-
-		<!--
-		<div style="background:yellow; border: 2px solid red; margin-right: 250px;margin-top:20px">
-		Op dinsdag 27 november 2012 van 17:15 tot 19:00 is er een TikZ/pgf activiteit.
-		Afgelopen jaren heb ik veel verzoeken gezien om grafieken, diagrammen en 
-		figuren te programmeren in LaTeX. Met TikZ kan dat. De avond is geen cursus, 
-		maar meer een "interactieve sessie" waarin we gezamelijk kijken naar een aantal 
-		voorbeelden(meer voorbeelden van dingen die je zou willen kunnen maken zijn welkom). 
-		Alhoewel dit in principe een interne TeXniCie activiteit is zijn geinteresseerde 
-		leden ook welkom. Als je interesse hebt, stuur dan even een mailtje naar 
-		hektex@a-eskwadraat.nl.
-		</div><h2>Handleidingen & F<sup>A</sup>Q</h2><p>We hebben de volgende 
-		korte handleidingen beschikbaar:</p><ul><li>Hoe werkt 
-		<a href="http://www.phys.uu.nl/~ruules/latexalg.pdf">LaTeX</a>?</li><li>
-		Hoe maak ik een <a href="IBA_verklaart/IBA_verklaart_begroting.pdf">begroting</a> 
-		in LaTeX?</li><li>Hoe maak ik een <a href="IBA_verklaart/IBA_verklaart_brief.pdf">
-		standaardbrief</a> in LaTeX?
-			  <a href="IBA_verklaart/aesbrief.pdf">Uitgebreidere handleiding</a>.</li><li>
-			  Hoe maak ik een <a href="IBA_verklaart/IBA_verklaart_mailing.pdf">mailing</a> 
-			  in LaTeX?</li><li>Hoe maak ik <a href="IBA_verklaart/IBA_verklaart_notulen.pdf">
-			  notulen</a> in LaTeX?</li><li>Hoe maak ik een <a href="IBA_verklaart/IBA_verklaart_factuur.pdf">factuur</a> in LaTeX?
-			  <a href="IBA_verklaart/Hoe Maak Ik een A-Eskwadraatfactuur.pdf">
-			  Uitgebreidere handleiding</a>.</li></ul><p>En sinds kort hebben we een <a href="faq.html">
-			  FAQ</a> voor al je LaTeX vragen.</p><h2>Software</h2><dl><dt><a href="aes2-latex.html">
-			  A-Eskwadraat LaTeX collection</a></dt><dd>A-Eskwadraat classes & packages 
-			  die nuttig zijn voor thuisgebruik.</dd><dt><a href="tex2leek.html">T
-			  <sub>E</sub>X2Leek</a></dt><dd>TeX-distributie (inclusief LaTeX2e)
-			  voor 286/386 PC's op 5 floppies.</dd></dl><h2>L<sup>A</sup>T<sub>E</sub>
-			  X-cursus</h2>
-
-		Op dit moment is er een driedelige cursus gepland aan het begin van het 
-		tweede blok. Zodra de benodigde documenten opgesteld zijn worden deze 
-		hier beschikbaar gesteld.
-		--><!--
-
-
-		Er is nog geen cursus gepland, maar we zijn bezig met het organiseren van 
-		de volgende twee activiteiten:
-		<ul><li>Bovenstaande TikZ/pgf activiteit</li><li>Een "open LaTeX middag" 
-		waarbij iedereen die dat wil extra hulp kan krijgen bij het werken met 
-		LaTeX op alle niveaus. De eerste open LaTeX middag kun je ook vragen stellen 
-		over het installeren en werkend maken van LaTeX op je eigen laptop.
-		</li></ul>--><!--
-		<h3>Vorige cursussen</h3><p>In het verleden hebben we een aantal 
-		LaTeX-cursussen gegeven. Hieronder volgt een overzicht van het 
-		cursusmateriaal.</p><ul><li>Basiscursus november 2013 <a href="cursus.pdf">
-		Cursus.pdf</a> (<a href="cursus.tex">Cursus.tex</a>) <a href="werkblad.pdf">
-		Werkblad</a></li><li>LaTeX-masterclass: pimp je scriptie 
-		<a href="/latexmasterclass">februari 2012</a></li><li>LaTeX basus cursus 
-		<a href="cursus1112.html">2011-2012</a></li><li>LaTeX-cursus 
-		<a href="cursus0910.html">2009-2010</a>.</li><li>Basiscursus LaTeX 
-		<a href="cursus0708-basis.html">2007-2008</a>.</li><li>
-		Cursus voor M.Sc./Ph.D. studenten <a href="course0708-phd.html">2007-2008</a>.
-		</li><li>Cursus <a href="texcursus0809.html">2008-2009</a>.</li></ul><h2>L
-		<sup>I</sup>N<sub>K</sub>S</h2><p>Een aantal nuttige links over LaTeX:
-
-		<ul><li>CTAN <a href="http://www.ctan.org/starter.html">Introductiepagina</a>:
-		LaTeX installeren en documentatie vinden.</li><li>
-		<a href="http://www.cs.uu.nl/~piet/ltx-errata.html">Handleiding LaTeX</a>, 
-		Piet van Oostrum, 1998. Een korte en bondige handleiding waarin de basis 
-		van LaTeX besproken wordt.</li><li>
-		<a href="http://www.ctan.org/tex-archive/info/symbols/comprehensive/symbols-a4.pdf">
-		The LaTeX Symbol List</a>: (bijna) alle symbolen die je in LaTeX kunt gebruiken.</li>
-		<li><a href="http://detexify.kirelabs.org/classify.html">Detexify<sup>2</sup>
-		</a>: teken een symbool en krijg de TeX-code.</li><li>
-		<a href="ftp://ftp.ams.org/pub/tex/doc/amsmath/short-math-guide.pdf">
-		Short Math Guide for LaTeX</a></li><li><a href="http://en.wikibooks.org/wiki/LaTeX">
-		LaTeX wikibook</a>: een uitgebreide wiki met allerhande uitleg en tips.</li>
-		</ul><h2>Who's T<sub>E</sub>X?</h2><p>De A-Eskwadraat TeXniCie bestaat momenteel uit:</p>
-		<ul><li><lid nr="5834">Peter Boot</lid></li><li><lid nr="6732">Barbera Droste </lid>
-		</li><li><lid nr="7813">Janneke Hutter (Contactpersoon Bestuur) </lid></li><li>
-		<lid nr="6628">Rik van Rooij</lid></li><li><lid nr="7695">Laurens Stoop</lid>
-		</li><li><lid nr="7910">Kaj-Ivar van der Wijst</lid></li><li><lid nr="7792">
-		Aldo Witte</lid></li></ul>-->
 	</div>
 </div>
 
