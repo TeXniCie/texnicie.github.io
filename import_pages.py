@@ -13,7 +13,9 @@ DOWNLOADS_DIR = ROOT_DIR / "downloads"
 ASSETS_DIR = ROOT_DIR / "assets"
 
 PAGES_DIR = ROOT_DIR / "src" / "pages"
-DEST_DIR = ROOT_DIR / "build"
+DEST_DIR = Path.cwd() / ".." / "texnicie-www-gh-pages"
+
+assert DEST_DIR.exists()
 
 container : Container = None
 
