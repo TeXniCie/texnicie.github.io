@@ -1,0 +1,105 @@
+\documentclass{article}
+\usepackage{graphicx,pdfpages}
+\usepackage[margin=24mm]{geometry}
+\usepackage{hyperref, amsmath, verbatim}
+\usepackage{listings}
+
+\title{Solutions for the GSNS \LaTeX\ Workshop}
+\author{\TeX niCie, A-Eskwadraat}
+\date{September 1, 2020}
+% Made by Pepijn de Maat in name of the TeXniCie for the GSNS Intro.
+% Thanks to Hanneke Schroten and Vincent Kuhlmann for corrections and feedback.
+% The TeXniCie is a commission of study association A-Eskwadraat.
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+
+\clearpage 
+
+\section{Exercise 1} 
+
+Look at the following code.\bigbreak
+\includegraphics[scale=0.7]{tekst_begrip.png}
+
+\begin{enumerate}
+	\item The author is `Pepijn de Maat', as visible from \verb@\author{Pepijn de Maat}@.
+	\item If compiled on 01-09-2020, the title will say `September 1, 2020'.
+	\item Only the section `Introduction' will make it into the table of contents, since paragraph titles are too low-level. If you want lower levels which do enter the table of contents, use subsections or subsubsections instead.
+	\item The \% signifies a comment. In other words, any words typed after a \% will not appear in the final PDF output. This is useful as remark for later considerations. In the screenshot it is also clear that TeXstudio automatically makes the combination \%TODO green, which adds emphasis.
+\end{enumerate}
+
+\clearpage
+
+\section{Exercise 2}
+The given PDF was compiled using the following code. Slight changes to the code will still give the same or a similar PDF output.
+
+\begin{lstlisting}[breaklines=true, basicstyle=\small]
+\documentclass{article}
+\usepackage[margin=20mm]{geometry}
+
+\author{J. J. J. \^Ur\`ok}
+\title{LaTeX sample file}
+\date{September 2, 2020}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\bigbreak
+This is a work of fiction. Names, characters, places and incidents either are products of the author's imagination or are used fictitiously. Any resemblance to actual events or locales or persons, living or dead, is entirely coincidental.
+
+\section{Introduction}
+This is just an arbitrary article to explore \LaTeX\ (this fancy LaTeX can be made using `\textbackslash LaTeX\textbackslash '). By the way, the backslashes are made using \textbackslash textbackslash.\\
+This is a new line within the same paragraph made with \textbackslash\textbackslash. Using this is considered bad practice.
+
+This is a new paragraph. You can see the difference clearly; all the paragraphs except the first one have an indent. A paragraph can be created by using white-space (a `double enter') in the .tex file, or by using the \textbackslash par command.     \bigbreak
+
+Now I used a \textbackslash bigbreak, in order to create a whitespace. This can improve readability. The \textbackslash bigbreak command also creates a natural place for the compiler to end the page and continue on a new page.
+
+\subsection{Historical remarks}
+There are no historical remarks, for this is a very recently made article. Note how you need to compile twice before the table of contents has updated to include this new subsection.
+
+\subsection{Previous Versions}
+This is version 1.0.0. Version 0.9.0 didn't use the Geometry package, which meant that the margins were huge compared to the current 2cm margins.
+
+\subsection{Future Updates}
+Things to add in future versions:
+\begin{enumerate}
+\item Use the Geometry package. [DONE]
+\item Include an enumerate environment. [DONE]
+\item Make the article `twocolumn' using an optional argument [twocolumn] between     \textbackslash documentclass and the `article' between brackets. (Does this really make it look more professional?)
+\item Add a picture. (Of what?)
+\item Change the font to Comic Sans. (Might be too hard?)
+\end{enumerate}
+
+\end{document}
+\end{lstlisting}
+
+%\begin{figure}[htp] \centering{
+%		\includepdf[scale=0.80, clip=true,page=1]{spul.pdf}}
+%\end{figure}
+
+\clearpage
+
+\section{Exercise 3}
+The following formulas:
+\begin{align*}
+\int_{-\infty}^{\infty} e^{a x^2} &= \sqrt{\frac{\pi}{a}} \\
+R_{\mu\nu} - \frac12 R g_{\mu\nu} + \Lambda g_{\mu\nu} &= \kappa T_{\mu\nu}
+\end{align*}
+comes from this code:
+
+\begin{lstlisting}[breaklines=true, basicstyle=\small]
+\begin{align*}
+	\int_{-\infty}^{\infty} e^{a x^2} &= \sqrt{\frac{\pi}{a}} \\
+	R_{\mu\nu} - \frac12 R g_{\mu\nu} + \Lambda g_{\mu\nu} &= \kappa T_{\mu\nu}
+\end{align*}
+\end{lstlisting}
+
+The same formula can also be achieved via alternate means, but this code is most likely the simplest.
+
+
+\end{document}
