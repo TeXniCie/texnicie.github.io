@@ -1,0 +1,50 @@
+\documentclass[usepdftitle,invisible]{beamer}
+\usetheme{aes2}
+\usepackage{aes,pdfpages}
+\begin{document}
+\author{\aeskwadraat \TeXniCie\\
+ \url{hektex@a-eskwadraat.nl}}
+\title{De beamer class}
+\date{\today}
+\begin{frame}
+\titlepage
+\end{frame}
+\begin{frame}
+ \frametitle{Inhoudsopgave}
+ \tableofcontents
+\end{frame}
+\section{Eerste onderwerp}
+\subsection{Eerste deelonderwerp}
+\begin{frame}{Een kolom, omdat het kan}
+     \begin{columns}[T]
+     \begin{column}[T]{5cm}
+     Niet alles hoef altijd nuttig te zijn, soms doe je dingen omdat ze mooi zijn \\
+     \end{column}
+     \begin{column}[T]{5cm}
+     \begin{figure}
+          \includegraphics[height=3cm]{Mandelbrot_set_image}
+     \end{figure}
+
+     \end{column}
+     \end{columns}
+\end{frame}
+\subsubsection{Eerste onderdeel}
+\begin{frame}
+\frametitle{Zomaar een slide}
+\begin{itemize}
+\item Presentaties maken in \LaTeX\ is simpel.
+\item Formules zijn eenvoudig in te voegen:
+\end{itemize}
+$$\int^\infty_0 e^{-x^2} \text{d}x = \frac{\sqrt{\pi}}{2}$$
+En ja de Gaussian komt inderdaad erg veel voor vandaag.
+\end{frame}
+
+\section{Tweede deelonderwerp}
+\subsection{Eerste onderdeel}
+\begin{frame}{Een animatie}
+  \begin{itemize}[<+->]
+     \item Veel serieuzer wordt het er zo niet op
+     \item KiekeBoe!
+  \end{itemize}
+\end{frame}
+\end{document}

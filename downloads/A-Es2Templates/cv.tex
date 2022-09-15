@@ -1,0 +1,362 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Plasmati Graduate CV
+% LaTeX Template
+% Version 1.0 (24/3/13)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Alessandro Plasmati (alessandro.plasmati@gmail.com)
+%
+% Adapted by:
+% A-eskwadraat TeXniCie
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Important note:
+% This template needs to be compiled with XeLaTeX.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[a4paper,10pt]{article} % Default font size and paper size
+
+\usepackage{xunicode,xltxtra,url,parskip} % Formatting packages
+
+\usepackage[usenames,dvipsnames]{xcolor} % Required for specifying custom colors
+
+\usepackage{fullpage} % To reduce the height of the top margin uncomment: \addtolength{\voffset}{-1.3cm}
+
+\usepackage{hyperref} % Required for adding links and customizing them
+\definecolor{linkcolour}{rgb}{0,0.2,0.6} % Link color
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour,linkcolor=linkcolour} % Set link colors throughout the document
+
+\usepackage{titlesec} % Used to customize the \section command
+\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule] % Text formatting of sections
+\titlespacing{\section}{0pt}{3pt}{3pt} % Spacing around sections
+
+\begin{document}
+
+\pagestyle{empty} % Removes page numbering
+
+\font\fb=''[cmr10]'' % Change the font of the \LaTeX command under the skills section
+
+%----------------------------------------------------------------------------------------
+%	NAME AND CONTACT INFORMATION
+%----------------------------------------------------------------------------------------
+
+\par{\centering{\Huge
+John %First name here
+\textsc{
+Smith %Last name here
+}}\bigskip\par} 
+
+\section{Personal Data}
+
+\begin{tabular}{rl}
+\textsc{Place and Date of Birth:} & 
+Utrecht %City of origin
+, 
+The Netherlands  %Country of origin
+| 
+6 May 2014 %Birthdate
+\\
+\textsc{Address:} & 
+Main Street 1 %Street address
+\\ &
+1234 AB %Zipcode
+Utrecht %City
+\\ &
+The Netherlands %Country 
+\\
+\textsc{Phone:} & 
++1 111 1112 %Phonenumber
+\\
+\textsc{email:} & \href{mailto:
+john@smith.com %Enter your email here
+}{
+john@smith.com %Enter the same email here. 
+}
+\end{tabular}
+
+%----------------------------------------------------------------------------------------
+%	WORK EXPERIENCE 
+%----------------------------------------------------------------------------------------
+
+\section{Work Experience}
+
+\begin{tabular}{r|p{11cm}}
+\emph{Current} &              %This here is your current job.
+Heineken employee %actual job 
+at \textsc{
+Heineken %The name of the company the job is at.
+}, 
+Utrecht %Location of the job.   
+\\ \multicolumn{2}{c}{} \\
+
+%Below follow some examples of previous jobs. 
+
+%------------------------------------------------
+
+\textsc{
+Jul 2010-Oct 2011 %This is the period you worked at this job.
+} & 
+Road Worker %Name of the job
+ at \textsc{
+Brick industries % The name of the company the job is at.
+}, 
+Utrecht  %The location of the job. 
+\emph{}\\
+& \footnotesize{
+Building roads in the city. Responsible for alligning the bricks properly. %A small description of the job. 
+} \\
+\multicolumn{2}{c}{} \\
+
+%------------------------------------------------
+
+\textsc{
+Jan 2009 - Jun 2010 %This is the period you worked at this job.
+} & 
+Database manager %Name of the job
+ at \textsc{
+Big company % The name of the company the job is at.
+}, 
+Utrecht  %The location of the job. 
+\emph{}\\
+& \footnotesize{
+Responsible for keeping the database up to date. Described as \emph{Excellent teamworker} by peers. %A small description of the job. 
+} \\
+\multicolumn{2}{c}{} \\
+\end{tabular}
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION
+%----------------------------------------------------------------------------------------
+
+\section{Education}
+
+\begin{tabular}{rl}	
+\textsc{
+July %Month in which you finished this program
+} 
+2012 %Year in which this happened.
+ & \textsc{
+Master Computer Science %The name of the education
+}, \textbf{
+Utrecht University %The university or school you enjoyed the education
+}, 
+Utrecht	%Location of of the schoo.
+\\
+
+%Remove the next five lines if you do not wish to add your thesis. 
+& Thesis: ``
+Quantitative Data Analysis % The name of your thesis
+'' | \small Advisor: 
+Prof. James Smith %The name of your advisor.
+\\
+&
+%Remove the next two lines if you do not wish to add your Average.
+\normalsize \textsc{Average grade}: 
+8.0/9.0 %Your average grade for this education
+
+%Remove the following four lines if you do not attach your grades. 
+\hyperlink{
+grds %This link will link to the grades in the table with 'grds' in the code. 
+}{\hfill | \footnotesize Detailed List of Exams}\\
+&\\
+
+%------------------------------------------------
+
+\textsc{
+July %Month in which you finished this program
+} 
+2010 %Year in which this happened.
+ & \textsc{
+Bachelor Computer Science %The name of the education
+}, 
+\textbf{
+Utrecht University %The university or school you enjoyed the education
+}, 
+
+Utrecht	%Location of of the school.
+\\
+
+&
+%Remove the next two lines if you do not wish to add your Average.
+\normalsize \textsc{Average grade}: 
+8.0/9.0 %Your average grade for this education
+
+%Remove the following four lines if you do not attach your grades. 
+\hyperlink{
+grds_usc %This link will link to the grades in the table with 'grds' in the code. 
+}{\hfill | \footnotesize Detailed List of Exams}\\
+&\\
+
+%------------------------------------------------
+
+%This is an example as to how you can include your highschool. 
+\textsc{July} 2007 & \textbf{
+Utrecht High School 
+}, 
+Utrecht
+ | 
+Final Grade: 
+
+100/100 %Your final average grade
+
+%---------------------------------------------------------
+\end{tabular}
+
+%----------------------------------------------------------------------------------------
+%	SCHOLARSHIPS AND ADDITIONAL INFO
+%----------------------------------------------------------------------------------------
+
+\section{Scholarships and Certificates}
+
+\begin{tabular}{rl}
+\textsc{Sept.} 2012 & Faculty of Science Masters Scholarship \footnotesize(€30,000)\normalsize\\
+
+\end{tabular}
+
+%----------------------------------------------------------------------------------------
+%	LANGUAGES
+%----------------------------------------------------------------------------------------
+
+\section{Languages}
+
+\begin{tabular}{rl}
+\textsc{Dutch:} & Mothertongue\\
+
+\textsc{English:} & Fluent\\  %Speaks for itself. Add any languages you speak. 
+
+\textsc{French:} & Basic Knowledge\\
+\end{tabular}
+
+%----------------------------------------------------------------------------------------
+%	COMPUTER SKILLS 
+%----------------------------------------------------------------------------------------
+
+\section{Computer Skills} %Speaks for itself. 
+
+\begin{tabular}{rl} 
+Intermediate Knowledge: & \textsc{vba}, Excel\\
+
+Basic Knowledge: & \textsc{php}, my\textsc{sql}, \textsc{html}, Access, \textsc{Linux}, ubuntu\\
+\end{tabular}
+
+%----------------------------------------------------------------------------------------
+\newpage %Remove this if your first page has a lot of white space.
+%----------------------------------------------------------------------------------------
+
+
+%----------------------------------------------------------------------------------------
+%	Extracurricular activities
+%----------------------------------------------------------------------------------------
+
+\section{Extracurricular activities}
+
+\begin{tabular}{rl}
+\textsc{
+Jul 2007-Oct 2010 %This is when the activity was
+} & 
+Chairman of chessclub % Name of your function
+ at \textsc{
+The Pawn % If there is a club connected to this activity, name it here.
+}, 
+Utrecht  %The location of the activity. 
+\emph{}\\
+& \footnotesize{
+Presiding meetings, beating people at chess, organizing a monthly chess-at-lon for 200 people. %A small description of the activity. 
+} \\
+\multicolumn{2}{c}{} \\
+\end{tabular}
+
+\begin{tabular}{rl}
+\textsc{
+Aug 2009-current %This is when the activity was. 
+} & 
+Volunteer % Name of your function
+ at \textsc{
+Adopt a grandmother % If there is a club connected to this activity, name it here.
+}, 
+Utrecht  %The location of the activity. 
+\emph{}\\
+& \footnotesize{
+Spending one day in the week with an elderly, for example visiting musea, or a
+soccermatch. %A small description of the activity. 
+} \emph{}\\
+\multicolumn{2}{c}{} \\
+\end{tabular}
+
+%----------------------------------------------------------------------------------------
+%	INTERESTS AND ACTIVITIES
+%----------------------------------------------------------------------------------------
+
+\section{Interests and Activities} %Add any interests you might have
+
+Technology, Open-Source, Programming\\
+Paradoxes in Decision Making, Psychoanalysis, Behavioural Finance\\
+Football, Travelling
+
+%----------------------------------------------------------------------------------------
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	GRADE TABLES
+%----------------------------------------------------------------------------------------
+
+\par{\centering\Large \hypertarget{
+grds %The link for your grades
+}{
+Master Computer Science %Name of the education
+} \par}\large{\centering Grades\par}\normalsize
+
+\begin{center}
+\begin{tabular}{lcc}
+\multicolumn{1}{c}{\textsc{Exam}} & \textsc{Grade}&\textsc{Credit Hrs}\\ \hline
+Programming		 	& 9 			& 6\\
+Databases		 	& 8 			& 6\\
+Graphics 			& 9 			& 6\\
+Algorithms			& 10 			& 6\\
+Simulations			& 9 			& 6\\
+Total 				& 			& 30
+\\\cline{2-3}
+\textsc{Average grade}&\textbf{9.0}
+\end{tabular}
+\end{center}
+\bigskip
+\hrule
+\bigskip
+
+%------------------------------------------------
+
+\bigskip
+
+\par{\centering\Large \hypertarget{
+grds_usc  %The link for your grades
+}{
+Bachelor Computer Science %Name of the education
+}\par}\large{\centering Grades\par}\normalsize
+
+\begin{center}
+\begin{tabular}{lcc}
+\multicolumn{1}{c}{\textsc{Exam}} & \textsc{Grade}\\ 
+\hline
+Maths 			& 10 \\
+Financial Maths 	& 7\\
+Hardware 		& 8\\
+Logic 			& 9\\
+& &\\\cline{2-3}
+\textsc{Average grade} & \textbf{8.5}
+\end{tabular}
+\end{center}
+
+%----------------------------------------------------------------------------------------
+
+\end{document}

@@ -12,14 +12,20 @@ FONTS_DIR = ROOT_DIR / "fonts"
 
 PAGES_DIR = ROOT_DIR / "src" / "pages"
 DEST_DIR = ROOT_DIR / "build"
+DOWNLOADS_DIR = ROOT_DIR / "downloads"
 
 container : Container = None
 
-page_lang_regex = re.compile(r"^(?P<pageName>.*)_(?P<lang>EN|NL)$")
+page_lang_regex = re.compile(r"^(cursus_)?(?P<pageName>.*)_(?P<lang>EN|NL)$")
+
+page_title_regex = re.compile(r"<!-- PAGE_TITLE: (?P<pageTitle>((?!-->).)*) -->")
 
 
 def main():
     global container
+
+    DEST_DIR.mkdir(exist_ok=True)
+    (DEST_DIR / ".nojekyll").touch()
 
     container = Container.load(ROOT_DIR / "container.html")
     copy_assets()
@@ -42,6 +48,7 @@ def copy_assets():
     shutil.copy2(ROOT_DIR / "index_redirect.html", DEST_DIR / "index.html")
     shutil.copytree(CSS_DIR, DEST_DIR / "css", dirs_exist_ok=True, copy_function=copy_if_modified)
     shutil.copytree(FONTS_DIR, DEST_DIR / "fonts", dirs_exist_ok=True, copy_function=copy_if_modified)
+    shutil.copytree(DOWNLOADS_DIR, DEST_DIR / "downloads", dirs_exist_ok=True, copy_function=copy_if_modified)
 
 class Container:
     before: str
@@ -59,8 +66,22 @@ class Container:
         [before, after] = contents.split("<!-- BODY -->")
         return Container(before, after)
 
-    def apply(self, contents: str):
-        return self.before + contents + self.after
+    def apply(self, contents: str, lang: str = "en"):
+        m = page_title_regex.search(contents)
+        page_title = None
+        if m is not None:
+            page_title = f"{m.group('pageTitle')} | TeXniCie"
+
+        if page_title is None:
+            page_title = "TeXniCie"
+
+        before = (
+            self.before
+            .replace('<html lang="en" ', f'<html lang="{lang}" ')
+            .replace('<!-- PAGE_TITLE -->', page_title)
+        )
+        
+        return before + contents + self.after
 
 GENERATE_LANGS = {"nl", "en"}
 
@@ -73,6 +94,8 @@ def generate_page(src_path: Path):
     dst_suffix = {
         ".html": ".html"
     }[src_path.suffix]
+
+    src_lang = "en"
 
     m = page_lang_regex.fullmatch(name)
     if m is not None:
@@ -97,9 +120,10 @@ def generate_page(src_path: Path):
     with src_path.open("r", encoding="utf-8") as f:
         src_contents = f.read()
 
-    contents = container.apply(src_contents)
+    contents = container.apply(src_contents, lang=src_lang)
 
     dst_name = src_path.parent.relative_to(PAGES_DIR) / f"{name}{dst_suffix}"
+
     # if (src_path.parent / name).exists():
     if name != "index":
         dst_name = (src_path.parent / name / "index.html").relative_to(PAGES_DIR)
@@ -111,6 +135,8 @@ def generate_page(src_path: Path):
         dst_path = (
             DEST_DIR / lang / dst_name
         )
+        if lang == "nl":
+            dst_path = DEST_DIR / dst_name
         print(PurePosixPath(dst_path.relative_to(DEST_DIR)))
 
         dst_path.parent.mkdir(exist_ok=True,parents=True)
