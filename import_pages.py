@@ -3,6 +3,7 @@ from __future__ import annotations
 from pathlib import Path, PurePosixPath
 import shutil
 import re
+import navigation_bar
 
 # Copyright (c) 2022 Vincent Kuhlmann
 
@@ -138,26 +139,41 @@ def generate_page(src_path: Path):
     with src_path.open("r", encoding="utf-8") as f:
         src_contents = f.read()
 
-    contents = container.apply(src_contents, lang=src_lang)
+    # dst_name = src_path.parent.relative_to(PAGES_DIR) / f"{name}{dst_suffix}"
+    path = src_path.parent.relative_to(PAGES_DIR) / f"{name}"
+    path = PurePosixPath(path)
+    with_slash = False
+    if path.name == "index":
+        path = path.parent
+        with_slash = True
 
-    dst_name = src_path.parent.relative_to(PAGES_DIR) / f"{name}{dst_suffix}"
+    dst_name = src_path.parent.relative_to(PAGES_DIR) / f"{name}"
 
     # if (src_path.parent / name).exists():
-    if name != "index":
-        dst_name = (src_path.parent / name / "index.html").relative_to(PAGES_DIR)
+    # if name != "index":
+    #     dst_name = (src_path.parent / name / "index.html").relative_to(PAGES_DIR)
     dst_name = PurePosixPath(dst_name)
 
     # print(dst_name)
 
     for lang in langs:
-        dst_path = (
-            DEST_DIR / lang / dst_name
-        )
+        lang_prefix = PurePosixPath("/") / lang
         if lang == "nl":
-            dst_path = DEST_DIR / dst_name
-        print(PurePosixPath(dst_path.relative_to(DEST_DIR)))
+            lang_prefix = PurePosixPath("/")
+
+        url_path = lang_prefix / dst_name
+        localized_path = lang_prefix / path
+
+        print(localized_path)
+        dst_path = DEST_DIR / url_path.relative_to("/")
+        dst_path = dst_path.parent / f"{dst_path.name}{dst_suffix}"
 
         dst_path.parent.mkdir(exist_ok=True,parents=True)
+
+        navbar = navigation_bar.create_for(str(localized_path).removesuffix("/") + ("/" if with_slash else ""), lang)
+        contents = navbar + src_contents
+
+        contents = container.apply(contents, lang=src_lang)
 
         if dst_path.exists():
             with dst_path.open("r", encoding="utf-8") as f:
