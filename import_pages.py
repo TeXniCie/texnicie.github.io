@@ -55,7 +55,9 @@ def copy_if_modified(src, dst):
     shutil.copy2(src, dst)
 
 def copy_assets():
-    shutil.copy2(ROOT_DIR / "index_redirect.html", DEST_DIR / "index.html")
+    #shutil.copy2(ROOT_DIR / "index_redirect.html", DEST_DIR / "index.html")
+    shutil.copy2(ROOT_DIR / "cursusRedirect.html", DEST_DIR / "cursus.html")
+    shutil.copy2(ROOT_DIR / "cursusRedirect.html", DEST_DIR / "en" / "cursus.html")
     shutil.copytree(ASSETS_DIR, DEST_DIR / "assets", dirs_exist_ok=True, copy_function=copy_if_modified)
     shutil.copytree(CSS_DIR, DEST_DIR / "css", dirs_exist_ok=True, copy_function=copy_if_modified)
     shutil.copytree(FONTS_DIR, DEST_DIR / "fonts", dirs_exist_ok=True, copy_function=copy_if_modified)

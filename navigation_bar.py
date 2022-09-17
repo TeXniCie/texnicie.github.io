@@ -114,7 +114,8 @@ def create_for(dest_url: str, language: str):
                 NavButton(loc("Installatie", "Installation"), url("/packages/installatie"))
             ]
         ),
-        NavButton(loc("Cursus", "Course"), url("/cursus")),
+        # NavButton(loc("Cursus", "Course"), url("/cursus")),
+        NavButton(loc("Installatie", "Installation"), url("/installatie")),
         NavButton("Contact", url("/contact"))
     ]
 
