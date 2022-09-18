@@ -63,7 +63,7 @@
 		}
 
 		.paginainhoud h2::before {
-			content: counter(h2counter) ".\0000a0\0000a0";
+			/* content: counter(h2counter) ".\0000a0\0000a0"; */
 			counter-increment: h2counter;
 		}
 
@@ -86,7 +86,7 @@
 	</style>
 	<script>
 		function getURLLanguage() {
-			let m = window.location.pathname.match(/^(\/(?<language>en))?(?<path>\/.*)$/);
+			let m = window.location.pathname.match(/^(\/(?<language>en))?(?<path>(\/.*)?)$/);
 			if (m == null) {
 				console.error("Could not determine language of url");
 				return "nl";
@@ -99,7 +99,7 @@
 			if (!["nl", "en"].includes(lang))
 					lang = "en";
 
-			let m = window.location.pathname.match(/^(\/en)?(?<path>\/.*)$/);
+			let m = window.location.pathname.match(/^(\/en)?(?<path>(\/.*)?)$/);
 			if (m == null)
 				console.error("Could not match pathname!");
 			
@@ -107,7 +107,8 @@
 			if (lang == "nl")
 				langPrefix = "";
 
-			let newPath = langPrefix + m.groups.path;
+			let nonLocalizedPath = m.groups.path || "/";
+			let newPath = langPrefix + nonLocalizedPath;
 			newPath = newPath.match(/^(?<path>\/.*)\/?$/).groups.path;
 
 			// if (newPath.endsWith("/"))
@@ -217,7 +218,7 @@
             </li>
         
             <li  style="float:none;display:inline-block;">
-                <a href="/en/cursus">Course</a>
+                <a href="/en/installatie">Installation</a>
             </li>
         
             <li class="active" style="float:none;display:inline-block;">
@@ -241,7 +242,7 @@
 		<ul class="nav nav-pills nav-stacked" style="
 		width:100%;">
 			<li class="active"><a href="#">Overview</a></li>
-			<li><a href="/en">Installation</a></li>
+			<li><a href="/en/installatie">Installation</a></li>
 		</ul>
 	</div>-->
 

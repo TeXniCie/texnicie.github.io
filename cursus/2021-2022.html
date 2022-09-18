@@ -63,7 +63,7 @@
 		}
 
 		.paginainhoud h2::before {
-			content: counter(h2counter) ".\0000a0\0000a0";
+			/* content: counter(h2counter) ".\0000a0\0000a0"; */
 			counter-increment: h2counter;
 		}
 
@@ -86,7 +86,7 @@
 	</style>
 	<script>
 		function getURLLanguage() {
-			let m = window.location.pathname.match(/^(\/(?<language>en))?(?<path>\/.*)$/);
+			let m = window.location.pathname.match(/^(\/(?<language>en))?(?<path>(\/.*)?)$/);
 			if (m == null) {
 				console.error("Could not determine language of url");
 				return "nl";
@@ -99,7 +99,7 @@
 			if (!["nl", "en"].includes(lang))
 					lang = "en";
 
-			let m = window.location.pathname.match(/^(\/en)?(?<path>\/.*)$/);
+			let m = window.location.pathname.match(/^(\/en)?(?<path>(\/.*)?)$/);
 			if (m == null)
 				console.error("Could not match pathname!");
 			
@@ -107,7 +107,8 @@
 			if (lang == "nl")
 				langPrefix = "";
 
-			let newPath = langPrefix + m.groups.path;
+			let nonLocalizedPath = m.groups.path || "/";
+			let newPath = langPrefix + nonLocalizedPath;
 			newPath = newPath.match(/^(?<path>\/.*)\/?$/).groups.path;
 
 			// if (newPath.endsWith("/"))
@@ -194,8 +195,8 @@
 
         <ul class="nav nav-tabs nav-centered" style="text-align:center;">
             
-            <li  style="float:none;display:inline-block;">
-                <a href="/">Home</a>
+            <li class="active" style="float:none;display:inline-block;">
+                <a href="#">Home</a>
             </li>
         
             <li class="dropdown " style="float:none;display:inline-block;">
@@ -216,8 +217,8 @@
                 </ul>
             </li>
         
-            <li class="active" style="float:none;display:inline-block;">
-                <a href="#">Cursus</a>
+            <li  style="float:none;display:inline-block;">
+                <a href="/installatie">Installatie</a>
             </li>
         
             <li  style="float:none;display:inline-block;">
@@ -250,7 +251,7 @@ overflow-x:hidden;">
 				<!-- style="width:10em;margin-left:auto;margin-right:0px;" -->
 				<!-- calc(50% - 5em) -->
 				<ul class="nav nav-pills nav-stacked" style="width:100%;">
-					<li style="background-color:hsl(208, 56%, 95%);"><a href="/cursus">2022-2023</a></li>
+					<li style="background-color:hsl(208, 56%, 95%);"><a href="/">2022-2023</a></li>
 					<li class="active"><a href="#">2021-2022</a>
 						<ul
 							style="width:100%;padding:10px 0px 10px 10px;list-style:none;display:flex;flex-flow:column nowrap;gap:6px;">
