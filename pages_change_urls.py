@@ -34,6 +34,12 @@ def main():
             # if path == "/en/cursus":
             #     new_path = "/en/"
 
+            # if path == "/":
+            #     new_path = "/cursus"
+
+            # if path == "/en" or path == "/en/":
+            #     new_path = "/en/cursus"
+
             if path != new_path:
                 print(f"      {path} -> {new_path}")
 

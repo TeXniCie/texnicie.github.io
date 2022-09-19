@@ -12,6 +12,7 @@ CSS_DIR = ROOT_DIR / "css"
 FONTS_DIR = ROOT_DIR / "fonts"
 DOWNLOADS_DIR = ROOT_DIR / "downloads"
 ASSETS_DIR = ROOT_DIR / "assets"
+JAVASCRIPT_DIR = ROOT_DIR / "js"
 
 PAGES_DIR = ROOT_DIR / "src" / "pages"
 DEST_DIR = Path.cwd() / ".." / "texnicie-www-gh-pages"
@@ -41,6 +42,8 @@ def main():
     copy_assets()
 
     for a in PAGES_DIR.glob("**/*.html"):
+        if ".fragment" in a.suffixes:
+            continue
         generate_page(a)
 
 
@@ -62,6 +65,7 @@ def copy_assets():
     shutil.copytree(CSS_DIR, DEST_DIR / "css", dirs_exist_ok=True, copy_function=copy_if_modified)
     shutil.copytree(FONTS_DIR, DEST_DIR / "fonts", dirs_exist_ok=True, copy_function=copy_if_modified)
     shutil.copytree(DOWNLOADS_DIR, DEST_DIR / "downloads", dirs_exist_ok=True, copy_function=copy_if_modified)
+    shutil.copytree(JAVASCRIPT_DIR, DEST_DIR / "js", dirs_exist_ok=True, copy_function=copy_if_modified)
 
 class Container:
     before: str
@@ -97,6 +101,22 @@ class Container:
         return before + contents + self.after
 
 GENERATE_LANGS = {"nl", "en"}
+
+def fill_fragments(contents):
+    def replacer(m):
+        fragment_name = m.group("fragmentName")
+        source = PAGES_DIR / fragment_name
+        if not source.exists():
+            raise Exception(f"Cannot find fragment {fragment_name}")
+        with source.open("r", encoding="utf-8") as f:
+            fragment = f.read()
+        return fragment
+
+    contents = re.sub(
+        r"<!-- IMPORT (?P<fragmentName>[a-zA-Z0-9._-]+) *-->",
+        replacer, contents
+    )
+    return contents
 
 def generate_page(src_path: Path):
     name = src_path.stem
@@ -176,6 +196,18 @@ def generate_page(src_path: Path):
         contents = navbar + src_contents
 
         contents = container.apply(contents, lang=src_lang)
+
+        subs_count = 0
+        prev_contents = None
+        while prev_contents != contents:
+            if subs_count >= 10:
+                print("!!! Stopping fragment recursion after 10 iterations!")
+                break
+
+            prev_contents = contents
+            contents = fill_fragments(contents)
+
+            subs_count += 1
 
         if dst_path.exists():
             with dst_path.open("r", encoding="utf-8") as f:
