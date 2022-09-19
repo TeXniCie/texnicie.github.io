@@ -6,177 +6,12 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<link href="/css/a-eskwadraat.1541192340.min.css" rel="stylesheet" type="text/css">
 	<link href="/css/bootstrap-select.1549816468.min.css" rel="stylesheet" type="text/css">
+	<!-- <link href="/css/bootstrap.css" rel="stylesheet" type="text/css"> -->
+	<link href="/css/bootstrap-forms.css" rel="stylesheet" type="text/css">
+	<link href="/css/bootstrap-buttons.css" rel="stylesheet" type="text/css">
 	<link href="/css/aes-geel.1537460346.min.css" rel="stylesheet" type="text/css">
-	<style>
-		/* Gebaseerd op https://www.w3schools.com/css/tryit.asp?filename=trycss_table_fancy */
-		.TabelOpmaak1 {
-			border-collapse: collapse;
-		}
-
-		.TabelOpmaak1 td,
-		.TabelOpmaak1 th {
-			border: 1px solid #ddd;
-			padding: 8px;
-		}
-
-		.TabelOpmaak1 tr:nth-child(even) {
-			background-color: #f2f2f2;
-		}
-
-		.TabelOpmaak1 tr:hover {
-			background-color: #ddd;
-		}
-
-		.TabelOpmaak1 th {
-			padding-top: 12px;
-			padding-bottom: 12px;
-			text-align: left;
-			background-color: #4CAF50;
-			color: white;
-		}
-
-		.FAQ_Question {
-			margin-bottom: 0.2em;
-			font-weight: bold;
-		}
-
-		.FAQ_Answer {
-			margin-top: 0.2em;
-		}
-
-		.FAQ_Question::before {
-			content: "Q: ";
-			font-variant: small-caps;
-			font-weight: bold;
-		}
-
-		.FAQ_Answer::before {
-			content: "A: ";
-			font-variant: small-caps;
-			font-weight: bold;
-		}
-
-		/* https://2ality.com/2012/01/numbering-headingshtml.html */
-		body {
-			counter-reset: h2counter;
-			background-color: #f9f9f9 !important;
-		}
-
-		.paginainhoud h2::before {
-			/* content: counter(h2counter) ".\0000a0\0000a0"; */
-			counter-increment: h2counter;
-		}
-
-		.latexposter {
-			float: right;
-			width: 219px;
-			height: auto;
-		}
-
-		@media screen and (max-width:calc(20em + 219px)) {
-			.latexposter {
-				float: none;
-				margin: auto;
-				display: block;
-				width: auto;
-				max-width: 80%;
-				max-height: 40vh;
-			}
-		}
-	</style>
-	<script>
-		function getURLLanguage() {
-			let m = window.location.pathname.match(/^(\/(?<language>en))?(?<path>(\/.*)?)$/);
-			if (m == null) {
-				console.error("Could not determine language of url");
-				return "nl";
-			}
-			let lang = m.groups.language || "nl";
-			return lang;
-		}
-
-		function setLanguage(lang, urlParams=null) {
-			if (!["nl", "en"].includes(lang))
-					lang = "en";
-
-			let m = window.location.pathname.match(/^(\/en)?(?<path>(\/.*)?)$/);
-			if (m == null)
-				console.error("Could not match pathname!");
-			
-			let langPrefix = `/${lang}`;
-			if (lang == "nl")
-				langPrefix = "";
-
-			let nonLocalizedPath = m.groups.path || "/";
-			let newPath = langPrefix + nonLocalizedPath;
-			newPath = newPath.match(/^(?<path>\/.*)\/?$/).groups.path;
-
-			// if (newPath.endsWith("/"))
-			// 	newPath = newPath.substring(0, newPath.length - 1);
-			let search = window.location.search;
-			if (urlParams != null) {
-				search = urlParams.toString();
-				if (search.length > 0)
-					search = `?${search}`;
-			}
-			
-			let newLocation = newPath + search + (window.location.hash || "");
-			console.log(`Redirecting ${window.location} -> ${newLocation}`);
-
-			window.location.href = newLocation;
-		}
-
-		function languageRedirect() {
-			let urlParams = new URLSearchParams(window.location.search);
-			let lang = urlParams.get("setlanguage");
-			if (lang != null) {
-				urlParams.delete("setlanguage");
-
-				setLanguage(lang, urlParams);
-			}
-		}
-		languageRedirect();
-
-		function gotoEN() {
-			setLanguage("en");
-		}
-		function gotoNL() {
-			setLanguage("nl");
-		}
-
-		document.addEventListener("DOMContentLoaded", () => {
-			let el = document.querySelector("ul.nav.nav-tabs.nav-centered");
-			console.log("Top bar:");
-			console.log(el);
-			if (el != null) {
-				let urlLanguage = getURLLanguage();
-				console.log(`URL language is ${urlLanguage}`);
-
-				let spacer = document.createElement("li");
-				spacer.style.float = "none";
-				spacer.style.display = "inline-block";
-				spacer.style.width = "30px";
-				el.appendChild(spacer);
-
-				let languages = ["nl", "en"];
-				for (let lang of languages) {
-					let template = document.createElement("template");
-					// let fragment = new DocumentFragment();
-					template.innerHTML =
-					`<li style="float:none;display:inline-block;">
-						<a href="javascript:setLanguage(&quot;${lang}&quot;)">${lang.toUpperCase()}</a>
-					</li>`;
-					if (lang == urlLanguage)
-						template.content.firstElementChild.classList.add("active");
-
-					console.log(`Appending child`);
-					console.log(template.content);
-					el.appendChild(template.content);
-					console.log(`Top bar now has ${el.children.length} elements children`);
-				}
-			}
-		});
-	</script>
+	<script src="/js/texnicie-main.js"></script>
+	<link href="/css/texnicie-main.css" rel="stylesheet" type="text/css">
     <title>Home | TeXniCie</title>
 </head>
 
@@ -222,6 +57,10 @@
             </li>
         
             <li  style="float:none;display:inline-block;">
+                <a href="/en/cursus">Courses</a>
+            </li>
+        
+            <li  style="float:none;display:inline-block;">
                 <a href="/en/contact">Contact</a>
             </li>
         
@@ -260,7 +99,7 @@
 		padding-top:calc(0px + min(max(calc(10000 * (25em + 219px - 100%)), 0px), calc(245px + 2em)));">
 		</div>-->
 		
-		<!--<a href="/en/" class="btn btn-primary">Click here for information on GSNS</a>-->
+		<!--<a href="/en/cursus" class="btn btn-primary">Click here for information on GSNS</a>-->
 		
 		<div style="display:none;">
 			<h2 id="GSNS">1.&nbsp;&nbsp;GSNS course</h2>

@@ -115,7 +115,7 @@ select.selectpicker {
 }
 .form-inline .bootstrap-select,
 .form-horizontal .bootstrap-select,
-.form-group .bootstrap-select {
+/* .form-group .bootstrap-select {
  margin-bottom:0
 }
 .form-group-lg .bootstrap-select.form-control,
@@ -143,7 +143,7 @@ select.selectpicker {
 }
 .form-inline .bootstrap-select .form-control {
  width:100%
-}
+} */
 .bootstrap-select.disabled,
 .bootstrap-select>.disabled {
  cursor:not-allowed

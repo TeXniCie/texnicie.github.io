@@ -1,0 +1,118 @@
+.collapsed {
+    display: none;
+}
+
+/* Gebaseerd op https://www.w3schools.com/css/tryit.asp?filename=trycss_table_fancy */
+.TabelOpmaak1 {
+    border-collapse: collapse;
+}
+
+.TabelOpmaak1 td,
+.TabelOpmaak1 th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.TabelOpmaak1 tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.TabelOpmaak1 tr:hover {
+    background-color: #ddd;
+}
+
+.TabelOpmaak1 th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+
+.FAQ_Question {
+    margin-bottom: 0.2em;
+    font-weight: bold;
+}
+
+.FAQ_Answer {
+    margin-top: 0.2em;
+}
+
+.FAQ_Question::before {
+    content: "Q: ";
+    font-variant: small-caps;
+    font-weight: bold;
+}
+
+.FAQ_Answer::before {
+    content: "A: ";
+    font-variant: small-caps;
+    font-weight: bold;
+}
+
+/* https://2ality.com/2012/01/numbering-headingshtml.html */
+body {
+    counter-reset: h2counter;
+    background-color: #f9f9f9 !important;
+}
+
+.paginainhoud h2::before {
+    /* content: counter(h2counter) ".\0000a0\0000a0"; */
+    counter-increment: h2counter;
+}
+
+.latexposter {
+    float: right;
+    width: 219px;
+    height: auto;
+}
+
+@media screen and (max-width:calc(20em + 219px)) {
+    .latexposter {
+        float: none;
+        margin: auto;
+        display: block;
+        width: auto;
+        max-width: 80%;
+        max-height: 40vh;
+    }
+}
+
+.form-control{
+    font-size: 1.5rem;
+}
+
+form {
+    font-size: 1.5rem;
+}
+
+@media screen and (max-width: 600px) {
+    .only-large{
+        display: none;
+    }
+}
+@media screen and (min-width: 600px) {
+    .only-small, .margin-above.only-small {
+        display: none;
+    }
+}
+
+/* .table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+  
+  .table-hover tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.075);
+  } */
+
+.table-striped>tbody>tr:nth-of-type(odd) {
+background-color:hsla(0, 0%, 99.5%, 1)
+}
+.table-hover>tbody>tr:hover {
+background-color:#f5f5f5
+}
+
+.margin-above{
+    display: inline-block;
+    margin-top: 10px;
+}

@@ -2770,7 +2770,7 @@ table th[class*=col-] {
   border-bottom:0
  }
 }
-fieldset {
+/* fieldset {
  min-width:0;
  padding:0;
  margin:0;
@@ -3745,7 +3745,7 @@ input[type=button].btn-block,
 input[type=reset].btn-block,
 input[type=submit].btn-block {
  width:100%
-}
+} */
 .fade {
  opacity:0;
  -webkit-transition:opacity .15s linear;
