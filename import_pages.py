@@ -105,7 +105,7 @@ GENERATE_LANGS = {"nl", "en"}
 def fill_fragments(contents):
     def replacer(m):
         fragment_name = m.group("fragmentName")
-        source = PAGES_DIR / fragment_name
+        source = PAGES_DIR / PurePosixPath(fragment_name).relative_to("/")
         if not source.exists():
             raise Exception(f"Cannot find fragment {fragment_name}")
         with source.open("r", encoding="utf-8") as f:
@@ -113,10 +113,37 @@ def fill_fragments(contents):
         return fragment
 
     contents = re.sub(
-        r"<!-- IMPORT (?P<fragmentName>[a-zA-Z0-9._-]+) *-->",
+        r"<!-- IMPORT (?P<fragmentName>[/a-zA-Z0-9._-]+) *-->",
         replacer, contents
     )
     return contents
+
+def import_scripts(contents):
+    scripts = list(re.finditer(r"<!-- IMPORT_SCRIPT (?P<scriptName>[/a-zA-Z0-9._-]+) *-->", contents))
+
+    scriptNames = sorted(list({
+        m.group("scriptName") for m in scripts
+    }))
+
+    scriptImports = "\n".join([
+        f'<script src="{scriptName}"></script>\n'
+        for scriptName in scriptNames
+    ])
+
+    print(scriptImports)
+
+    m = re.search("<!-- HEAD INSERT SCRIPTS -->", contents)
+    if m is None:
+        raise Exception("Could not find insert point of scripts")
+
+    contents = contents[:m.start(0)] + scriptImports + contents[m.end(0):]
+
+    # contents = re.sub(
+    #     r"<!-- IMPORT (?P<fragmentName>[a-zA-Z0-9._-]+) *-->",
+    #     replacer, contents
+    # )
+    return contents
+
 
 def generate_page(src_path: Path):
     name = src_path.stem
@@ -206,8 +233,8 @@ def generate_page(src_path: Path):
 
             prev_contents = contents
             contents = fill_fragments(contents)
-
             subs_count += 1
+        contents = import_scripts(contents)
 
         if dst_path.exists():
             with dst_path.open("r", encoding="utf-8") as f:
