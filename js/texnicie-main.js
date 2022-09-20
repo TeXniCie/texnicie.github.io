@@ -169,8 +169,12 @@ function submitRegister() {
     }
 
     fetch("https://icy3wowlug.execute-api.eu-north-1.amazonaws.com/texnicie/register", {
+        mode: 'cors',    
         method: "POST",
-        headers: {"Content-Type": "application/json"},
+        headers: {
+            "Content-Type": "application/json",
+            'Access-Control-Allow-Origin': "*.amazonaws.com"
+        },
         body: JSON.stringify(data)
     }).then(res => res.json())
     .then(msg => {
