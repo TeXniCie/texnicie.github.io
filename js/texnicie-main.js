@@ -159,6 +159,47 @@ function submitRegister() {
     };
     console.log("Data is");
     console.log(data);
+
+    let fallbackInstructionsEl = document.querySelector("#formFallbackInstructions");
+
+    function emphasizeFallbackInstructions() {
+        fallbackInstructionsEl.style.fontSize = "1.5rem";
+        fallbackInstructionsEl.style.fontWeight = "bold";
+        fallbackInstructionsEl.style.color = "red";
+    }
+
+    fetch("https://icy3wowlug.execute-api.eu-north-1.amazonaws.com/texnicie/register", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(data)
+    }).then(res => res.json())
+    .then(msg => {
+        console.log("Response:");
+        console.log(msg);
+
+        if ("error" in msg) {
+            statusMsg.style.color = "red";
+            statusMsg.textContent = `Error: ${msg["error"]}`;
+            emphasizeFallbackInstructions();
+            return;
+        }
+        if (!("succes" in msg)) {
+            statusMsg.style.color = "black";
+            statusMsg.textContent = `Server antwoordde met ${JSON.stringify(msg, null, 4)}`;
+            emphasizeFallbackInstructions();
+            return;
+        }
+
+        statusMsg.style.color = "green";
+        if (msg["confirmation_email"])
+            statusMsg.textContent = "Succes! Je ontvangt een e-mail om je inschrijving te bevestigen.";
+        else
+            statusMsg.textContent = "Succes!";
+    }).catch(e => {
+        statusMsg.style.color = "error";
+        statusMsg.textContent = `Error bij het verzenden van gegevens: ${e}`;
+        emphasizeFallbackInstructions();
+    });
 }
 
 let lastSubmit = 0;
