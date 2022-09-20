@@ -63,6 +63,8 @@ let registerCheckboxes;
 function submitRegister() {
     let formEl = document.querySelector("#inschrijfSubmitForm");
 
+    let statusMsg = document.querySelector("#statusMsg");
+
     statusMsg.style.color = "black";
     statusMsg.textContent = "Checken...";
 
@@ -187,7 +189,7 @@ function submitRegister() {
             emphasizeFallbackInstructions();
             return;
         }
-        if (!("succes" in msg)) {
+        if (!("success" in msg)) {
             statusMsg.style.color = "black";
             statusMsg.textContent = `Server antwoordde met ${JSON.stringify(msg, null, 4)}`;
             emphasizeFallbackInstructions();
@@ -284,7 +286,7 @@ let lastSubmit = 0;
             })
         }
 
-        "2022-09-cursus-beschrijving"
+        //"2022-09-cursus-beschrijving"
     }
 
     function addLanguageControls() {
