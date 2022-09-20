@@ -5,7 +5,14 @@ console.log("Confirm-email.js script loaded");
 (() => {
     function confirmEmail(email, challenge) {
         let statusMsg = document.querySelector("#statusMsg");
-            fetch("https://icy3wowlug.execute-api.eu-north-1.amazonaws.com/texnicie/confirm-email", {
+        
+        if (email == null || challenge == null || typeof challenge !== "string" || challenge.length == 0) {
+            statusMsg.style.color = "red";
+            statusMsg.textContent = `Bevestigingsparameters missen.`;
+            return;
+        }
+        
+        fetch("https://icy3wowlug.execute-api.eu-north-1.amazonaws.com/texnicie/confirm-email", {
             mode: 'cors',    
             method: "POST",
             headers: {
@@ -27,7 +34,7 @@ console.log("Confirm-email.js script loaded");
                 //emphasizeFallbackInstructions();
                 return;
             }
-            if (!("succes" in msg)) {
+            if (!("success" in msg)) {
                 statusMsg.style.color = "black";
                 statusMsg.textContent = `Server antwoordde met ${JSON.stringify(msg, null, 4)}`;
                 //emphasizeFallbackInstructions();
@@ -40,7 +47,7 @@ console.log("Confirm-email.js script loaded");
             else
                 statusMsg.textContent = "Succes, je e-mail is bevestigd! Tot binnenkort!";
         }).catch(e => {
-            statusMsg.style.color = "error";
+            statusMsg.style.color = "red";
             statusMsg.textContent = `Error bij het verzenden van gegevens: ${e}`;
             //emphasizeFallbackInstructions();
         });
