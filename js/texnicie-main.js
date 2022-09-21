@@ -243,13 +243,14 @@ let lastSubmit = 0;
         let inschrijfSubmit = document.querySelector("#inschrijfSubmit");
         if (inschrijfSubmit != null) {
             inschrijfSubmit.addEventListener("click", e => {
-                return;
-                if (lastSubmit >= Date.now() - 400)
-                    return;
-                lastSubmit = Date.now();
-                console.log("Clicked submit button")
+                window.setTimeout(() => {
+                    if (lastSubmit >= Date.now() - 400)
+                        return;
+                    lastSubmit = Date.now();
+                    console.log("Clicked submit button")
 
-                submitRegister();
+                    submitRegister();
+                }, 600);
             });
 
             let inschrijfSubmitForm = document.querySelector("#inschrijfSubmitForm");
