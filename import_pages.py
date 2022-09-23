@@ -144,6 +144,32 @@ def import_scripts(contents):
     # )
     return contents
 
+def import_styles(contents):
+    styles = list(re.finditer(r"<!-- IMPORT_STYLE (?P<styleName>[/a-zA-Z0-9._-]+) *-->", contents))
+
+    styleNames = sorted(list({
+        m.group("styleName") for m in styles
+    }))
+
+    styleImports = "\n".join([
+        f'<link href="{styleName}" rel="stylesheet" type="text/css">\n'
+        for styleName in styleNames
+    ])
+
+    #print(styleImports)
+
+    m = re.search("<!-- HEAD INSERT STYLE -->", contents)
+    if m is None:
+        raise Exception("Could not find insert point of styles")
+
+    contents = contents[:m.start(0)] + styleImports + contents[m.end(0):]
+
+    # contents = re.sub(
+    #     r"<!-- IMPORT (?P<fragmentName>[a-zA-Z0-9._-]+) *-->",
+    #     replacer, contents
+    # )
+    return contents
+
 
 def generate_page(src_path: Path):
     name = src_path.stem
@@ -235,6 +261,7 @@ def generate_page(src_path: Path):
             contents = fill_fragments(contents)
             subs_count += 1
         contents = import_scripts(contents)
+        contents = import_styles(contents)
 
         if dst_path.exists():
             with dst_path.open("r", encoding="utf-8") as f:
