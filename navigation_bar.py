@@ -16,7 +16,7 @@ class NavButton:
     def toHTML(self, is_active) -> str:
         return f'''
             <li {'class="active"' if is_active else ""} style="float:none;display:inline-block;">
-                <a href="{str(self.url) if not is_active else "#"}">{html.escape(self.name)}</a>
+                <a href="{str(self.url) if not is_active or True else "#"}">{html.escape(self.name)}</a>
             </li>
         '''
 
@@ -127,7 +127,11 @@ def create_for(dest_url: str, language: str):
         if len(dest.url.parts) > len(path.parts):
             return -1
         
-        if path.parts[:len(dest.url.parts)] == dest.url.parts:
+        if (
+            path.parts[:len(dest.url.parts)] == dest.url.parts
+            and 
+            dest.url != PurePosixPath(url("/"))
+        ):
             return len(dest.url.parts)
 
         return -1
