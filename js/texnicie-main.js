@@ -257,19 +257,19 @@ let lastSubmit = 0;
         if (inschrijfSubmit != null) {
             inschrijfSubmit.addEventListener("click", e => {
                 window.setTimeout(() => {
-                    if (lastSubmit >= Date.now() - 400)
+                    if (lastSubmit >= Date.now() - 2000)
                         return;
                     lastSubmit = Date.now();
                     console.log("Clicked submit button")
 
                     submitRegister();
-                }, 600);
+                }, 200);
             });
 
             let inschrijfSubmitForm = document.querySelector("#inschrijfSubmitForm");
             inschrijfSubmitForm.addEventListener("submit", e => {
                 e.preventDefault();
-                if (lastSubmit >= Date.now() - 400)
+                if (lastSubmit >= Date.now() - 800)
                     return;
                 lastSubmit = Date.now();
                 console.log("Submit form triggered");
