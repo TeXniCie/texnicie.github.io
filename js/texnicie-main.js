@@ -198,7 +198,20 @@ function submitRegister() {
 
         statusMsg.style.color = "green";
         if (msg["confirmation_email"])
-            statusMsg.textContent = "Succes! Je ontvangt een e-mail om je inschrijving te bevestigen.";
+            statusMsg.innerHTML = (
+                'Verzenden gelukt! Klik op de link die je ontvangt per e-mail om je inschrijving te bevestigen.<br/>' +
+                '<span style="color:#333;font-weight:normal;font-size:85%;">' +
+                'We blijven je enkel mailtjes sturen als je de link in de e-mail opent. Zo voorkomen we ' +
+                'dat iemand je ongewenst op de mailinglijst kan zetten.<br/>' +
+                // Deze link voorkomt dat iemand je ongewenst op de mailinglijst kan zetten, ' +
+                // 'aangezien we stoppen met mailtjes sturen als het e-mailadres niet wordt bevestigd. ' +
+                //"doordat iemand anders je op de mailin"
+                 //"Bevestiging is nodig om te voorkomen dat je e-mailadres " +
+                //"ongewenst door een ander op de mailinglijst wordt gezet. Lees hier meer: " +
+                "Lees hier meer: " +
+                '<a href="/waarom-bevestigen">texnicie.nl/waarom-bevestigen</a><br/>' +
+                'Uitschrijven voor mails kan altijd door een "Unsubscribe"-link in de e-mails, of door ons een mailtje te sturen.</span>'
+            );
         else
             statusMsg.textContent = "Succes!";
     }).catch(e => {

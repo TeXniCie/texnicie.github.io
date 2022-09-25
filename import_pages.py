@@ -10,7 +10,7 @@ import navigation_bar
 ROOT_DIR = Path.cwd()
 CSS_DIR = ROOT_DIR / "css"
 FONTS_DIR = ROOT_DIR / "fonts"
-DOWNLOADS_DIR = ROOT_DIR / "downloads"
+#DOWNLOADS_DIR = ROOT_DIR / "downloads"
 ASSETS_DIR = ROOT_DIR / "assets"
 JAVASCRIPT_DIR = ROOT_DIR / "js"
 
@@ -64,7 +64,7 @@ def copy_assets():
     shutil.copytree(ASSETS_DIR, DEST_DIR / "assets", dirs_exist_ok=True, copy_function=copy_if_modified)
     shutil.copytree(CSS_DIR, DEST_DIR / "css", dirs_exist_ok=True, copy_function=copy_if_modified)
     shutil.copytree(FONTS_DIR, DEST_DIR / "fonts", dirs_exist_ok=True, copy_function=copy_if_modified)
-    shutil.copytree(DOWNLOADS_DIR, DEST_DIR / "downloads", dirs_exist_ok=True, copy_function=copy_if_modified)
+    #shutil.copytree(DOWNLOADS_DIR, DEST_DIR / "downloads", dirs_exist_ok=True, copy_function=copy_if_modified)
     shutil.copytree(JAVASCRIPT_DIR, DEST_DIR / "js", dirs_exist_ok=True, copy_function=copy_if_modified)
 
 class Container:
