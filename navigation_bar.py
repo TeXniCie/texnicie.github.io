@@ -130,7 +130,7 @@ def create_for(dest_url: str, language: str):
         if (
             path.parts[:len(dest.url.parts)] == dest.url.parts
             and 
-            dest.url != PurePosixPath(url("/"))
+            (dest.url != PurePosixPath(url("/")) or path == PurePosixPath(url("/")))
         ):
             return len(dest.url.parts)
 
