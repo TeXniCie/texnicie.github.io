@@ -19,7 +19,8 @@ downloads_source = Path.cwd().parent / "texnicie-www-downloads"
 assert downloads_source.exists()
 
 def main():
-    regex = re.compile(r'"(?P<downloadPath>/downloads/[^"]+)')
+    # regex = re.compile(r'"(?P<downloadPath>/downloads/[^"]+)')
+    regex = re.compile(r'"(?P<downloadPath>[^"]+(\.tex|\.pdf)|/downloads/[^"]+)"')
     for a in PAGES_DIR.glob("**/*.html"):
         print(f"In {PurePosixPath(a.relative_to(PAGES_DIR))}")
 
@@ -28,6 +29,10 @@ def main():
 
         for m in regex.finditer(contents):
             online_path = PurePosixPath(m.group("downloadPath"))
+            if not online_path.is_relative_to("/downloads"):
+                print(f"Not on downloads path: {online_path}")
+                continue
+
             local_path = downloads_source / online_path.relative_to("/downloads")
 
             if not local_path.exists():
