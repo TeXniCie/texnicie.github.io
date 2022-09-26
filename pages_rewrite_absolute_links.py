@@ -14,7 +14,7 @@ FONTS_DIR = ROOT_DIR / "fonts"
 PAGES_DIR = ROOT_DIR / "src" / "pages"
 DEST_DIR = ROOT_DIR / "build"
 
-page_lang_regex = re.compile(r"^(cursus_)?(?P<pageName>.*)_(?P<lang>EN|NL)$")
+page_lang_regex = re.compile(r"^(cursus_)?(?P<pageName>.*)_(?P<lang>EN|NL)(\.fragment)?$")
 
 def get_output_name(a: PurePosixPath) -> str:
     m = page_lang_regex.fullmatch(a.stem)
