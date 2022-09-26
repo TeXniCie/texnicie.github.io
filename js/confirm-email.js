@@ -11,6 +11,9 @@ console.log("Confirm-email.js script loaded");
             statusMsg.textContent = `Bevestigingsparameters missen.`;
             return;
         }
+
+        statusMsg.style.color = "darkorange";
+        statusMsg.textContent = `E-mail bevestigen...`;
         
         fetch("https://icy3wowlug.execute-api.eu-north-1.amazonaws.com/texnicie/confirm-email", {
             mode: 'cors',    
@@ -61,7 +64,8 @@ console.log("Confirm-email.js script loaded");
         console.log(`Email: ${email}`);
         console.log(`Challenge: ${challenge}`);
 
-        confirmEmail(email, challenge);
+        if (email != null && challenge != null)
+            confirmEmail(email, challenge);
     }
 
     document.addEventListener("DOMContentLoaded", () => {
