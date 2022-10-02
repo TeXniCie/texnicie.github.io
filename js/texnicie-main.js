@@ -211,6 +211,9 @@ function submitRegister() {
                 "Lees hier meer: " +
                 '<a href="/waarom-bevestigen">texnicie.nl/waarom-bevestigen</a><br/>' +
                 'Uitschrijven voor mails kan altijd door een "Unsubscribe"-link in de e-mails, of door ons een mailtje te sturen.</span>'
+                +
+                '<br/><br/>Om je privacy te beschermen vertelt dit bericht je niet of er al ' +
+                'een bevestigingsmail is gestuurd. Je ontvangt geen tweede.'
             );
         else
             statusMsg.textContent = "Succes!";
