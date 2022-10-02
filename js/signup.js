@@ -16,7 +16,7 @@ console.log("signup.js script loaded");
         statusMsg.style.color = "darkorange";
         statusMsg.textContent = `Toevoegen aan maillijst...`;
         
-        fetch("https://icy3wowlug.execute-api.eu-north-1.amazonaws.com/texnicie/confirm-email", {
+        fetch("https://icy3wowlug.execute-api.eu-north-1.amazonaws.com/texnicie/signup", {
             mode: 'cors',    
             method: "POST",
             headers: {
@@ -63,8 +63,8 @@ console.log("signup.js script loaded");
         let user_id = searchParams.get("user_id");
         let target = searchParams.get("target");
 
-        if (email != null && challenge != null)
-            signupForMailinglist(email, challenge || user_id);
+        if (user_id != null || target != null)
+            signupForMailinglist(user_id, target);
     }
 
     document.addEventListener("DOMContentLoaded", () => {
