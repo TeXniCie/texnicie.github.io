@@ -62,11 +62,13 @@ console.log("Confirm-email.js script loaded");
         let email = searchParams.get("email");
         let challenge = searchParams.get("challenge");
         let user_id = searchParams.get("user_id");
+
+        challenge = challenge || user_id
         console.log(`Email: ${email}`);
         console.log(`Challenge: ${challenge}`);
 
-        if (email != null && challenge != null)
-            confirmEmail(email, challenge || user_id);
+        if (email != null || challenge != null)
+            confirmEmail(email, challenge);
     }
 
     document.addEventListener("DOMContentLoaded", () => {
