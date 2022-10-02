@@ -6,7 +6,7 @@ console.log("Confirm-email.js script loaded");
     function confirmEmail(email, challenge) {
         let statusMsg = document.querySelector("#statusMsg");
         
-        if (email == null || challenge == null || typeof challenge !== "string" || challenge.length == 0) {
+        if (challenge == null || typeof challenge !== "string" || challenge.length == 0) {
             statusMsg.style.color = "red";
             statusMsg.textContent = `Bevestigingsparameters missen.`;
             return;
@@ -61,11 +61,12 @@ console.log("Confirm-email.js script loaded");
         let searchParams = new URLSearchParams(window.location.search);
         let email = searchParams.get("email");
         let challenge = searchParams.get("challenge");
+        let user_id = searchParams.get("user_id");
         console.log(`Email: ${email}`);
         console.log(`Challenge: ${challenge}`);
 
         if (email != null && challenge != null)
-            confirmEmail(email, challenge);
+            confirmEmail(email, challenge || user_id);
     }
 
     document.addEventListener("DOMContentLoaded", () => {
