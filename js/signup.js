@@ -1,21 +1,22 @@
 "use strict";
 
-console.log("Confirm-email.js script loaded");
+console.log("signup.js script loaded");
 
 (() => {
-    function confirmEmail(email, challenge) {
+    function signupForMailinglist(user_id, target) {
         let statusMsg = document.querySelector("#statusMsg");
         
-        if (challenge == null || typeof challenge !== "string" || challenge.length == 0) {
+        if (user_id == null || typeof user_id !== "string" || user_id.length == 0
+        || target == null || typeof target !== "string" || target.length == 0) {
             statusMsg.style.color = "red";
-            statusMsg.textContent = `Bevestigingsparameters missen.`;
+            statusMsg.textContent = `Parameters missen.`;
             return;
         }
 
         statusMsg.style.color = "darkorange";
-        statusMsg.textContent = `E-mail bevestigen...`;
+        statusMsg.textContent = `Toevoegen aan maillijst...`;
         
-        fetch("https://icy3wowlug.execute-api.eu-north-1.amazonaws.com/texnicie/confirm-email", {
+        fetch("https://icy3wowlug.execute-api.eu-north-1.amazonaws.com/texnicie/signup", {
             mode: 'cors',    
             method: "POST",
             headers: {
@@ -23,8 +24,8 @@ console.log("Confirm-email.js script loaded");
                 'Access-Control-Allow-Origin': "*.amazonaws.com"
             },
             body: JSON.stringify({
-                "email": email,
-                "challenge": challenge
+                "user_id": user_id,
+                "target": target
             })
         }).then(res => res.json())
         .then(msg => {
@@ -45,10 +46,10 @@ console.log("Confirm-email.js script loaded");
             }
 
             statusMsg.style.color = "green";
-            if (msg["already_confirmed"])
-                statusMsg.textContent = "Je e-mail was al bevestigd :)";
+            if (msg["already_signedup"])
+                statusMsg.textContent = "Je stond al op de mailinglijst :)";
             else
-                statusMsg.textContent = "Succes, je e-mail is bevestigd! Tot binnenkort!";
+                statusMsg.textContent = "Succes, je bent toegevoegd aan de mailinglijst!";
         }).catch(e => {
             statusMsg.style.color = "red";
             statusMsg.textContent = `Error bij het verzenden van gegevens: ${e}`;
@@ -59,16 +60,11 @@ console.log("Confirm-email.js script loaded");
     function onDocumentLoaded() {
         console.log("Document loaded");
         let searchParams = new URLSearchParams(window.location.search);
-        let email = searchParams.get("email");
-        let challenge = searchParams.get("challenge");
         let user_id = searchParams.get("user_id");
+        let target = searchParams.get("target");
 
-        challenge = challenge || user_id
-        console.log(`Email: ${email}`);
-        console.log(`Challenge: ${challenge}`);
-
-        if (email != null || challenge != null)
-            confirmEmail(email, challenge);
+        if (user_id != null || target != null)
+            signupForMailinglist(user_id, target);
     }
 
     document.addEventListener("DOMContentLoaded", () => {

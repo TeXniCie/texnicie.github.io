@@ -211,6 +211,9 @@ function submitRegister() {
                 "Lees hier meer: " +
                 '<a href="/waarom-bevestigen">texnicie.nl/waarom-bevestigen</a><br/>' +
                 'Uitschrijven voor mails kan altijd door een "Unsubscribe"-link in de e-mails, of door ons een mailtje te sturen.</span>'
+                +
+                '<br/><br/>Om je privacy te beschermen vertelt dit bericht je niet of er al ' +
+                'een bevestigingsmail is gestuurd. Je ontvangt geen tweede.'
             );
         else
             statusMsg.textContent = "Succes!";
@@ -226,9 +229,29 @@ let lastSubmit = 0;
 (() => {
     languageRedirect();
 
+    function disableNonExistentLinks() {
+        for (let el of document.querySelectorAll(".check-exists")) {
+            let aEl = el.querySelector("a, button");
+
+            if (aEl == null)
+                continue;
+            let url = aEl.href;
+
+            // Technique based on https://stackoverflow.com/questions/68595209/js-fetch-check-if-file-present-without-downloading-content
+            // Answer of https://stackoverflow.com/users/9074788/the-bic-pen
+            fetch(url, {method: "HEAD"}).then((res) => {
+                if (!res.ok) {
+                    el.innerHTML = "Nog niet beschikbaar";
+                    //el.href = "#";
+                }
+            })
+        }
+    }
+
     function onDocumentLoaded() {
         addLanguageControls();
         registerCollapsers();
+        disableNonExistentLinks();
 
         let formEl = document.querySelector("#inschrijfSubmitForm");
 
