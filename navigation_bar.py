@@ -141,12 +141,12 @@ def create_for(dest_url: str, language: str):
     , key=get_dest_score)
 
     return f'''
-        <div class="navbar-header;" style="position:absolute;left:0px;max-width:0px;
+        <!--<div class="navbar-header;" style="position:absolute;left:0px;max-width:0px;
             max-width:calc(100% - min(max(calc((50em - 100%) * 10000), 0px), 100%));
             overflow-x:hidden;">
             <div style="display:inline-block;width:50em;"><a class="navbar-brand" href="https://{canonical_url}"
                     style="color:#555;cursor:default;">{canonical_url} </a></div>
-        </div>
+        </div>-->
 
         <ul class="nav nav-tabs nav-centered" style="text-align:center;">
             {
