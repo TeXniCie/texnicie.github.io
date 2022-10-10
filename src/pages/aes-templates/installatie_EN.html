@@ -1,0 +1,89 @@
+<!-- PAGE_TITLE: A-Es package installation -->
+
+<div style="display:flex;flex-direction:row;flex-wrap:wrap;
+	justify-content:flex-start;width:100%;max-width:100%;">
+
+	<div style="flex:0 0 max(calc(((100% - 60em) / 2) - 40px - 10em), 0px)">
+	</div>
+
+	<div style="margin-right:20px;margin-left:20px;
+	flex:0 0 calc(min(10em, 100% - 40px) + min(max(calc(10000 * (30em + 10em + 40px - 100%)), 0px),
+	max(calc(100% - 40px - min(10em, 100% - 40px)), 0px)));">
+		<!-- style="width:10em;margin-left:auto;margin-right:0px;" -->
+		<!-- calc(50% - 5em) -->
+		<ul class="nav nav-pills nav-stacked" style="
+		width:100%;position:sticky;top:150px;">
+			<li><a href="/en/aes-templates">Usage</a></li>
+			<li class="active"><a href="#">Installation</a></li>
+		</ul>
+	</div>
+
+	<div style="max-width:60em;max-width:min(60em, 100%);flex:1 3 30em;">
+		<h2>A&ndash;Eskwadraat packages: Installation</h2>
+
+		<!--<p><iframe frameborder="0" src="https://home.a-eskwadraat.nl/~hektex/indexEng.html" style="display:block" width="100%">Installatieinstructies (Windows)</iframe></p>-->
+		<p>Version: <strong>2018-02-07 (r828)</strong>.</p>
+		<ul>
+			<li>For Windows users: <a href="/downloads/A-Es2Templates/a-es2-latex2.zip">zip-file</a>.</li>
+			<li>For Linux, Mac OSX, BSD &amp; others: <a href="/downloads/A-Es2Templates/a-es2-latex.tar.gz">tar.gz file</a>.</li>
+		</ul>
+
+		<h3>Installation instructions for Windows</h3>
+
+		<ol>
+			<li>Download the A&ndash;Eskwadraat LaTeX Collection from the link above.</li>
+			<li>
+				<p>We now look for the directory with all the LaTeX packages. Try
+					out the following directories by entering it in the address bar
+					of Windows Explorer (or pressing Start+R and paste the address there):</p>
+
+				<p>The default location for a global MiKTeX installation:</p>
+				<pre><code>C:\Program Files\MiKTeX\tex\latex</code></pre>
+
+				<p>Else the default location for a local MiKTeX installation:</p>
+				<pre><code>%AppData%\..\Local\Programs\MiKTeX\tex\latex</code></pre>
+
+				<p>In the unlikely case both directories don't exist, open
+					MiKTeX Console, and in
+					<code style="display:inline-block">Settings > Directories</code>
+					try the directories with 'Install' as 'Purpose'.
+					Do you find a map existing here? Go to the directory <code>tex</code> and then <code>latex</code>.
+				</p>
+
+			</li>
+			<li>
+				Copy the files in the A&ndash;Eskwadraat package zip to this
+				directory.
+			</li>
+			<li>
+				We need to inform MiKTeX we changed some files. Open MiKTeX
+				Console and execute <div style="display:inline-block">
+					<code>Tasks > Refresh file name database</code>.
+				</div>
+			</li>
+			<li>
+				When updating the A&ndash;Eskwadraat LaTeX Collection, previous
+				step needs to be repeated.
+			</li>
+		</ol>
+
+		<h3>Installation instructions for Linux &amp; Mac</h3>
+		<ol>
+			<li>Download the A&ndash;Eskwadraat LaTeX Collection from the link above.</li>
+			<li>
+				Copy the directory <code>a-es2-latex</code> to
+				<code>/usr/share/texmf-texlive/tex/latex/</code>
+				(or <code>/usr/local/texlive/texmf-local/tex/latex</code> if the first doesn't work).
+			</li>
+			</li>
+			<li>Execute in the terminal:
+				<pre><code>sudo texhash</code></pre>
+			</li>
+		</ol>
+
+		<div class="alert alert-info"><strong>Not getting it to work? </strong>
+			Contact us:&nbsp;<a type="button" class="btn btn-info" href="/en/contact" target="_blank"
+				style="margin-left:10px;">Contact</a>
+		</div>
+	</div>
+</div>

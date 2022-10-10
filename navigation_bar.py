@@ -108,10 +108,10 @@ def create_for(dest_url: str, language: str):
 
     destinations: list[Union[NavButton, NavButtonDropDown]] = [
         NavButton("Home", url("/")),
-        NavButtonDropDown("A-Es packages", url("/packages"),
+        NavButtonDropDown("A-Es templates", url("/aes-templates"),
             [
-                NavButton(loc("Overzicht", "Overview"), url("/packages")),
-                NavButton(loc("Installatie", "Installation"), url("/packages/installatie"))
+                NavButton(loc("Gebruik", "Usage"), url("/aes-templates")),
+                NavButton(loc("Installatie", "Installation"), url("/aes-templates/installatie"))
             ]
         ),
         # NavButton(loc("Cursus", "Course"), url("/cursus")),

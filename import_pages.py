@@ -220,7 +220,9 @@ def generate_page(src_path: Path):
     with_slash = False
     if path.name == "index":
         path = path.parent
-        with_slash = True
+        if len(path.parts) == 0:
+            with_slash = True
+        #with_slash = True
 
     dst_name = src_path.parent.relative_to(PAGES_DIR) / f"{name}"
 
