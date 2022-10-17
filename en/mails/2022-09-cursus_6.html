@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<link href="/css/a-eskwadraat.1541192340.min.css" rel="stylesheet" type="text/css">
+	<link href="/css/bootstrap-select.1549816468.min.css" rel="stylesheet" type="text/css">
+	<!-- <link href="/css/bootstrap.css" rel="stylesheet" type="text/css"> -->
+	<link href="/css/bootstrap-forms.css" rel="stylesheet" type="text/css">
+	<link href="/css/bootstrap-buttons.css" rel="stylesheet" type="text/css">
+	<link href="/css/aes-geel.1537460346.min.css" rel="stylesheet" type="text/css">
+	<script src="/js/texnicie-main.js"></script>
+	<link href="/css/texnicie-main.css" rel="stylesheet" type="text/css">
+	
+	<script src="/js/confirm-email.js"></script>
+
+    <title>LaTeX-cursus Week 3: Installatie & efficiëntie | TeXniCie</title>
+</head>
+
+<body style="margin:10px;padding:0px;border:0px;" class="body-geel">
+
+	<div style="margin:0px;padding:0px;border:0px;height:100%;"
+		class="container theme-showcase aes-container col-md-12 pagecontent paginainhoud">
+
+        
+        <!--<div class="navbar-header;" style="position:absolute;left:0px;max-width:0px;
+            max-width:calc(100% - min(max(calc((50em - 100%) * 10000), 0px), 100%));
+            overflow-x:hidden;">
+            <div style="display:inline-block;width:50em;"><a class="navbar-brand" href="https://texnicie.nl/en/mails/2022-09-cursus_6"
+                    style="color:#555;cursor:default;">texnicie.nl/en/mails/2022-09-cursus_6 </a></div>
+        </div>-->
+
+        <ul class="nav nav-tabs nav-centered" style="text-align:center;">
+            
+            <li  style="float:none;display:inline-block;">
+                <a href="/en">Home</a>
+            </li>
+        
+            <li class="dropdown " style="float:none;display:inline-block;">
+                <a class="dropdown-toggle" href="/en/aes-templates">
+                    A-Es templates
+                    <!-- <span class="caret"></span> -->
+                </a>
+                <ul class="dropdown-menu">
+                    
+                        <li>
+                            <a href="/en/aes-templates">Usage</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/en/aes-templates/installatie">Installation</a>
+                        </li>
+                        
+                </ul>
+            </li>
+        
+            <li  style="float:none;display:inline-block;">
+                <a href="/en/installatie">Installation</a>
+            </li>
+        
+            <li  style="float:none;display:inline-block;">
+                <a href="/en/cursus">Courses</a>
+            </li>
+        
+            <li  style="float:none;display:inline-block;">
+                <a href="/en/contact">Contact</a>
+            </li>
+        
+        </ul>
+    <!-- PAGE_TITLE: LaTeX-cursus Week 3: Installatie & efficiëntie -->
+
+<!-- IMPORT_SCRIPT /js/confirm-email.js -->
+
+<span id="statusMsg" style="font-size:2rem;font-weight:bold;margin-top:20px;display:block;"></span>
+
+<div style="display:flex;flex-direction:row;flex-wrap:wrap;
+	justify-content:flex-start;width:100%">
+
+    <div style="flex:0 0 max(calc(((100% - 60em) / 2) - 0px - 0em), 0px);
+	height:0px;">
+    </div>
+
+    <div style="max-width:60em;flex:1 3 30em;">
+
+
+        <div style="font-family: 'Segoe UI','Helvetica Neue',sans-serif; font-size: 12pt;">
+            <p style="margin-top:0px;">
+                Hoi {first_name_esc},
+            </p>
+            <p>
+                Maandag is de derde cursusavond van de LaTeX-cursus. En we hebben weer
+                lokaaltjes BBG 065 en BBG 061 :)<br/>
+                <strong>Belangrijk: download de programma's van de voorbereiding.
+                </strong>
+            </p>
+            <p>
+                Komende maandag draait om betrouwbaarheid en effici&euml;ntie.
+                Je eerste inleveropgave was waarschijnlijk aardig veel werk om in LaTeX te
+                schrijven. Dat hoeft niet zo te zijn! Op een
+                ge&iuml;nstalleerde versie van LaTeX heb je alle handigheidjes die
+                je kan bedenken, waaronder zelf instelbare shortcuts. Behalve meer
+                features, maakt een installatie je ook onafhankelijk van het commerci&euml;le
+                Overleaf. We eindigen met effici&euml;ntietips van LaTeX zelf, zoals
+                commandodefinities voor dingen die je vaak gebruikt.
+            </p>
+            <p><strong>Voorbereiding.</strong> De installatie voor LaTeX bestaat uit
+                meerdere onderdelen, de functies en reden ervoor leggen we in de cursusavond
+                uit. Een paar hiervan kunnen even duren om te installeren, daarom dat
+                we je aanraden om nu al door de installatiewizard te gaan. De laatste
+                stapjes om het werkende te krijgen doen we tijdens de avond.
+            </p>
+            Voor Windows:
+            <ol style="margin-top:2px;">
+                <li>MiKTeX: <a href="https://miktex.org/download">https://miktex.org/download</a></li>
+                <li>Perl: <a href="https://strawberryperl.com">https://strawberryperl.com</a></li>
+                <li>Visual Studio Code: <a href="https://code.visualstudio.com">https://code.visualstudio.com</a></li>
+            </ol>
+            Voor Mac:
+            <ol style="margin-top:2px;">
+                <li>MiKTeX: <a href="https://miktex.org/download">https://miktex.org/download</a></li>
+                <li>Visual Studio Code: <a href="https://code.visualstudio.com">https://code.visualstudio.com</a></li>
+            </ol>
+            Voor Linux:
+            <ol style="margin-top:2px;">
+                <li>TeX Live: <code>sudo apt install texlive</code></li>
+                <li>Visual Studio Code: <a href="https://code.visualstudio.com">https://code.visualstudio.com</a></li>
+            </ol>
+            Als je Linux gebruikt en een GUI wil, installeer dan MiKTeX i.p.v. TeX Live.
+            <div style="margin-top:10px;margin-bottom:45px;">
+                <strong>Download en open de installers voor jouw besturingssysteem.</strong>
+            </div>
+            <p>
+                Wil je nu al de hele installatie proberen? Kijk op mijn site:
+                <a href="https://vkuhlmann.com/latex/installation">https://vkuhlmann.com/latex/installation</a>
+            </p>
+            <p><strong>Volgende cursussen.</strong>
+                Later dit studiejaar zijn we van plan een verdiepende cursussessie over LaTeX te
+                geven, dan heb je namelijk wat tijd gehad om vertrouwd te raken met
+                de basis van LaTeX. Om interesse te meten,
+                en mensen te bereiken die erin ge&iuml;nteresseerd zijn (promotie wordt
+                bescheiden), hebben we graag dat je je aanmeldt op de mailinglijst:
+                <div style="margin-top:5px;margin-bottom:10px;">
+                    <a href="{advanced-course-signup-link}" style="font-weight:bold;">Zet me op de mailinglijst</a> (met e-mailadres {email})
+                </div>
+                Hierop ontvang je promotie relevant voor eerstejaars van 2022.
+                Elke mail van de mailinglijst bevat een uitschrijflink.
+            </p>
+            <p>
+                Onduidelijkheden of vragen? Stuur een reply.
+            </p>
+            <p>
+                Tot maandag!
+            </p>
+            <p>
+                Groeten,<br/>
+                Vincent Kuhlmann,<br/>
+                namens de TeXniCie
+            </p>
+            <div><br/>
+            ---<br/>
+            <br/></div>
+            <p><a href="{{{{amazonSESUnsubscribeUrl}}}}">Klik hier om je uit te schrijven van e-mails over deze cursus.</a></p>
+        </div>
+        
+</div>
+</div>
+
+	</div>
+</body>
+
+</html>
