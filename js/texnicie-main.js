@@ -241,7 +241,8 @@ let lastSubmit = 0;
             // Answer of https://stackoverflow.com/users/9074788/the-bic-pen
             fetch(url, {method: "HEAD"}).then((res) => {
                 if (!res.ok) {
-                    el.innerHTML = "Nog niet beschikbaar";
+                    // el.innerHTML = "Nog niet beschikbaar";
+                    el.innerHTML = (getURLLanguage() == "nl") ? "Nog niet beschikbaar" : "Not yet available";
                     //el.href = "#";
                 }
             })
