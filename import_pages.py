@@ -14,6 +14,7 @@ FONTS_DIR = ROOT_DIR / "fonts"
 ASSETS_DIR = ROOT_DIR / "assets"
 JAVASCRIPT_DIR = ROOT_DIR / "js"
 
+SRC_DIR = ROOT_DIR / "src"
 PAGES_DIR = ROOT_DIR / "src" / "pages"
 DEST_DIR = Path.cwd() / ".." / "texnicie-www-gh-pages"
 
@@ -105,7 +106,11 @@ GENERATE_LANGS = {"nl", "en"}
 def fill_fragments(contents):
     def replacer(m):
         fragment_name = m.group("fragmentName")
-        source = PAGES_DIR / PurePosixPath(fragment_name).relative_to("/")
+        rel_path = PurePosixPath(fragment_name).relative_to("/")
+        source = PAGES_DIR / rel_path
+        if not source.exists() and rel_path.parts[0].startswith("20"):
+            source = SRC_DIR / rel_path
+
         if not source.exists():
             raise Exception(f"Cannot find fragment {fragment_name}")
         with source.open("r", encoding="utf-8") as f:
