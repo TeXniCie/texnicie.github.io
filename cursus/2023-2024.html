@@ -14,7 +14,7 @@
 	<link href="/css/texnicie-main.css" rel="stylesheet" type="text/css">
 	
 	
-    <title>TeXniCie | TeXniCie</title>
+    <title>LaTeX-cursussen | TeXniCie</title>
 </head>
 
 <body style="margin:10px;padding:0px;border:0px;" class="body-geel">
@@ -26,13 +26,13 @@
         <!--<div class="navbar-header;" style="position:absolute;left:0px;max-width:0px;
             max-width:calc(100% - min(max(calc((50em - 100%) * 10000), 0px), 100%));
             overflow-x:hidden;">
-            <div style="display:inline-block;width:50em;"><a class="navbar-brand" href="https://texnicie.nl"
-                    style="color:#555;cursor:default;">texnicie.nl </a></div>
+            <div style="display:inline-block;width:50em;"><a class="navbar-brand" href="https://texnicie.nl/cursus/2023-2024"
+                    style="color:#555;cursor:default;">texnicie.nl/cursus/2023-2024 </a></div>
         </div>-->
 
         <ul class="nav nav-tabs nav-centered" style="text-align:center;">
             
-            <li class="active" style="float:none;display:inline-block;">
+            <li  style="float:none;display:inline-block;">
                 <a href="/">Home</a>
             </li>
         
@@ -58,7 +58,7 @@
                 <a href="/installatie">Installatie</a>
             </li>
         
-            <li  style="float:none;display:inline-block;">
+            <li class="active" style="float:none;display:inline-block;">
                 <a href="/cursus">Cursussen</a>
             </li>
         
@@ -67,7 +67,7 @@
             </li>
         
         </ul>
-    <!-- PAGE_TITLE: TeXniCie -->
+    <!-- PAGE_TITLE: LaTeX-cursussen -->
 
 <!-- <div class="navbar-header;" style="position:absolute;left:0px;max-width:0px;
 	max-width:calc(100% - min(max(calc((50em - 100%) * 10000), 0px), 100%));
@@ -82,12 +82,13 @@
 	</div>
 
 	<div style="margin-right:20px;margin-left:20px;display:block;
-	flex:0 0 calc(min(0em, 100% - 40px) + min(max(calc(0000 * (0em + 0em + 40px - 100%)), 0px),
-	max(calc(100% - 40px - min(0em, 100% - 40px)), 0px)));padding-top:10px;">
+	flex:0 0 calc(min(20em, 100% - 40px) + min(max(calc(10000 * (30em + 20em + 40px - 100%)), 0px),
+	max(calc(100% - 40px - min(20em, 100% - 40px)), 0px)));padding-top:10px;">
 		<div style="height:100%;">
 			<div style="top:150px;position:-webkit-sticky;position:sticky;">
-				<!-- <ul class="nav nav-pills nav-stacked" style="width:100%;">
-					<li class="active"><a href="#">2022-2023</a>
+				<ul class="nav nav-pills nav-stacked" style="width:100%;">
+					<li style="background-color:hsl(208, 56%, 95%);"><a href="/en/cursus">2024-2025</a></li>
+					<li class="active"><a href="#">2023-2024</a>
 						<ul
 							style="width:100%;padding:10px 0px 10px 10px;list-style:none;display:flex;flex-flow:column nowrap;gap:6px;">
 							<li style="border-left:4px solid #ddd;padding:5px;"><span
@@ -96,31 +97,49 @@
 								<img style="width:1.2em;height:1.2em;margin-left:10px;" alt=""
 									src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMWVtIiBoZWlnaHQ9IjFlbSIgdmlld0JveD0iMCAwIDE2IDE2IiBjbGFzcz0iYmkgYmktY2FsZW5kYXItY2hlY2siIGZpbGw9ImdyZWVuIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPg0KICA8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0zLjUgMGEuNS41IDAgMCAxIC41LjVWMWg4Vi41YS41LjUgMCAwIDEgMSAwVjFoMWEyIDIgMCAwIDEgMiAydjExYTIgMiAwIDAgMS0yIDJIMmEyIDIgMCAwIDEtMi0yVjNhMiAyIDAgMCAxIDItMmgxVi41YS41LjUgMCAwIDEgLjUtLjV6TTEgNHYxMGExIDEgMCAwIDAgMSAxaDEyYTEgMSAwIDAgMCAxLTFWNEgxeiIvPg0KICA8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xMC44NTQgNy4xNDZhLjUuNSAwIDAgMSAwIC43MDhsLTMgM2EuNS41IDAgMCAxLS43MDggMGwtMS41LTEuNWEuNS41IDAgMSAxIC43MDgtLjcwOEw3LjUgOS43OTNsMi42NDYtMi42NDdhLjUuNSAwIDAgMSAuNzA4IDB6Ii8+DQo8L3N2Zz4NCg=="
 									title="Activiteit is afgerond">
+								<!-- <img style="width:1.2em;height:1.2em;margin-left:10px;" alt=""
+									src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMWVtIiBoZWlnaHQ9IjFlbSIgdmlld0JveD0iMCAwIDE2IDE2IiBjbGFzcz0iYmkgYmktY2FsZW5kYXItZXZlbnQiIGZpbGw9ImJsdWUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+DQogIDxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTMuNSAwYS41LjUgMCAwIDEgLjUuNVYxaDhWLjVhLjUuNSAwIDAgMSAxIDBWMWgxYTIgMiAwIDAgMSAyIDJ2MTFhMiAyIDAgMCAxLTIgMkgyYTIgMiAwIDAgMS0yLTJWM2EyIDIgMCAwIDEgMi0yaDFWLjVhLjUuNSAwIDAgMSAuNS0uNXpNMSA0djEwYTEgMSAwIDAgMCAxIDFoMTJhMSAxIDAgMCAwIDEtMVY0SDF6Ii8+DQogIDxwYXRoIGQ9Ik0xMSA2LjVhLjUuNSAwIDAgMSAuNS0uNWgxYS41LjUgMCAwIDEgLjUuNXYxYS41LjUgMCAwIDEtLjUuNWgtMWEuNS41IDAgMCAxLS41LS41di0xeiIvPg0KPC9zdmc+DQo="
+									title="Activiteit komt nog"> -->
 							</li>
 							<li style="border-left:4px solid #ddd;padding:5px;"><span
 									style="color:#ddd">2.&nbsp;</span><a href="#LaTeX-cursus">LaTeX-cursus</a>
-								<img style="width:1.2em;height:1.2em;margin-left:10px;" alt=""
+								<!-- <img style="width:1.2em;height:1.2em;margin-left:10px;" alt=""
+						src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMWVtIiBoZWlnaHQ9IjFlbSIgdmlld0JveD0iMCAwIDE2IDE2IiBjbGFzcz0iYmkgYmktY2FsZW5kYXItZXZlbnQiIGZpbGw9ImJsdWUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+DQogIDxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTMuNSAwYS41LjUgMCAwIDEgLjUuNVYxaDhWLjVhLjUuNSAwIDAgMSAxIDBWMWgxYTIgMiAwIDAgMSAyIDJ2MTFhMiAyIDAgMCAxLTIgMkgyYTIgMiAwIDAgMS0yLTJWM2EyIDIgMCAwIDEgMi0yaDFWLjVhLjUuNSAwIDAgMSAuNS0uNXpNMSA0djEwYTEgMSAwIDAgMCAxIDFoMTJhMSAxIDAgMCAwIDEtMVY0SDF6Ii8+DQogIDxwYXRoIGQ9Ik0xMSA2LjVhLjUuNSAwIDAgMSAuNS0uNWgxYS41LjUgMCAwIDEgLjUuNXYxYS41LjUgMCAwIDEtLjUuNWgtMWEuNS41IDAgMCAxLS41LS41di0xeiIvPg0KPC9zdmc+DQo="
+						title="Activiteit komt nog"> -->
+						<img style="width:1.2em;height:1.2em;margin-left:10px;" alt=""
 									src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMWVtIiBoZWlnaHQ9IjFlbSIgdmlld0JveD0iMCAwIDE2IDE2IiBjbGFzcz0iYmkgYmktY2FsZW5kYXItZXZlbnQiIGZpbGw9ImJsdWUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+DQogIDxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTMuNSAwYS41LjUgMCAwIDEgLjUuNVYxaDhWLjVhLjUuNSAwIDAgMSAxIDBWMWgxYTIgMiAwIDAgMSAyIDJ2MTFhMiAyIDAgMCAxLTIgMkgyYTIgMiAwIDAgMS0yLTJWM2EyIDIgMCAwIDEgMi0yaDFWLjVhLjUuNSAwIDAgMSAuNS0uNXpNMSA0djEwYTEgMSAwIDAgMCAxIDFoMTJhMSAxIDAgMCAwIDEtMVY0SDF6Ii8+DQogIDxwYXRoIGQ9Ik0xMSA2LjVhLjUuNSAwIDAgMSAuNS0uNWgxYS41LjUgMCAwIDEgLjUuNXYxYS41LjUgMCAwIDEtLjUuNWgtMWEuNS41IDAgMCAxLS41LS41di0xeiIvPg0KPC9zdmc+DQo="
 									title="Activiteit komt nog">
 							</li>
+							<!--<li style="border-left:4px solid #ddd;padding:5px;"><span style="color:#ddd">3.&nbsp;</span><a href="#GSNS-February">GSNS cursus februari</a>
+								<img style="width:1.2em;height:1.2em;margin-left:10px;" alt=""
+						src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMWVtIiBoZWlnaHQ9IjFlbSIgdmlld0JveD0iMCAwIDE2IDE2IiBjbGFzcz0iYmkgYmktY2FsZW5kYXItZXZlbnQiIGZpbGw9ImJsdWUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+DQogIDxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTMuNSAwYS41LjUgMCAwIDEgLjUuNVYxaDhWLjVhLjUuNSAwIDAgMSAxIDBWMWgxYTIgMiAwIDAgMSAyIDJ2MTFhMiAyIDAgMCAxLTIgMkgyYTIgMiAwIDAgMS0yLTJWM2EyIDIgMCAwIDEgMi0yaDFWLjVhLjUuNSAwIDAgMSAuNS0uNXpNMSA0djEwYTEgMSAwIDAgMCAxIDFoMTJhMSAxIDAgMCAwIDEtMVY0SDF6Ii8+DQogIDxwYXRoIGQ9Ik0xMSA2LjVhLjUuNSAwIDAgMSAuNS0uNWgxYS41LjUgMCAwIDEgLjUuNXYxYS41LjUgMCAwIDEtLjUuNWgtMWEuNS41IDAgMCAxLS41LS41di0xeiIvPg0KPC9zdmc+DQo="
+						title="Activiteit komt nog">
+							</li>-->
 							<li style="border-left:4px solid #ddd;padding:5px;"><span
-									style="color:#ddd">3.&nbsp;</span><a href="#Scriptiecursus">GSNS cursus februari</a>
+									style="color:#ddd">3.&nbsp;</span><a href="#GSNS-February">GSNS cursus februari</a>
+								<!--<img style="width:1.2em;height:1.2em;margin-left:10px;" alt=""							
+						src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMWVtIiBoZWlnaHQ9IjFlbSIgdmlld0JveD0iMCAwIDE2IDE2IiBjbGFzcz0iYmkgYmktY2FsZW5kYXItY2hlY2siIGZpbGw9ImdyZWVuIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPg0KICA8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0zLjUgMGEuNS41IDAgMCAxIC41LjVWMWg4Vi41YS41LjUgMCAwIDEgMSAwVjFoMWEyIDIgMCAwIDEgMiAydjExYTIgMiAwIDAgMS0yIDJIMmEyIDIgMCAwIDEtMi0yVjNhMiAyIDAgMCAxIDItMmgxVi41YS41LjUgMCAwIDEgLjUtLjV6TTEgNHYxMGExIDEgMCAwIDAgMSAxaDEyYTEgMSAwIDAgMCAxLTFWNEgxeiIvPg0KICA8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xMC44NTQgNy4xNDZhLjUuNSAwIDAgMSAwIC43MDhsLTMgM2EuNS41IDAgMCAxLS43MDggMGwtMS41LTEuNWEuNS41IDAgMSAxIC43MDgtLjcwOEw3LjUgOS43OTNsMi42NDYtMi42NDdhLjUuNSAwIDAgMSAuNzA4IDB6Ii8+DQo8L3N2Zz4NCg=="
+						title="Activiteit is afgerond">-->
 								<img style="width:1.2em;height:1.2em;margin-left:10px;" alt=""
 									src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMWVtIiBoZWlnaHQ9IjFlbSIgdmlld0JveD0iMCAwIDE2IDE2IiBjbGFzcz0iYmkgYmktY2FsZW5kYXItZXZlbnQiIGZpbGw9ImJsdWUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+DQogIDxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTMuNSAwYS41LjUgMCAwIDEgLjUuNVYxaDhWLjVhLjUuNSAwIDAgMSAxIDBWMWgxYTIgMiAwIDAgMSAyIDJ2MTFhMiAyIDAgMCAxLTIgMkgyYTIgMiAwIDAgMS0yLTJWM2EyIDIgMCAwIDEgMi0yaDFWLjVhLjUuNSAwIDAgMSAuNS0uNXpNMSA0djEwYTEgMSAwIDAgMCAxIDFoMTJhMSAxIDAgMCAwIDEtMVY0SDF6Ii8+DQogIDxwYXRoIGQ9Ik0xMSA2LjVhLjUuNSAwIDAgMSAuNS0uNWgxYS41LjUgMCAwIDEgLjUuNXYxYS41LjUgMCAwIDEtLjUuNWgtMWEuNS41IDAgMCAxLS41LS41di0xeiIvPg0KPC9zdmc+DQo="
 									title="Activiteit komt nog">
 							</li>
 							<li style="border-left:4px solid #ddd;padding:5px;"><span
 									style="color:#ddd">4.&nbsp;</span><a href="#Scriptiecursus">Scriptiecursus</a>
+								<!--<img style="width:1.2em;height:1.2em;margin-left:10px;" alt=""							
+						src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMWVtIiBoZWlnaHQ9IjFlbSIgdmlld0JveD0iMCAwIDE2IDE2IiBjbGFzcz0iYmkgYmktY2FsZW5kYXItY2hlY2siIGZpbGw9ImdyZWVuIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPg0KICA8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0zLjUgMGEuNS41IDAgMCAxIC41LjVWMWg4Vi41YS41LjUgMCAwIDEgMSAwVjFoMWEyIDIgMCAwIDEgMiAydjExYTIgMiAwIDAgMS0yIDJIMmEyIDIgMCAwIDEtMi0yVjNhMiAyIDAgMCAxIDItMmgxVi41YS41LjUgMCAwIDEgLjUtLjV6TTEgNHYxMGExIDEgMCAwIDAgMSAxaDEyYTEgMSAwIDAgMCAxLTFWNEgxeiIvPg0KICA8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xMC44NTQgNy4xNDZhLjUuNSAwIDAgMSAwIC43MDhsLTMgM2EuNS41IDAgMCAxLS43MDggMGwtMS41LTEuNWEuNS41IDAgMSAxIC43MDgtLjcwOEw3LjUgOS43OTNsMi42NDYtMi42NDdhLjUuNSAwIDAgMSAuNzA4IDB6Ii8+DQo8L3N2Zz4NCg=="
+						title="Activiteit is afgerond">-->
 								<img style="width:1.2em;height:1.2em;margin-left:10px;" alt=""
 									src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMWVtIiBoZWlnaHQ9IjFlbSIgdmlld0JveD0iMCAwIDE2IDE2IiBjbGFzcz0iYmkgYmktY2FsZW5kYXItZXZlbnQiIGZpbGw9ImJsdWUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+DQogIDxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTMuNSAwYS41LjUgMCAwIDEgLjUuNVYxaDhWLjVhLjUuNSAwIDAgMSAxIDBWMWgxYTIgMiAwIDAgMSAyIDJ2MTFhMiAyIDAgMCAxLTIgMkgyYTIgMiAwIDAgMS0yLTJWM2EyIDIgMCAwIDEgMi0yaDFWLjVhLjUuNSAwIDAgMSAuNS0uNXpNMSA0djEwYTEgMSAwIDAgMCAxIDFoMTJhMSAxIDAgMCAwIDEtMVY0SDF6Ii8+DQogIDxwYXRoIGQ9Ik0xMSA2LjVhLjUuNSAwIDAgMSAuNS0uNWgxYS41LjUgMCAwIDEgLjUuNXYxYS41LjUgMCAwIDEtLjUuNWgtMWEuNS41IDAgMCAxLS41LS41di0xeiIvPg0KPC9zdmc+DQo="
 									title="Activiteit komt nog">
 							</li>
 						</ul>
 					</li>
+					<li style="background-color:hsl(208, 56%, 95%);"><a href="/cursus/2022-2023">2022-2023</a></li>
 					<li style="background-color:hsl(208, 56%, 95%);"><a href="/cursus/2021-2022">2021-2022</a></li>
 					<li style="background-color:hsl(208, 56%, 95%);"><a href="/cursus/2020-2021">2020-2021</a></li>
 					<li style="background-color:hsl(208, 56%, 95%);"><a href="/cursus/2019-2020">2019-2020</a></li>
-				</ul> -->
+				</ul>
 			</div>
 		</div>
 	</div>
@@ -135,10 +154,9 @@
 			<code>/aes2logo-rood.eps</code>. De zip beneden is hierop gecorrigeerd.
 		</div>-->
 
-		<!-- <p>Voor het laatst bewerkt door Vincent Kuhlmann op 19 september 2022.
-			
-		</p> -->
-		<!-- <strong>GSNS? Switch to <a href="?setlanguage=en">English</a>.</strong>-->
+		<p>Voor het laatst bewerkt door Vincent Kuhlmann op 21 maart 2024.
+			<!-- <strong>GSNS? Switch to <a href="?setlanguage=en">English</a>.</strong>-->
+		</p>
 
 		<!--<p><a href="?setlanguage=en" class="btn btn-primary">Switch to English for information on GSNS</a></p>-->
 
@@ -151,11 +169,126 @@
 			</a>
 		</div>-->
 
-		<!-- <h3 style="margin-bottom:30px;">GSNS workshop LaTeX</h3> -->
+		<h2>Komende activiteiten</h2>
 
-		<h3 style="margin-bottom:30px;">LaTeX-cursus</h3>
+		
 
-		<!-- <div class="alert alert-warning">
+		<div id="Scriptiecursus" style="position:relative;width:0px;height:0px;top:-50px;"></div>
+		<div id="Thesis" style="position:relative;width:0px;height:0px;top:-50px;"></div>
+		<div id="Thesis-course" style="position:relative;width:0px;height:0px;top:-50px;"></div>
+		<h3>4.&nbsp;&nbsp;Scriptiecursus (info voor 2024)</h3>
+		<div
+    style="margin-left:-10px;border-left:4px solid #ddd;padding:2px 0px 2px 10px;display:flex;flex-flow:column nowrap;gap:5px;">
+    <div><b>Datum en tijd:</b> maandag 25 maart 2024 om 15:15 (tot 17:00).</div>
+    <div><b>Locatie:</b> BBG 161.</div>
+
+    <div style="margin:10px 0px;">
+        <p>
+            Op maandag 25 maart organiseert de TeXniCie haar jaarlijkse LaTeX scriptiecursus. Deze cursus is speciaal
+            voor iedereen die dit semester een scriptie schrijft of binnenkort gaat beginnen. De cursus is op 25 maart
+            van 15:15 tot 17:00 in BBG 161.
+        </p>
+        <p>
+            We demonstreren het gebruik van onze scriptietemplate, tonen hoe je een bibliografie maakt en geven een
+            refresher over onderwerpen zoals figuren en referenties.
+        </p>
+        <p>
+            Vul je e-mailadres in zodat we je op de hoogte kunnen houden bij wijzigingen:
+            <a href="https://forms.office.com/e/EFTrDcxgjD">https://forms.office.com/e/EFTrDcxgjD</a>
+        </p>
+        <p>
+            Op dit e-mailadres kunnen we ook een herinneringsmail sturen, een mail bij eventuele wijzigingen van datum
+            of lokaal, en hebben we een inschatting van hoeveel koekjes we moeten voorzien ;) Tot binnenkort!
+        </p>
+        <p>
+            Heb je vragen? Stuur ons een mailtje. Zie <a href="/contact">Contact</a>.
+        </p>
+    </div>
+    <div>
+        <p><strong>Bestanden:</strong></p>
+        <table class="table table-striped table-hover
+            table-bordered">
+            <colgroup>
+                <col style="width: 100%" />
+                <col />
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>Beschrijving</th>
+                    <th>Download</th>
+                </tr>
+            </thead>
+            <tbody style="background:#f2f2f2;">
+                <tr>
+                    <td>Slides over theorie</td>
+                    <td>
+                        <span class="check-exists">
+                            <a href="/downloads/2024/LaTeX_slides_scriptiecursus_2024-03.pdf">LaTeX_slides_scriptiecursus-2024-03.pdf</a>
+                        </span>
+                    </td>
+                </tr>
+                <!-- <tr>
+                    <td>Scriptietemplate (versie 2020)</td>
+                    <td><a href="/downloads/2019-2020/Thesis_manual_20_Correctie.zip">Thesis_manual_20_Correctie.zip</a>
+                    </td>
+                </tr> -->
+                <tr>
+                    <td>Scriptietemplate (versie 2023).</td>
+                    <td>
+                        <span class="check-exists"><a href="/downloads/2023/LaTeX_scriptietemplate_2023-03.zip">LaTeX_scriptietemplate_2023-03</a>
+                        </span>
+                        </td>
+                </tr>
+                <tr>
+                    <td>Scriptietemplate (versie 2021).</td>
+                    <td><a href="/downloads/2020-2021/ThesisTemplate2021.zip">ThesisTemplate2021.zip</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+		<!-- <div
+			style="margin-left:-10px;border-left:4px solid #ddd;padding:2px 0px 2px 10px;display:flex;flex-flow:column nowrap;gap:5px;">
+			<div>
+				Datum en beschrijving nog niet bekend.
+			</div>
+		</div> -->
+
+
+		<h2 style="margin-top:60px;">Afgelopen activiteiten (recentste eerst)</h2>
+
+		<div id="GSNS-februari" style="position:relative;width:0px;height:0px;top:-50px;"></div>
+		<div id="GSNS-February" style="position:relative;width:0px;height:0px;top:-50px;"></div>
+		<h3>3.&nbsp;&nbsp;GSNS course February (info voor 2023-2024)</h3>
+		<div
+			style="margin-left:-10px;border-left:4px solid #ddd;padding:2px 0px 2px 10px;display:flex;flex-flow:column nowrap;gap:5px;">
+			<!-- <div>
+				<b>
+					Datum en tijd:&nbsp;
+				</b>
+				<div style="display:inline-block;vertical-align:top;">
+					Dinsdag 8 februari 2022, 15:30 - 17:00.
+				</div>
+			</div> -->
+			<div>
+				Date and description to be announced.
+			</div>
+			<div>
+				See English page for more information.
+				<a href="?setlanguage=en">Switch to English</a>
+			</div>
+		</div>
+
+		<div id="LaTeX-cursus" style="position:relative;width:0px;height:0px;top:-70px;"></div>
+		<div id="LaTeX-course" style="position:relative;width:0px;height:0px;top:-70px;"></div>
+		<div id="algemene-cursus" style="position:relative;width:0px;height:0px;top:-70px;"></div>
+		<h3 style="margin-top:0px;">2.&nbsp;&nbsp;LaTeX-cursus (info voor 2023-2024)</h3>
+
+		<div
+			style="margin-left:-10px;border-left:4px solid #ddd;padding:2px 0px 2px 10px;display:flex;flex-flow:column nowrap;gap:5px;">
+			
+			<!-- <div class="alert alert-warning">
     <strong>Conceptplanning en voorlopig tekstje.</strong> De informatie
     die hier getoond is, is een conceptplanning, of van vorig jaar.
     De informatie wordt later pas definitief.
@@ -176,8 +309,8 @@
 </div> -->
 
 <div style="margin-bottom:30px;">
-    <strong>Schrijf je in: <a href="https://forms.office.com/e/Phdk8gcvz9"
-            target="_blank"> https://forms.office.com/e/Phdk8gcvz9</a></strong><br />
+    <strong>Schrijf je in: <a href="https://forms.gle/Kp4xCHEy1hfSogwv8"
+            target="_blank">https://forms.gle/Kp4xCHEy1hfSogwv8</a></strong><br />
 </div>
 
 <!-- <div style="font-style: italic;margin-bottom:20px;">Meer informatie? Zie het <a href="#rooster2023">rooster</a>, en
@@ -185,7 +318,7 @@
         pagina</a>.</div> -->
 
 <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;padding-left:20px;">
-    <table id="rooster2024" class="table table-striped table-hover table-bordered" style="margin-bottom:10px;">
+    <table id="rooster2023" class="table table-striped table-hover table-bordered" style="margin-bottom:10px;">
         <colgroup>
             <col />
             <col />
@@ -209,13 +342,16 @@
         <tbody style="background:#f2f2f2;">
             <tr>
                 <td>
-                    <div>Week 1</div>
+                    <div>Week 1: Eerste inleveropgave</div>
                     <div class="margin-above only-small">
-                        ma 23 september 16:00 - 18:00
+                        di 26 september 11:00 - 12:45<br />
+                        do 28 september 13:15 - 15:00
                     </div>
                 </td>
                 <td class="only-large">
-                    <span>ma 23 september 16:00 - 18:00</span>
+                    <span>di 26 september 11:00 - 12:45</span><br />
+                    <span>do 28 september 13:15 - 15:00</span>
+                    <!-- In de week van 26 september t.e.m. 30 september -->
                 </td>
                 <!-- <td>
                 TBA
@@ -246,37 +382,38 @@
             <tr>
                 <td colspan="2" style="padding-bottom:30px;">
                     LaTeX die je nodig hebt voor je eerste inleveropgave in LaTeX.<br />
-                    <!-- <strong>Onderwerpen:</strong> Basisbestand, wiskunde, whitespace en simpele
-                    afbeelding.<br /> -->
+                    <strong>Onderwerpen:</strong> Basisbestand, wiskunde, whitespace en simpele
+                    afbeelding.<br />
                     <!-- <i>Kan je al een beetje LaTeX? Sla deze sessie gerust over.</i><br /> -->
                     <br />
-                    <!-- <strong>Voorbeeld</strong> van wat je kan maken
+                    <strong>Voorbeeld</strong> van wat je kan maken
                     na deze cursusavond: <a href="/downloads/2021-2022/LaTeX_Week1_Voorbeeld.pdf"
-                        target="_blank">LaTeX_Week1_Voorbeeld.pdf</a><br /> -->
-                    <strong>Locatie:</strong> BBG 077<br />
+                        target="_blank">LaTeX_Week1_Voorbeeld.pdf</a><br />
+                    <strong>Locatie dinsdag:</strong> KBG 224 <br />
+                    <strong>Locatie donderdag:</strong> BBG 001 <br />
                     <strong>Slides:</strong>
                     <span class="check-exists"><a
-                        href="/downloads/2024/LaTeX_Week1_slides.pdf">LaTeX_Week1_slides.pdf</a>
+                        href="/downloads/2023/LaTeX_Week1_slides.pdf">LaTeX_Week1_slides.pdf</a>
                     </span>
                     <br />
                     <strong>Oefeningen:</strong>
                     <span class="check-exists">
                     <a
-                        href="/downloads/2024/LaTeX_Week1_oefeningen.pdf">LaTeX_Week1_oefeningen.pdf</a>
+                        href="/downloads/2022-2023/LaTeX_Week1_oefeningen.pdf">LaTeX_Week1_oefeningen.pdf</a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <div>Week 2</div>
+                    <div>Week 2: Essentieel</div>
                     <div class="margin-above only-small">
                         <!-- di 3 oktober 11:00 - 12:45<br /> -->
-                        ma 30 september 16:00 - 18:00
+                        do 5 oktober 13:15 - 15:00
                     </div>
                 </td>
                 <td class="only-large">
                     <!-- <span>di 3 oktober 11:00 - 12:45</span><br /> -->
-                    <span>ma 30 september 16:00 - 18:00</span>
+                    <span>do 5 oktober 13:15 - 15:00</span>
                 </td>
                 <!-- <td>
                 TBA
@@ -294,21 +431,22 @@
             <tr>
                 <td colspan="2" style="padding-bottom:30px;">
                     LaTeX die je nodig hebt na je eerste inleveropgave in LaTeX.<br />
-                    <!-- <strong>Onderwerpen:</strong> Figuren, referenties, `Theorem' en matrices+tabellen.<br />
+                    <strong>Onderwerpen:</strong> Figuren, referenties, `Theorem' en matrices+tabellen.<br />
                     <br />
                     <strong>Voorbeeld</strong> van wat je kan maken
                     na deze cursusavond: <a href="/downloads/2021-2022/LaTeX_Week2_Voorbeeld.pdf"
-                        target="_blank">LaTeX_Week2_Voorbeeld.pdf</a><br /> -->
-                    <strong>Locatie:</strong> BBG 103 <br />
+                        target="_blank">LaTeX_Week2_Voorbeeld.pdf</a><br />
+                    <div style="margin-top:20px;"><strong>Cursussessie op dinsdag is afgelast!</strong></div>
+                    <strong>Locatie:</strong> BBG 001 <br />
                     <strong>Slides:</strong>
                     <span class="check-exists"><a
-                        href="/downloads/2024/LaTeX_Week2_slides.pdf">LaTeX_Week2_slides.pdf</a>
+                        href="/downloads/2023/LaTeX_Week2_slides.pdf">LaTeX_Week2_slides.pdf</a>
                     </span>
                     <br />
                     <strong>Oefeningen:</strong>
                     <span class="check-exists">
                     <a
-                        href="/downloads/2024/LaTeX_Week2_oefeningen.pdf">LaTeX_Week2_oefeningen.pdf</a>
+                        href="/downloads/2023/LaTeX_Week2_oefeningen.pdf">LaTeX_Week2_oefeningen.pdf</a>
                     </span>
                     <!-- <p><strong>Lokaal Tim (17:15-19:00).</strong>
                         In BBG 061 doet Tim
@@ -365,23 +503,35 @@
             </tr>
             <tr>
                 <td>
-                    <div>Week 3</div>
+                    <div>Week 3: Verdieping</div>
                     <div class="margin-above only-small">
-                        ma 7 oktober 16:00 - 18:00
+                        do 12 oktober 13:15 - 15:00
                     </div>
                 </td>
                 <td class="only-large">
-                    <span>ma 7 oktober 16:00 - 18:00</span>
+                    <span>do 12 oktober 13:15 - 15:00</span>
                 </td>
             </tr>
             <tr>
                 <td colspan="2" style="padding-bottom:30px;">
-                    <strong>Locatie:</strong> TBD <br />
+                    <!-- LaTeX die je nodig hebt na je eerste inleveropgave in LaTeX.<br /> -->
+                    <!-- <strong>Onderwerpen:</strong> Figuren, referenties, `Theorem' en matrices+tabellen.<br /> -->
+                    <!-- <br /> -->
+                    <!-- <strong>Voorbeeld</strong> van wat je kan maken
+                    na deze cursusavond: <a href="/downloads/2021-2022/LaTeX_Week2_Voorbeeld.pdf"
+                        target="_blank">LaTeX_Week2_Voorbeeld.pdf</a><br /> -->
+                    <div style="margin-bottom:20px;"><strong>Cursussessie op dinsdag is afgelast!</strong></div>
+                    <strong>Locatie:</strong> BBG 001 <br />
                     <strong>Slides:</strong>
                     <span class="check-exists"><a
-                        href="/downloads/2024/LaTeX_Week3_slides.pdf">LaTeX_Week3_slides.pdf</a>
+                        href="/downloads/2023/LaTeX_Week3_slides.pdf">LaTeX_Week3_slides.pdf</a>
                     </span>
                     <br />
+                    <!-- <strong>Oefeningen:</strong>
+                    <span class="check-exists">
+                    <a
+                        href="/downloads/2023/LaTeX_Week2_oefeningen.pdf">LaTeX_Week2_oefeningen.pdf</a>
+                    </span> -->
                 </td>
             </tr>
         </tbody>
@@ -414,20 +564,16 @@
                     <strong>Voor meer informatie (ook de meest up to date informatie) zie onze website: www.texnicie.nl</strong>
                 </p>
 
-
                 <p>
-                    <strong>Wat is LaTeX?</strong> In het kort is LaTeX een programma om wiskundige teksten te maken, essentieel voor
-                    wetenschappelijke teksten in de wiskunde en natuurkunde.
+                    Wanneer is het? Vanaf volgende week 3 keer op dinsdag 11:00-12:45 OF op donderdag 13:15-15:00 en dan nog 1 keer op dinsdag 17:00-18:30.
+                    Zie
+                    www.texnicie.nl voor het rooster.
                 </p>
 
                 <p>
-                    <strong>Wanneer en waar is de cursus?</strong>
-                    De cursus loopt van week 39 (23 september) tot en met week 41 (7 oktober), met één les van ongeveer twee uur per week. De locaties zullen op de website (www.texnicie.nl) te vinden zijn en zijn in/rond het BBG. De cursussen vinden plaats op:<br/>
-                    - 23 september 16:00-18:00 (Basis)<br/>
-                    - 30 september 16:00-18:00 (Essentieel)<br/>
-                    - 7 oktober 16:00-18:00 (Verdiepend)<br/>
+                    <strong>Wat is LaTeX?</strong> In het kort is LaTeX een programma om wiskundige teksten te maken, een must voor
+                    wetenschappelijke teksten in de Wiskunde en Natuurkunde.
                 </p>
-
 
                 <p>
                     <strong>Wat moet ik voorbereiden als ik kom?</strong> Handig is het als je al een account hebt op www.overleaf.com en
@@ -439,15 +585,6 @@
                     herinnering sturen.
                 </p>
 
-                <p>
-                <strong>Wat behandelen we in de cursus?</strong> De cursus heeft drie lessen. De lessen zullen een combinatie zijn van uitleg en opdrachten.
-                In de eerste twee lessen behandelen we wat LaTeX is en hoe je simpele documenten maakt. Na deze twee lessen kan je al je inleveropdrachten netjes op je computer maken en inleveren.
-                In de verdiepingsles leren we je nog wat handige trucjes en laten we een glimp zien van wat je allemaal nog meer met LaTeX kan, daarnaast leggen we uit hoe je LaTeX in Visual Studio kunt gebruiken.
-            </p>
-                <p>
-                <strong>Wat moet ik nog meer weten?</strong>
-                Heb je nu al een vraag? Stuur ons een mailtje naar info@texnicie.nl. Kan je een les niet? We zullen slides en eventuele opdrachten ook op onze website delen, maar dat is natuurlijk lang niet zo leuk en leerzaam al het is om de cursus zelf te beleven.
-            </p>
                 <!-- <p style="margin-top:0px;">
                     Hoi! Komende maandag (26 september) start de LaTeX-cursus!
                     Je gaat LaTeX vroeg of laat nodig hebben, of het nu is voor
@@ -549,14 +686,215 @@
     De TeXniCie is een commissie van A-Eskwadraat.
     Zie <a href="https://a-eskwadraat.nl" target="_blank">a-eskwadraat.nl</a>
 </p>
+		</div>
 
-		<!-- <div
-			style="margin-left:-10px;border-left:4px solid #ddd;padding:2px 0px 2px 10px;display:flex;flex-flow:column nowrap;gap:5px;">
-			
-			
-		</div> -->
+		<div style="margin-bottom: 50px;"></div>
+
+
+		<div id="GSNS-september" style="position:relative;width:0px;height:0px;top:-70px;"></div>
+		<div id="GSNS-September" style="position:relative;width:0px;height:0px;top:-70px;"></div>
+		<h3 style="margin-top:0px;">1.&nbsp;&nbsp;GSNS cursus september (info voor 2023-2024)</h3>
+
+		<div style="border-left:4px solid #ddd;padding:2px 0px 2px 10px;display:flex;flex-flow:column nowrap;gap:5px;">
+    <div>
+        <b>
+            Date and time:&nbsp;
+        </b>
+        <div style="display:inline-block;vertical-align:top;">
+            <!-- Round 1: Tuesday 7 February 2023, 13:30 - 15:00.<br/>
+            Round 2: Tuesday 7 February 2023, 15:30 - 17:00. -->
+            Round 1: Tuesday 6 September 2023, 13:30 - 15:00.<br/>
+            Round 2: Tuesday 6 September 2023, 15:30 - 17:00.
+        </div>
+    </div>
+    <div>
+        <strong>Location:</strong> BBG 209.
+    </div>
+
+    <div>
+        <strong>Register attendance:</strong> <a href="https://qrco.de/beIDpr">Register your attendance</a>.
+    </div>
+    <!-- <div><strong>Installation:</strong> At <a
+        href="https://www.vkuhlmann.com/latex/installation">vkuhlmann.com/latex/installation</a>.</div> -->
+
+    <div><strong>Exercises:</strong> <span class="check-exists">
+        <a href="/downloads/2023/LaTeX_exercises_GSNS_2023-09.pdf">LaTeX_exercises_GSNS_2023-09.pdf</a>
+    </span></div>
+
+    <!-- <div><strong>Solutions:</strong> <span>
+        <a href="https://www.overleaf.com/read/mddhpppyjhgg" rel="noreferrer" target="_blank">Solutions on Overleaf</a>
+    </span></div> -->
+
+    <div><strong>Slides:</strong>
+        <span class="check-exists">
+            <a href="/downloads/2023/LaTeX_slides_GSNS_2023-09.pdf">LaTeX_slides_GSNS_2023-09.pdf</a>
+        </span></div>
+
+    <div><strong>Example of what you achieve in this workshop:</strong> <span class="check-exists">
+        <a href="/downloads/2023/LaTeX_example_GSNS_2023-02.pdf">LaTeX_example_GSNS_2023-02.pdf</a>
+    </span></div>
+
+    <div><strong>Organization:</strong> This course is part of
+        the <a href="https://students.uu.nl/en/science/education/masters-programmes/mandatory-introduction-gsns">GSNS introduction</a>
+        Registration for the workshop, and location of the workshop
+        are aranged by them.
+    </div>
+
+    <div><strong>Questions:</strong>&nbsp;<a href="/en/contact">Go to Contact page.</a></div>
+
+    <div>
+        <strong>Description:</strong>
+        <p>
+            LaTeX is a code language for typesetting documents, for
+            example your thesis, scientific paper, or hand-in. It
+            produces professional looking documents and typesets
+            mathematical expressions well, making it the standard (and
+            often requirement) for academic documents.
+        </p>
+        <p>
+            This workshop requires no prior knowledge of LaTeX and will
+            help you through the rough start which new users of LaTeX
+            experience. We show you how to correctly format text and how
+            to include mathematical expressions, tables and images.
+        </p>
+        <!-- <p>
+            You need to have installed the necessary applications before
+            the workshop. Alternatively, you can create an account on
+            the commercial website
+            <a href="https://www.overleaf.com/">overleaf.com</a>.
+            All information around the workshop (including installation
+            instructions), can be found on our website
+            <strong><a href="https://a-eskwadraat.nl/latex">a-eskwadraat.nl/latex</a></strong>.
+        </p> -->
+        <p>
+            For this workshop we will use Overleaf. You can create a
+            free account on Overleaf.com. Please bring a laptop since
+            the workshop will include exercises.
+        </p>
+        <p>
+            <i>This workshop is organised by the TeXniCie committee of
+            study association A-Eskwadraat. We facilitate use of LaTeX
+            for exact science studies, by organizing extracurricular
+            courses. Information about our activities can
+            be found on our website texnicie.nl.</i>
+        </p>
+    </div>
+    <!-- </div> -->
+    <!--
+    <div><strong>Installation:</strong> At <a
+            href="https://www.vkuhlmann.com/latex/installation">vkuhlmann.com/latex/installation</a>.</div>
+
+    <div><strong>Exercises:</strong> vkuhlmann.com/latex</div>
+
+    <div><strong>Slides:</strong> vkuhlmann.com/latex</div>
+
+    <div><strong>Organization:</strong> This course is part of the
+        workshops rounds organized by the Graduate School of Natural
+        Sciences at Utrecht University, as part of the introduction time
+        of their master students. Registration for the workshop, and
+        decision on which location the workshop will be held is
+        arranged by them.
+    </div>
+
+    <div><strong>Questions:</strong>&nbsp;<a href="/en/contact">Go to 'Contact' page.</a></div>
+
+     -->
+</div>
+
+
+		<!--<div id="GSNS-februari" style="position:relative;width:0px;height:0px;top:-50px;"></div>
+		<div id="GSNS-February" style="position:relative;width:0px;height:0px;top:-50px;"></div>
+		<h3>3.&nbsp;&nbsp;GSNS cursus februari (info voor 2020-2021)</h3>
+		<div style="border-left:4px solid #ddd;padding:2px 0px 2px 10px;display:flex;flex-flow:column nowrap;gap:5px;">
+			<div><b>Datum en tijd:</b> Dinsdag 9 februari 2021 om 15:00 (tot 16:30).</div>
+			<div style="margin:10px 0px;">
+				See the <a href="?setlanguage=en">English version of this site</a>.
+			</div>
+		</div>-->
+
+
+		<h2 style="margin-top:40px;">Vraag &amp; Antwoord</h2>
+		<div class="panel panel-info">
+			<div class="panel-heading"><strong>Vraag: </strong>Refenties verschijnen niet de referentielijst, Biber
+				toont
+				de referenties als <i>(book, label)</i>. Hoe fix ik dit?</div>
+			<div class="panel-body"><strong>Antwoord: </strong>Maak Biber de standaard bibliografiemanager (zie
+				scriptiecursushandleiding).
+				Bij sommige oude LaTeX distributies ontbreekt Biber. Biber staat vaak in:
+				<code>C:\Program Files\MiKTeX 2.9\miktex\bin\x64</code>.
+				Heb je geen Biber? Update MiKTeX, of, in het ergste geval, herinstalleer MiKTeX.
+			</div>
+		</div>
+
+		<!-- <div id="agenda" style="position:relative;width:0px;height:0px;top:-50px;"></div>
+		<div id="schedule" style="position:relative;width:0px;height:0px;top:-50px;"></div>
+		<h2>Agenda overzicht</h2>
+		<table id="events2022" class="table table-striped table-hover table-bordered">
+			<colgroup>
+				<col />
+				<col />
+			</colgroup>
+			<thead>
+				<tr>
+					<th scope="col">
+						Activiteit
+					</th>
+					<th scope="col">
+						Datum
+					</th>
+				</tr>
+			</thead>
+			<tbody style="background:#f2f2f2;">
+				<tr>
+					<td>
+						GSNS cursus september
+					</td>
+					<td>
+						8 september 2022
+						<img style="width:1.2em;height:1.2em;margin-left:20px;" alt="Activiteit is afgerond"
+							src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMWVtIiBoZWlnaHQ9IjFlbSIgdmlld0JveD0iMCAwIDE2IDE2IiBjbGFzcz0iYmkgYmktY2FsZW5kYXItY2hlY2siIGZpbGw9ImdyZWVuIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPg0KICA8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0zLjUgMGEuNS41IDAgMCAxIC41LjVWMWg4Vi41YS41LjUgMCAwIDEgMSAwVjFoMWEyIDIgMCAwIDEgMiAydjExYTIgMiAwIDAgMS0yIDJIMmEyIDIgMCAwIDEtMi0yVjNhMiAyIDAgMCAxIDItMmgxVi41YS41LjUgMCAwIDEgLjUtLjV6TTEgNHYxMGExIDEgMCAwIDAgMSAxaDEyYTEgMSAwIDAgMCAxLTFWNEgxeiIvPg0KICA8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xMC44NTQgNy4xNDZhLjUuNSAwIDAgMSAwIC43MDhsLTMgM2EuNS41IDAgMCAxLS43MDggMGwtMS41LTEuNWEuNS41IDAgMSAxIC43MDgtLjcwOEw3LjUgOS43OTNsMi42NDYtMi42NDdhLjUuNSAwIDAgMSAuNzA4IDB6Ii8+DQo8L3N2Zz4NCg=="
+							title="Activiteit is afgerond">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						LaTeX cursus
+					</td>
+					<td>
+						26 september 2022 - 17 oktober 2022
+						<img style="width:1.2em;height:1.2em;margin-left:20px;" alt="Activiteit is afgerond"
+							src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMWVtIiBoZWlnaHQ9IjFlbSIgdmlld0JveD0iMCAwIDE2IDE2IiBjbGFzcz0iYmkgYmktY2FsZW5kYXItY2hlY2siIGZpbGw9ImdyZWVuIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPg0KICA8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0zLjUgMGEuNS41IDAgMCAxIC41LjVWMWg4Vi41YS41LjUgMCAwIDEgMSAwVjFoMWEyIDIgMCAwIDEgMiAydjExYTIgMiAwIDAgMS0yIDJIMmEyIDIgMCAwIDEtMi0yVjNhMiAyIDAgMCAxIDItMmgxVi41YS41LjUgMCAwIDEgLjUtLjV6TTEgNHYxMGExIDEgMCAwIDAgMSAxaDEyYTEgMSAwIDAgMCAxLTFWNEgxeiIvPg0KICA8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xMC44NTQgNy4xNDZhLjUuNSAwIDAgMSAwIC43MDhsLTMgM2EuNS41IDAgMCAxLS43MDggMGwtMS41LTEuNWEuNS41IDAgMSAxIC43MDgtLjcwOEw3LjUgOS43OTNsMi42NDYtMi42NDdhLjUuNSAwIDAgMSAuNzA4IDB6Ii8+DQo8L3N2Zz4NCg=="
+							title="Activiteit is afgerond">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						GSNS cursus februari
+					</td>
+					<td>
+						7 februari 2023
+						<img style="width:1.2em;height:1.2em;margin-left:20px;" alt="Activiteit komt nog"
+							src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMWVtIiBoZWlnaHQ9IjFlbSIgdmlld0JveD0iMCAwIDE2IDE2IiBjbGFzcz0iYmkgYmktY2FsZW5kYXItZXZlbnQiIGZpbGw9ImJsdWUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+DQogIDxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTMuNSAwYS41LjUgMCAwIDEgLjUuNVYxaDhWLjVhLjUuNSAwIDAgMSAxIDBWMWgxYTIgMiAwIDAgMSAyIDJ2MTFhMiAyIDAgMCAxLTIgMkgyYTIgMiAwIDAgMS0yLTJWM2EyIDIgMCAwIDEgMi0yaDFWLjVhLjUuNSAwIDAgMSAuNS0uNXpNMSA0djEwYTEgMSAwIDAgMCAxIDFoMTJhMSAxIDAgMCAwIDEtMVY0SDF6Ii8+DQogIDxwYXRoIGQ9Ik0xMSA2LjVhLjUuNSAwIDAgMSAuNS0uNWgxYS41LjUgMCAwIDEgLjUuNXYxYS41LjUgMCAwIDEtLjUuNWgtMWEuNS41IDAgMCAxLS41LS41di0xeiIvPg0KPC9zdmc+DQo="
+							title="Activiteit komt nog">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Scriptiecursus
+					</td>
+					<td>
+						6 maart 2023
+						<img style="width:1.2em;height:1.2em;margin-left:20px;" alt="Activiteit komt nog"
+							src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMWVtIiBoZWlnaHQ9IjFlbSIgdmlld0JveD0iMCAwIDE2IDE2IiBjbGFzcz0iYmkgYmktY2FsZW5kYXItZXZlbnQiIGZpbGw9ImJsdWUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+DQogIDxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTMuNSAwYS41LjUgMCAwIDEgLjUuNVYxaDhWLjVhLjUuNSAwIDAgMSAxIDBWMWgxYTIgMiAwIDAgMSAyIDJ2MTFhMiAyIDAgMCAxLTIgMkgyYTIgMiAwIDAgMS0yLTJWM2EyIDIgMCAwIDEgMi0yaDFWLjVhLjUuNSAwIDAgMSAuNS0uNXpNMSA0djEwYTEgMSAwIDAgMCAxIDFoMTJhMSAxIDAgMCAwIDEtMVY0SDF6Ii8+DQogIDxwYXRoIGQ9Ik0xMSA2LjVhLjUuNSAwIDAgMSAuNS0uNWgxYS41LjUgMCAwIDEgLjUuNXYxYS41LjUgMCAwIDEtLjUuNWgtMWEuNS41IDAgMCAxLS41LS41di0xeiIvPg0KPC9zdmc+DQo="
+							title="Activiteit komt nog">
+					</td>
+				</tr>
+			</tbody>
+		</table> -->
+
 	</div>
 </div>
+
 
 	</div>
 </body>
