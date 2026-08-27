@@ -7,25 +7,90 @@ import navigation_bar
 
 # Copyright (c) 2022 Vincent Kuhlmann
 
+# This script generates all of the files for the website in the output directory.
+
+
+# Define the locations of all of the files 
 ROOT_DIR = Path.cwd()
 CSS_DIR = ROOT_DIR / "css"
 FONTS_DIR = ROOT_DIR / "fonts"
-#DOWNLOADS_DIR = ROOT_DIR / "downloads"
 ASSETS_DIR = ROOT_DIR / "assets"
 JAVASCRIPT_DIR = ROOT_DIR / "js"
 
 SRC_DIR = ROOT_DIR / "src"
 PAGES_DIR = ROOT_DIR / "src" / "pages"
-DEST_DIR = Path.cwd() / ".." / "texnicie-www-gh-pages"
 
+# Define the location for the output and check that it exists
+DEST_DIR = Path.cwd() / ".." / "texnicie-www-gh-pages"
 assert DEST_DIR.exists()
 
 container : Container = None
 
+# This defines how to look for specific strings or patterns
 page_lang_regex = re.compile(r"^(?P<dirRepeat>cursus_)?(?P<pageName>.*)_(?P<lang>EN|NL)$")
 
 page_title_regex = re.compile(r"<!-- PAGE_TITLE: (?P<pageTitle>((?!-->).)*) -->")
 
+cursus_year_regex = re.compile(r"^(?P<year>\d{4}-\d{4})$")
+
+# Function finds all of the years, used for making the links to the cursus page of each year
+def get_cursus_years() -> list[str]:
+    cursus_dir = PAGES_DIR / "cursus"
+
+    years = set()
+
+    for path in cursus_dir.glob("*.html"):
+        m = re.fullmatch(
+            r"(?:cursus_)?(?P<year>\d{4}-\d{4})_(NL|EN)\.html",
+            path.name
+        )
+        if m:
+            years.add(m.group("year"))
+
+    return sorted(years, reverse=True)
+
+def generate_cursus_year_navigation(current_year, language):
+    years = get_cursus_years()
+
+    result = []
+
+    for year in years:
+        if year == current_year:
+            result.append(
+                f'''
+                <li class="active">
+                    <a href="#">{
+                        year
+                    }</a>
+                </li>
+                '''
+            )
+        else:
+            prefix = "" if language == "nl" else "/en"
+
+            result.append(
+                f'''
+                <li style="background-color:hsl(208, 56%, 95%);">
+                    <a href="{prefix}/cursus/{year}">
+                        {year}
+                    </a>
+                </li>
+                '''
+            )
+    return "\n".join(result)
+
+def import_cursus_years(contents, current_year, language):
+    navigation = generate_cursus_year_navigation(
+        current_year,
+        language
+    )
+
+    return contents.replace(
+        "<!-- IMPORT_CURSUS_YEARS -->",
+        navigation
+    )
+
+# Extract the pagename out of the name of the html document, e.g. cursus_2024-2025_NL -> 2024-2025
 def get_output_name(a: PurePosixPath) -> str:
     m = page_lang_regex.fullmatch(a.stem)
     if m is not None:
@@ -42,10 +107,10 @@ def main():
     container = Container.load(ROOT_DIR / "container.html")
     copy_assets()
 
-    for a in PAGES_DIR.glob("**/*.html"):
-        if ".fragment" in a.suffixes:
+    for page in PAGES_DIR.glob("**/*.html"):
+        if ".fragment" in page.suffixes:
             continue
-        generate_page(a)
+        generate_page(src_path=page)
 
 
 def copy_if_modified(src, dst):
@@ -65,7 +130,6 @@ def copy_assets():
     shutil.copytree(ASSETS_DIR, DEST_DIR / "assets", dirs_exist_ok=True, copy_function=copy_if_modified)
     shutil.copytree(CSS_DIR, DEST_DIR / "css", dirs_exist_ok=True, copy_function=copy_if_modified)
     shutil.copytree(FONTS_DIR, DEST_DIR / "fonts", dirs_exist_ok=True, copy_function=copy_if_modified)
-    #shutil.copytree(DOWNLOADS_DIR, DEST_DIR / "downloads", dirs_exist_ok=True, copy_function=copy_if_modified)
     shutil.copytree(JAVASCRIPT_DIR, DEST_DIR / "js", dirs_exist_ok=True, copy_function=copy_if_modified)
 
 class Container:
@@ -123,6 +187,7 @@ def fill_fragments(contents):
     )
     return contents
 
+
 def import_scripts(contents):
     scripts = list(re.finditer(r"<!-- IMPORT_SCRIPT (?P<scriptName>[/a-zA-Z0-9._-]+) *-->", contents))
 
@@ -179,6 +244,16 @@ def import_styles(contents):
 def generate_page(src_path: Path):
     name = src_path.stem
     langs = list(GENERATE_LANGS)
+
+    current_year = None
+
+    if src_path.parent.name == "cursus":
+        m = re.fullmatch(
+            r"(?:cursus_)?(?P<year>\d{4}-\d{4})_(NL|EN)",
+            name
+        )
+        if m:
+            current_year = m.group("year")
 
     src_modified = src_path.stat().st_mtime
 
@@ -267,6 +342,13 @@ def generate_page(src_path: Path):
             prev_contents = contents
             contents = fill_fragments(contents)
             subs_count += 1
+
+        if current_year is not None:
+            contents = import_cursus_years(
+                contents,
+                current_year,
+                lang
+            )
         contents = import_scripts(contents)
         contents = import_styles(contents)
 
@@ -283,3 +365,6 @@ def generate_page(src_path: Path):
 
 if __name__ == "__main__":
     main()
+
+
+
