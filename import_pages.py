@@ -90,6 +90,32 @@ def import_cursus_years(contents, current_year, language):
         navigation
     )
 
+def create_cursus_redirect(language):
+    years = get_cursus_years()
+
+    if not years:
+        raise Exception("No cursus years found")
+
+    newest_year = years[0]
+
+    if language == "nl":
+        url = f"/cursus/{newest_year}"
+    else:
+        url = f"/en/cursus/{newest_year}"
+
+    return f"""<!DOCTYPE html>
+<html lang="{language}">
+<head>
+    <meta http-equiv="refresh" content="0; url={url}">
+    <link rel="canonical" href="https://texnicie.nl{url}">
+</head>
+<body>
+    <p><a href="{url}">Redirecting...</a></p>
+</body>
+</html>
+"""
+
+
 # Extract the pagename out of the name of the html document, e.g. cursus_2024-2025_NL -> 2024-2025
 def get_output_name(a: PurePosixPath) -> str:
     m = page_lang_regex.fullmatch(a.stem)
@@ -125,8 +151,11 @@ def copy_if_modified(src, dst):
 
 def copy_assets():
     #shutil.copy2(ROOT_DIR / "index_redirect.html", DEST_DIR / "index.html")
-    shutil.copy2(ROOT_DIR / "cursusRedirect.html", DEST_DIR / "cursus.html")
-    shutil.copy2(ROOT_DIR / "cursusRedirect.html", DEST_DIR / "en" / "cursus.html")
+    (DEST_DIR / "en").mkdir(exist_ok=True)
+    with (DEST_DIR / "cursus.html").open("w", encoding="utf-8") as f:
+        f.write(create_cursus_redirect("nl"))
+    with (DEST_DIR / "en" / "cursus.html").open("w", encoding="utf-8") as f:
+        f.write(create_cursus_redirect("en"))
     shutil.copytree(ASSETS_DIR, DEST_DIR / "assets", dirs_exist_ok=True, copy_function=copy_if_modified)
     shutil.copytree(CSS_DIR, DEST_DIR / "css", dirs_exist_ok=True, copy_function=copy_if_modified)
     shutil.copytree(FONTS_DIR, DEST_DIR / "fonts", dirs_exist_ok=True, copy_function=copy_if_modified)
