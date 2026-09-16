@@ -117,7 +117,7 @@ def create_for(dest_url: str, language: str):
         # NavButton(loc("Cursus", "Course"), url("/cursus")),
         NavButton(loc("Installatie", "Installation"), url("/installatie")),
         NavButton(loc("Cursussen", "Courses"), url("/cursus")),
-        NavButton("Contact", url("/contact"))
+        #NavButton("Contact", url("/contact"))
     ]
 
     def get_dest_score(dest : Union[NavButton, NavButtonDropDown]):

@@ -194,7 +194,8 @@ class Container:
         
         return before + contents + self.after
 
-GENERATE_LANGS = {"nl", "en"}
+#GENERATE_LANGS = {"nl", "en"}
+GENERATE_LANGS = {"nl"}
 
 def fill_fragments(contents):
     def replacer(m):
