@@ -250,7 +250,7 @@ let lastSubmit = 0;
     }
 
     function onDocumentLoaded() {
-        addLanguageControls();
+        // addLanguageControls();
         registerCollapsers();
         disableNonExistentLinks();
 
