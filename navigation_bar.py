@@ -89,7 +89,7 @@ def create_for(dest_url: str, language: str):
     #canonical_url = f"texnicie.nl/{dest_url.lstrip('/')}".rstrip("/")
     canonical_url = f"texnicie.nl/{dest_url.lstrip('/')}" if dest_url != "/" else "texnicie.nl"
 
-    assert language in {"nl", "en"}
+    assert language in {"nl"}
     prefix = f"/{language}" if language != "nl" else ""
 
     def url(val):
@@ -100,23 +100,23 @@ def create_for(dest_url: str, language: str):
     #     "Installatie": "Installation"
     # }
 
-    def loc(t, en):
-        if language == "en":
-            #return transl.get(t, t)
-            return en
+    def loc(t):
+        # if language == "en":
+        #     #return transl.get(t, t)
+        #     return en
         return t
 
     destinations: list[Union[NavButton, NavButtonDropDown]] = [
         NavButton("Home", url("/")),
         NavButtonDropDown("A-Es templates", url("/aes-templates"),
             [
-                NavButton(loc("Gebruik", "Usage"), url("/aes-templates")),
-                NavButton(loc("Installatie", "Installation"), url("/aes-templates/installatie"))
+                NavButton(loc("Gebruik"), url("/aes-templates")),
+                NavButton(loc("Installatie"), url("/aes-templates/installatie"))
             ]
         ),
         # NavButton(loc("Cursus", "Course"), url("/cursus")),
-        NavButton(loc("Installatie", "Installation"), url("/installatie")),
-        NavButton(loc("Cursussen", "Courses"), url("/cursus")),
+        NavButton(loc("Installatie"), url("/installatie")),
+        NavButton(loc("Cursussen"), url("/cursus")),
         #NavButton("Contact", url("/contact"))
     ]
 
